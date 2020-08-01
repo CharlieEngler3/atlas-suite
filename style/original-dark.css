@@ -1,0 +1,474 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@font-face {
+  font-family: Trebuchet;
+  src: local("Trebuchet MS"),
+       url(fonts/trebuc.ttf);
+  font-weight: bold;
+}
+
+body{
+	background-color:#333438;
+	font-family: 'Trebuchet', sans-serif;
+}
+
+h1{
+	font-size:8vw;
+	color:white;
+	text-align:center;
+}
+
+h2{
+	font-size:5vw;
+	color:white;
+	text-align:center;
+}
+
+.icon_list{
+	text-align: center;
+    padding-top:10%;
+}
+
+.icon{
+	font-size:1.25vw;
+	color: rgba(0, 0, 0, 0);
+	background-color:#c5c5cb;
+	width:10vw;
+    height:10vw;
+    padding-top:5vw;
+	margin:1vw;
+	background-repeat:no-repeat;
+	background-size:80%;
+	background-position:center;
+	border-radius:1vw;
+	border: none;
+	box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.5);
+	transition-duration:0.5s;
+    cursor:pointer;
+}
+	.icon:hover{
+		box-shadow:0px 10px 1vw rgba(0, 0, 0, 1);
+		transform:scale(1.05);
+		background-size:60%;
+		background-position:50% 5%;
+		background-color:#e4e4e7;
+		color: rgba(0, 0, 0, 1);
+	}
+
+input[type=text]{
+  	border:none;
+  	font-size:3vw;
+  	background-color:transparent;
+  	color:white;
+	width:100%;
+}
+
+	input[type=text]:focus{
+    	outline:none;
+	}
+
+::placeholder {
+  	color: white;
+  	opacity: 0.9;
+}
+
+input[type=submit]{
+	text-align:center;
+  font-size:2vw;
+  background-color:white;
+  border: 0.3vw solid white;
+  transition-duration:0.3s;
+  color:#333438;
+	cursor:pointer;
+  width:100%;
+}
+	input[type=submit]:hover{
+    	background-color:transparent;
+      color:white;
+	}
+
+.search{
+	border:0.2vw solid white;
+	padding:2vw;
+	width:50%;
+	margin-left:calc(25% - 0.2vw);
+	margin-top:2.5%;
+}
+
+.new{
+	border:0.2vw solid white;
+	padding:2vw;
+	width:50%;
+	margin-left:calc(25% - 0.2vw);
+	margin-top:2.5%;
+}
+
+.results{
+	margin-top:5%;
+	font-size:2vw;
+	color:white;
+	text-align:center;
+}
+
+a{
+	color:#0099ff;
+}
+
+textarea{
+  width:100%;
+  border:none;
+  border-top:0.2vw solid white;
+  background-color:#333438;
+  color:#E5E5E5;
+  font-family: 'Trebuchet', sans-serif;
+  height:10vw;
+  font-size:1.5vw;
+}
+    textarea:focus{
+        outline:none;
+    }
+
+.forum_post{
+    color:white;
+    border:0.2vw solid white;
+    font-size:1.5vw;
+    padding-top:2vw;
+    padding-bottom:2vw;
+    padding-right:1vw;
+    padding-left:1vw;
+}
+
+.date{
+    color:white;
+    font-size:2vw;
+    text-align:center;
+}
+
+.signup_form{
+  text-align:center;
+  padding-top:10%;
+}
+
+.signup[type=text]{
+  border-top:0.2vw solid white;
+  border-right:0.2vw solid white;
+  border-left:0.2vw solid white;
+  width:30%;
+  text-align:center;
+}
+
+.notification{
+  background-color:white;
+  font-size:5vw;
+  text-align:center;
+  position:absolute;
+  top:30%;
+  color:#333438;
+  right:25%;
+  width:50%;
+  border:0.3vw solid #333438;
+  padding:2vw;
+}
+
+.notification[type=submit]{
+  background-color:white;
+  font-size:5vw;
+  text-align:center;
+  position:absolute;
+  top:30%;
+  color:#333438;
+  right:25%;
+  width:50%;
+  border:0.3vw solid #333438;
+  padding:2vw;
+}
+  .notification[type=submit]:hover{
+    background-color:white;
+    color:#333438;
+    border:0.3vw solid #333438;
+    cursor:pointer;
+  }
+
+h3{
+  font-size:2vw;
+  padding-top:1wv;
+  text-align:center;
+  color:white;
+  padding-top:1vw;
+}
+
+h4{
+  font-size:2vw;
+  text-align:center;
+  color:black;
+  padding-top:1vw;
+}
+
+.signup_submit[type=submit]{
+  width:30%;
+}
+
+.signout_link{
+  font-size:3vw;
+  text-align:center;
+}
+
+.author{
+  color:white;
+  text-align:center;
+  font-size:3vw;
+  padding-top:1vw;
+  padding-bottom:1vw;
+}
+
+.comments{
+  border:0.2vw solid white;
+  color:white;
+  font-size:2vw;
+}
+
+.comment{
+  margin:1vw;
+  border:none;
+  box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.5);
+  padding:0.5vw;
+  background-color:#606060;
+}
+
+.post{
+  font-size:2vw;
+  border:0.2vw solid white;
+  color:white;
+  padding:1vw;
+}
+
+.comment_user{
+	font-size:1vw;
+	color:lightgrey;
+}
+
+.browse{
+  border:0.2vw solid white;
+  padding:1vw;
+  width:100%;
+}
+
+.synthetic_message[type=text]{
+  border:none;
+  font-size:1.9vw;
+  width:21vw;
+}
+
+.synthetic_submit[type=submit]{
+  display:block;
+  width:100%;
+}
+
+.synthetic_check{
+  cursor:pointer;
+  display:inline;
+}
+
+.synthetic{
+  width:25vw;
+  border:0.2vw solid white;
+  margin-left:74.6vw;
+}
+
+.browse_menu{
+	border:0.2vw solid white;
+	padding:2vw;
+	width:50%;
+	margin-left:calc(25% - 0.2vw);
+	margin-top:2.5%;
+}
+
+.delete_button[type=submit]:hover{
+  background-color:#ab3027;
+}
+
+button{
+  font-family: 'Trebuchet', sans-serif;
+  font-size:5vw;
+  border:0.2vw solid white;
+  background-color:white;
+  color:black;
+  margin-top:3vw;
+  cursor:pointer;
+  transition-duration:0.3s;
+}
+
+  button:hover{
+    background-color:transparent;
+    color:white;
+  }
+
+.profile{
+  text-align:center;
+}
+
+.images{
+  cursor:pointer;
+  border:0.1vw solid white;
+  margin:0.5vw;
+  padding:1vw;
+}
+
+.expanded_image{
+  position:fixed;
+  width:90%;
+  left:5%;
+  cursor:pointer;
+  top:5%;
+}
+
+.new_task{
+  border:0.2vw solid white;
+  text-align:center;
+  width:50%;
+  margin-left:25%;
+  margin-top:5%;
+}
+
+.task_title_form[type=text]{
+  text-align:center;
+  border-bottom:0.1vw solid white;
+  padding-top:0.3vw;
+  padding-bottom:0.3vw;
+}
+
+.task_notes_form[type=text]{
+  text-align:center;
+  font-size:2vw;
+  padding-top:0.3vw;
+  padding-bottom:0.3vw;
+}
+
+.task_create[type=submit]{
+  border:none;
+  border-top:0.2vw solid white;
+}
+
+.task{
+  text-align:center;
+  width:60%;
+  margin-left:20%;
+  margin-top:2vw;
+  border:0.2vw solid white;
+}
+
+.task_title{
+  font-size:2vw;
+  color:white;
+  padding-bottom:1vw;
+  border:none;
+  border-bottom:0.2vw solid white;
+}
+
+.task_notes{
+  font-size:1vw;
+  color:white;
+  border:none;
+  padding-bottom:1vw;
+  padding-top:1vw;
+}
+
+.task_delete[type=submit]{
+  color:white;
+  background-color:red;
+  position:relative;
+  margin-left:calc(100% - 2vw);
+  border:none;
+  height:2vw;
+  width:2vw;
+  font-size:1.5vw;
+  line-height:2vw;
+  cursor:pointer;
+  transition-duration:0.3s;
+}
+  .task_delete[type=submit]:hover{
+    background-color:#990000;
+  }
+
+.task_edit[type=submit]{
+  color:white;
+  background-color:black;
+  position:absolute;
+  margin-right:100%;
+  border:none;
+  height:2vw;
+  width:6vw;
+  font-size:1.5vw;
+  line-height:2vw;
+  cursor:pointer;
+  transition-duration:0.3s;
+}
+  .task_edit[type=submit]:hover{
+    color:white;
+    background-color:#262626;
+    position:absolute;
+    margin-right:100%;
+    border:none;
+    height:2vw;
+    width:6vw;
+    font-size:1.5vw;
+    line-height:2vw;
+    cursor:pointer;
+    transition-duration:0.3s;
+  }
+
+.badge{
+  position: relative;
+  top: -8vw;
+  right: -1vw;
+  padding: 0.15vw 0.5vw;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}

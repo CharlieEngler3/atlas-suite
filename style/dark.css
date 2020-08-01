@@ -1,0 +1,276 @@
+/* Variables */
+
+:root{
+  --main-font:'Trebuchet', sans-serif;
+  --main-bg-color:#242424;
+
+  --h1-font-size:20vw;
+  --h1-color:white;
+
+  --h2-font-size:10vw;
+  --h2-color:white;
+
+  --icon-font-size:7vw;
+  --icon-bg-color:#383b3f;
+  --icon-text-color:#f2f3f4;
+
+  --notification-font-size:3vw;
+  --notification-bg-color:red;
+  --notification-border-radius:1vw;
+
+  --link-color:#63ceff;
+  --link-font-size:5vw;
+
+  --input-font-size:8vw;
+  --input-bg-color:#383b3f;
+  --input-border-color:#717780;
+  --input-color:white;
+
+  --textarea-font-size:5vw;
+
+  --synthetic-font-size:5vw;
+  --synthetic-check-bg-color:white;
+  --synthetic-bg-color:#171819;
+  --synthetic-submit-bg-color:#2a2c2e;
+  --synthetic-color:#d8e1eb;
+
+  --placeholder-color:#878787;
+}
+
+/* Mobile Styling */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@font-face {
+  font-family: Trebuchet;
+  src: local("Trebuchet MS"), url(fonts/trebuc.ttf);
+  font-weight: bold;
+}
+
+/* Main body of each page */
+body{
+  font-family:var(--main-font);
+  background-color:var(--main-bg-color);
+}
+
+/* Headers */
+h1{
+  font-size:20vw;
+  color:var(--h1-color);
+  text-align:center;
+}
+
+h2{
+  font-size:var(--h2-font-size);
+  color:var(--h2-color);
+  text-align:center;
+}
+
+/* Links */
+a{
+  font-size:var(--link-font-size);
+  color:var(--link-color);
+}
+
+.index-signin{
+  position:relative;
+  border:0.2vw solid white;
+  border-radius:1vw;
+  font-size:7vw;
+  color:var(--link-color);
+  padding-right:5vw;
+  padding-left:5vw;
+  padding-bottom:1vw;
+}
+
+.signin-link{
+  text-align:center;
+  font-size:var(--h2-font-size);
+}
+
+.user_bar{
+  border:none;
+  border-bottom:0.2vw solid white;
+  border-right:0.2vw solid white;
+  border-bottom-right-radius:1vw;
+  padding:1vw;
+  display:inline-block;
+}
+
+.user_bar_link{
+  margin-right:1vw;
+}
+
+/* Main page app icons */
+.icon-list{
+  text-align:center;
+}
+
+.icon{
+  position:relative;
+  font-size:var(--icon-font-size);
+  margin:2vw;
+  width:45vw;
+  height:45vw;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:80%;
+  background-color:var(--icon-bg-color);
+  color:var(--icon-text-color);
+  border-radius:5vw;
+	border: none;
+  box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.5);
+}
+
+.notification{
+  font-size:var(--notifications-font-size);
+  background-color:var(--notification-bg-color);
+  border-radius:var(--notification-border-radius);
+  width:10vw;
+  padding-top:1vw;
+  padding-bottom:1vw;
+  margin-left:17.5vw;
+}
+
+/* Input types */
+::placeholder{
+  color:var(--placeholder-color);
+  padding-left:2vw;
+}
+
+input[type=text]{
+  width:100%;
+  font-size:var(--input-font-size);
+  border:none;
+  border-bottom:0.5vw solid var(--input-border-color);
+  padding-top:2.5vw;
+  padding-bottom:2.5vw;
+  background-color:var(--input-bg-color);
+  color:var(--input-color);
+}
+
+input[type=submit]{
+  width:100%;
+  font-size:var(--input-font-size);
+  border:none;
+  padding:5vw;
+  background-color:var(--input-bg-color);
+  color:var(--input-color);
+}
+
+textarea{
+  font-family: Trebuchet;
+  src: local("Trebuchet MS"), url(fonts/trebuc.ttf);
+  width:100%;
+  background-color:var(--input-bg-color);
+  font-size:var(--textarea-font-size);
+  border:none;
+  border-bottom:0.5vw solid var(--input-border-color);
+}
+
+/* Forum Menus */
+.browse_menu{
+  width:90%;
+  margin-left:5%;
+  text-align:center;
+  margin-top:5vw;
+  margin-bottom:5vw;
+}
+
+.search_menu{
+  width:90%;
+  margin-left:5%;
+  text-align:center;
+  margin-top:5vw;
+  margin-bottom:5vw;
+}
+
+.new_menu{
+  width:90%;
+  margin-left:5%;
+  text-align:center;
+  margin-top:5vw;
+}
+
+/* Forum Specific Input */
+.synthetic{
+  width:70%;
+  margin-left:15%;
+  font-size:var(--synthetic-font-size);
+  border:0.2vw solid white;
+  border-radius:1vw;
+}
+
+.synthetic_message[type=text]{
+  font-size:var(--synthetic-font-size);
+  border:none;
+  display:inline-block;
+  width:90%;
+  padding-left:1vw;
+  background-color:var(--synthetic-bg-color);
+  color:var(--synthetic-color);
+}
+
+.synthetic_check{
+  appearance:none;
+  display:inline-block;
+  width:5vw;
+  height:5vw;
+  padding:10vw;
+  margin:0;
+  background-color:var(--synthetic-check-bg-color);
+  border:none;
+}
+
+.synthetic_submit[type=submit]{
+  display:inline-block;
+  font-size:var(--synthetic-font-size);
+  height:8vw;
+  margin-bottom:1vw;
+  margin-top:0;
+  padding:0;
+  width:100%;
+  background-color:var(--synthetic-submit-bg-color);
+  color:var(--synthetic-color);
+}
