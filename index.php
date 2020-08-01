@@ -21,7 +21,7 @@
 
 <html>
 	<head>
-		<title>Atlas Suite</title>
+		<title>Other Suite</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/> 
 		<link rel="stylesheet" type="text/css" href="style/dark.css"/>
