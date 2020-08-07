@@ -18,23 +18,31 @@
     <body>
       <div class="user_bar">
         <a href='../../index.php' class='user_bar_link'>Home</a>
+      </div>
         
         <?php
           if(!isset($_SESSION['username']))
           {
             ?>
-              <a href="../../user/signin.php" class='user_bar_link'>Sign In</a>
+              <div class="user_bar">
+                <a href="../../user/signin.php" class='user_bar_link'>Sign In</a>
+              </div>
             <?php
           }
           else
           {
             ?>
-              <a href="../../user/profile.php" class='user_bar_link'>Account</a>
-			        <a href="../../user/signout.php" class='user_bar_link'>Sign Out</a>
+              <div class="user_bar">
+                <a href="../../user/profile.php" class='user_bar_link'>Account</a>
+              </div>
+
+              <div class="user_bar">
+                <a href="../../user/signout.php" class='user_bar_link'>Sign Out</a>
+              </div>
             <?php
           }
         ?>
-      </div>
+      
       
       <h1>Forums</h1>
 
@@ -69,7 +77,7 @@
 				{
 			?>
 
-			<h2>Please <a href='../../user/signin.php' class="signin-link">Sign in</a> for this feature</h2>
+			<h3 class="new_user_prompt">Please <a href='../../user/signin.php'>Sign in</a> for this feature</h3>
 
 			<?php
 				}

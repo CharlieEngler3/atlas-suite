@@ -4,8 +4,13 @@
     
     <link rel="stylesheet" type="text/css" href="../style/dark.css"/>
     
-    <a href='../index.php'>Home</a>
-    <a href='signin.php'>Sign In</a>
+    <div class="user_bar">
+      <a href='../index.php'>Home</a>
+    </div>
+
+    <div class="user_bar">
+      <a href='signin.php'>Sign In</a>
+    </div>
   </head>
 
   <body>
@@ -23,8 +28,8 @@
       <input type="submit" class="signup_submit"/>
     </form>
     
-    <h3>
-      Returning User? <a href='signin.php'>Sign In</a>
+    <h3 class="new_user_prompt">
+      Returning User? <br/><a href='signin.php'>Sign In</a>
     </h3>
   </body>
 </html>

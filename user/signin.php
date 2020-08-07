@@ -15,8 +15,13 @@
       }
     </script>
     
-    <a href='../index.php'>Home</a>
-    <a href='../index.php'>Sign Up</a>
+    <div class="user_bar">
+      <a href='../index.php'>Home</a>
+    </div>
+
+    <div class="user_bar">
+      <a href='signup.php'>Sign Up</a>
+    </div>
   </head>
 <?php 
   if(!isset($_SESSION['username']))
@@ -26,15 +31,15 @@
     <h1>Sign In</h1>
     
     <form action="#" method="POST" class="signup_form" autocomplete=off>
-      <input type="text" class="signup" name="username" placeholder="Username"/>
+      <input type="text" name="username" placeholder="Username"/>
       <br/>
-      <input type="text" style="color:transparent;" class="signup" name="password" placeholder="Password"/>
+      <input type="text" style="color:transparent;" name="password" placeholder="Password"/>
       <br/>
-      <input type="submit" value="Sign In" class="signup_submit"/>
+      <input type="submit" value="Sign In"/>
     </form>
     
-    <h3>
-      New? <a href='signup.php'>Sign Up</a>
+    <h3 class="new_user_prompt">
+      New? <br/><a href='signup.php'>Sign Up</a>
     </h3>
   </body>
 </html>

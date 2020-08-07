@@ -18,15 +18,27 @@
 
         <title>Task Manager</title>
 
-        <a href="../../index.php">Home</a>
+        <div class="user_bar">
+            <a href="../../index.php">Home</a>
+        </div>
+
         <?php
             if(!isset($_SESSION['username']))
             {
-                echo "<a href='../../user/signin.php'>Sign In</a>";
+        ?>
+                <div class="user_bar">
+                    <a href='../../user/signin.php'>Sign In</a>
+                </div>
+        <?php
+                
             }
             else
             {
-                echo "<a href='../../user/profile.php'>Profile</a>";
+        ?>
+                <div class="user_bar">
+                    <a href='../../user/profile.php'>Profile</a>
+                </div>
+        <?php
             }
         ?>
     </head>
@@ -46,7 +58,9 @@
             }
             else
             {
-                echo "<div class='new_task'><h2>Please <a href='../../user/signin.php'>Sign In</a> for this feature.</h2></div>";
+        ?>
+                    <h2 class="new_user_prompt">Please <a href='../../user/signin.php'>Sign In</a> for this feature.</h2>
+        <?php
             }
         ?>
 

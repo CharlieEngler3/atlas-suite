@@ -1,43 +1,4 @@
-/* Variables */
-
-:root{
-  --main-font:'Trebuchet', sans-serif;
-  --main-bg-color:#242424;
-
-  --h1-font-size:20vw;
-  --h1-color:white;
-
-  --h2-font-size:10vw;
-  --h2-color:white;
-
-  --icon-font-size:7vw;
-  --icon-bg-color:#383b3f;
-  --icon-text-color:#f2f3f4;
-
-  --notification-font-size:3vw;
-  --notification-bg-color:red;
-  --notification-border-radius:1vw;
-
-  --link-color:#63ceff;
-  --link-font-size:5vw;
-
-  --input-font-size:8vw;
-  --input-bg-color:#383b3f;
-  --input-border-color:#717780;
-  --input-color:white;
-
-  --textarea-font-size:5vw;
-
-  --synthetic-font-size:5vw;
-  --synthetic-check-bg-color:white;
-  --synthetic-bg-color:#171819;
-  --synthetic-submit-bg-color:#2a2c2e;
-  --synthetic-color:#d8e1eb;
-
-  --placeholder-color:#878787;
-}
-
-/* Mobile Styling */
+/* Base Styling */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -82,6 +43,47 @@ table {
 	border-spacing: 0;
 }
 
+/* Variables */
+
+:root{
+  --main-font:'Trebuchet', sans-serif;
+  --main-bg-color:#242424;
+
+  --h1-font-size:20vw;
+  --h1-color:white;
+
+  --h2-font-size:10vw;
+  --h2-color:white;
+
+  --icon-font-size:7vw;
+  --icon-bg-color:#383b3f;
+  --icon-text-color:#f2f3f4;
+
+  --notification-font-size:3vw;
+  --notification-bg-color:red;
+  --notification-border-radius:1vw;
+
+  --link-color:#63ceff;
+  --link-font-size:5vw;
+
+  --input-font-size:8vw;
+  --input-bg-color:#383b3f;
+  --input-border-color:#717780;
+  --input-color:white;
+
+  --textarea-font-size:5vw;
+
+  --synthetic-font-size:5vw;
+  --synthetic-check-bg-color:white;
+  --synthetic-bg-color:#171819;
+  --synthetic-submit-bg-color:#2a2c2e;
+  --synthetic-color:#d8e1eb;
+
+  --placeholder-color:#878787;
+}
+
+/* Mobile Styling */
+
 @font-face {
   font-family: Trebuchet;
   src: local("Trebuchet MS"), url(fonts/trebuc.ttf);
@@ -115,31 +117,25 @@ a{
 
 .index-signin{
   position:relative;
-  border:0.2vw solid white;
-  border-radius:1vw;
   font-size:7vw;
   color:var(--link-color);
-  padding-right:5vw;
-  padding-left:5vw;
+  padding-right:3vw;
+  padding-left:3vw;
   padding-bottom:1vw;
-}
-
-.signin-link{
-  text-align:center;
-  font-size:var(--h2-font-size);
+  text-decoration:none;
+  background-color:#383b3f;
+  border:none;
+  box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
 }
 
 .user_bar{
-  border:none;
-  border-bottom:0.2vw solid white;
-  border-right:0.2vw solid white;
-  border-bottom-right-radius:1vw;
-  padding:1vw;
-  display:inline-block;
-}
-
-.user_bar_link{
+  background-color:var(--icon-bg-color);
+  text-align:center;
+  padding:2%;
+  box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+  text-decoration:none;
   margin-right:1vw;
+  display:inline-block;
 }
 
 /* Main page app icons */
@@ -194,7 +190,7 @@ input[type=submit]{
   width:100%;
   font-size:var(--input-font-size);
   border:none;
-  padding:5vw;
+  padding:2vw;
   background-color:var(--input-bg-color);
   color:var(--input-color);
 }
@@ -209,7 +205,7 @@ textarea{
   border-bottom:0.5vw solid var(--input-border-color);
 }
 
-/* Forum Menus */
+/* Forums */
 .browse_menu{
   width:90%;
   margin-left:5%;
@@ -233,7 +229,6 @@ textarea{
   margin-top:5vw;
 }
 
-/* Forum Specific Input */
 .synthetic{
   width:70%;
   margin-left:15%;
@@ -273,4 +268,25 @@ textarea{
   width:100%;
   background-color:var(--synthetic-submit-bg-color);
   color:var(--synthetic-color);
+}
+
+/* Sign In/Up */
+.signup_form{
+  width:90%;
+  margin-left:5%;
+  text-align:center;
+  margin-top:5vw;
+  margin-bottom:5vw;
+  box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+}
+
+.new_user_prompt{
+  background-color:var(--icon-bg-color);
+  text-align:center;
+  font-size:5vw;
+  padding:2%;
+  width:50%;
+  box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+  margin-left:23%;
+  color:white;
 }

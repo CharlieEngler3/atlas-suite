@@ -40,7 +40,9 @@
 
         <title>Notifications</title>
 
-        <a href='index.php'>Home</a>
+        <div class="user_bar">
+            <a href='index.php'>Home</a>
+        </div>
     </head>
 
     <body>
