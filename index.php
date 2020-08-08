@@ -58,7 +58,7 @@
 					<?php 
 						if(isset($num_notifications))
 						{
-							echo "<div class='notification'>".$num_notifications."</div>";
+							echo "<div class='num_notifications'>".$num_notifications."</div>";
 						}
 						else
 						{

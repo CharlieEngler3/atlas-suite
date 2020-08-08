@@ -57,11 +57,11 @@
 
                 while($row = $result->fetch_assoc())
                 {
-                    echo "<div class='notification'>".$row['text'];
-                    echo "<form action='#' method='POST'>";
+                    echo "<form action='#' class='notification' method='POST'>";
+                    echo "<div class='notification_text'>".$row['text']."</div>";
                     echo "<input type='hidden' name='username' value='".$username."'>";
                     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<input type='submit' name='saw_notification' value='Mark as Seen'>";
+                    echo "<input type='submit' class='mark_as_seen' name='saw_notification' value='Mark as Seen'>";
                     echo "</form>";
                     echo "</div>";
                 }

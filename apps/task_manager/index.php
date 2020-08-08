@@ -49,7 +49,7 @@
             if(isset($_SESSION['username']))
             {
         ?>
-            <form class="new_task" action="create.php" method="POST">
+            <form class="create_task" action="create.php" method="POST">
                 <input type="text" class="task_title_form" placeholder="Title of Task" name="title">
                 <input type="text" class="task_notes_form" placeholder="Additional Notes" name="notes">
                 <input type="submit" class="task_create" value="Create">
@@ -72,11 +72,11 @@
                 while($row = $result->fetch_assoc())
                 {
                     echo "<form method='POST' action='edit.php' class='task'>";
-                    echo "<input type='submit' name='edit' class='task_edit' value='Edit'>";
-                    echo "<input type='submit' name='delete' class='task_delete' value='X'>";
                     echo "<input type='hidden' name='title' value='".$row['title']."'>";
                     echo "<div class='task_title'>".$row['title']."</div>";
                     echo "<div class='task_notes'>".$row['notes']."</div>";
+                    echo "<input type='submit' name='edit' class='task_edit' value='Edit'>";
+                    echo "<input type='submit' name='delete' class='task_delete' value='Delete'>";
                     echo "</form>";
                 }
             }

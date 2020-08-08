@@ -9,7 +9,11 @@
     <link rel="stylesheet" type="text/css" href="../style/dark.css"/>
     
     <div class="user_bar">
-      <a href='../apps/forums/index.php'>Back</a>
+      <a href='../index.php'>Home</a>
+    </div>
+
+    <div class="user_bar">
+      <a href='../apps/forums/index.php'>Forums</a>
     </div>
   </head>
     
