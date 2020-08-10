@@ -4,6 +4,8 @@
 	<head>
     <link rel="stylesheet" type="text/css" href="../../style/dark.css"/>
 
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
     <div class="user_bar">
       <a href='index.php'>Back</a>
     </div>

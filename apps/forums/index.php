@@ -12,12 +12,12 @@
 	<head>
     	<title>Forums</title>
       
-      	<link rel="stylesheet" type="text/css" href="../../style/dark.css"/>
-    </head>
-    
-    <body>
-      <div class="user_bar">
-        <a href='../../index.php' class='user_bar_link'>Home</a>
+        <link rel="stylesheet" type="text/css" href="../../style/dark.css"/>
+
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        
+        <div class="user_bar">
+        <a href='../../index.php'>Home</a>
       </div>
         
         <?php
@@ -25,7 +25,7 @@
           {
             ?>
               <div class="user_bar">
-                <a href="../../user/signin.php" class='user_bar_link'>Sign In</a>
+                <a href="../../user/signin.php">Sign In</a>
               </div>
             <?php
           }
@@ -33,17 +33,18 @@
           {
             ?>
               <div class="user_bar">
-                <a href="../../user/profile.php" class='user_bar_link'>Account</a>
+                <a href="../../user/profile.php">Account</a>
               </div>
 
               <div class="user_bar">
-                <a href="../../user/signout.php" class='user_bar_link'>Sign Out</a>
+                <a href="../../user/signout.php">Sign Out</a>
               </div>
             <?php
           }
         ?>
-      
-      
+    </head>
+    
+    <body>
       <h1>Forums</h1>
 
       <div class="browse_menu">

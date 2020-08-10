@@ -1,4 +1,37 @@
-/* Base Styling */
+/*
+ __      __                 _           _       _              
+ \ \    / /                (_)         | |     | |             
+  \ \  / /    __ _   _ __   _    __ _  | |__   | |   ___   ___ 
+   \ \/ /    / _` | | '__| | |  / _` | | '_ \  | |  / _ \ / __|
+    \  /    | (_| | | |    | | | (_| | | |_) | | | |  __/ \__ \
+     \/      \__,_| |_|    |_|  \__,_| |_.__/  |_|  \___| |___/
+                                                               
+                                                               
+*/
+
+:root{
+  --main-font:'Trebuchet', sans-serif;
+  --main-bg-color:#242424;
+
+  --main-text-color:white;
+
+  --interactable-bg-color:#383b3f;
+
+  --link-color:#63ceff;
+
+  --placeholder-color:#878787;
+}
+
+/*
+  ____                            _____   _             _   _                 
+ |  _ \                          / ____| | |           | | (_)                
+ | |_) |   __ _   ___    ___    | (___   | |_   _   _  | |  _   _ __     __ _ 
+ |  _ <   / _` | / __|  / _ \    \___ \  | __| | | | | | | | | | '_ \   / _` |
+ | |_) | | (_| | \__ \ |  __/    ____) | | |_  | |_| | | | | | | | | | | (_| |
+ |____/   \__,_| |___/  \___|   |_____/   \__|  \__, | |_| |_| |_| |_|  \__, |
+                                                 __/ |                   __/ |
+                                                |___/                   |___/ 
+*/
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -43,45 +76,16 @@ table {
 	border-spacing: 0;
 }
 
-/* Variables */
-
-:root{
-  --main-font:'Trebuchet', sans-serif;
-  --main-bg-color:#242424;
-
-  --h1-font-size:20vw;
-  --h1-color:white;
-
-  --h2-font-size:10vw;
-  --h2-color:white;
-
-  --icon-font-size:7vw;
-  --icon-bg-color:#383b3f;
-  --icon-text-color:#f2f3f4;
-
-  --notification-font-size:3vw;
-  --notification-bg-color:red;
-  --notification-border-radius:1vw;
-
-  --link-color:#63ceff;
-
-  --input-font-size:8vw;
-  --input-bg-color:#383b3f;
-  --input-border-color:#717780;
-  --input-color:white;
-
-  --textarea-font-size:5vw;
-
-  --synthetic-font-size:5vw;
-  --synthetic-check-bg-color:white;
-  --synthetic-bg-color:#171819;
-  --synthetic-submit-bg-color:#2a2c2e;
-  --synthetic-color:#d8e1eb;
-
-  --placeholder-color:#878787;
-}
-
-/* Mobile Styling */
+/*            
+  __  __           _       _   _             _____   _             _   _                 
+ |  \/  |         | |     (_) | |           / ____| | |           | | (_)                
+ | \  / |   ___   | |__    _  | |   ___    | (___   | |_   _   _  | |  _   _ __     __ _ 
+ | |\/| |  / _ \  | '_ \  | | | |  / _ \    \___ \  | __| | | | | | | | | | '_ \   / _` |
+ | |  | | | (_) | | |_) | | | | | |  __/    ____) | | |_  | |_| | | | | | | | | | | (_| |
+ |_|  |_|  \___/  |_.__/  |_| |_|  \___|   |_____/   \__|  \__, | |_| |_| |_| |_|  \__, |
+                                                            __/ |                   __/ |
+                                                           |___/                   |___/ 
+*/
 
 @font-face {
   font-family: Trebuchet;
@@ -98,14 +102,22 @@ body{
 /* Headers */
 h1{
   font-size:20vw;
-  color:var(--h1-color);
+  color:var(--main-text-color);
   text-align:center;
 }
 
 h2{
-  font-size:var(--h2-font-size);
-  color:var(--h2-color);
+  font-size:10vw;
+  color:var(--main-text-color);
   text-align:center;
+}
+
+h3{
+  text-align:center;
+  color:white;
+  font-size:4vw;
+  margin-top:2vw;
+  margin-bottom:2vw;
 }
 
 /* Links */
@@ -127,7 +139,7 @@ a{
 }
 
 .user_bar{
-  background-color:var(--icon-bg-color);
+  background-color:var(--interactable-bg-color);
   text-align:center;
   padding:2%;
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
@@ -144,24 +156,24 @@ a{
 
 .icon{
   position:relative;
-  font-size:var(--icon-font-size);
+  font-size:7vw;
   margin:2vw;
   width:45vw;
   height:45vw;
   background-repeat:no-repeat;
   background-position:center;
   background-size:80%;
-  background-color:var(--icon-bg-color);
-  color:var(--icon-text-color);
+  background-color:var(--interactable-bg-color);
+  color:var(--main-text-color);
   border-radius:5vw;
 	border: none;
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
 }
 
 .num_notifications{
-  font-size:var(--notifications-font-size);
-  background-color:var(--notification-bg-color);
-  border-radius:var(--notification-border-radius);
+  font-size:3vw;
+  background-color:red;
+  border-radius:1vw;
   width:10vw;
   padding-top:1vw;
   padding-bottom:1vw;
@@ -176,7 +188,7 @@ a{
   margin-top:5vw;
   margin-bottom:5vw;
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
-  background-color:var(--icon-bg-color);
+  background-color:var(--interactable-bg-color);
 }
 
 .notification_text{
@@ -191,6 +203,11 @@ a{
   font-size:5vw;
 }
 
+.remove_notification[type=submit]{
+  background-color:#da7a7a;
+  font-size:5vw;
+}
+
 /* Input types */
 ::placeholder{
   color:var(--placeholder-color);
@@ -199,32 +216,41 @@ a{
 
 input[type=text]{
   width:100%;
-  font-size:var(--input-font-size);
+  font-size:8vw;
   border:none;
-  border-bottom:0.5vw solid var(--input-border-color);
+  border-bottom:0.5vw #717780;
   padding-top:2.5vw;
   padding-bottom:2.5vw;
-  background-color:var(--input-bg-color);
-  color:var(--input-color);
+  background-color:var(--interactable-bg-color);
+  color:var(--main-text-color);
 }
 
 input[type=submit]{
   width:100%;
-  font-size:var(--input-font-size);
+  font-size:8vw;
   border:none;
   padding:2vw;
-  background-color:var(--input-bg-color);
-  color:var(--input-color);
+  background-color:var(--interactable-bg-color);
+  color:var(--main-text-color);
 }
 
 textarea{
   font-family: Trebuchet;
   src: local("Trebuchet MS"), url(fonts/trebuc.ttf);
   width:100%;
-  background-color:var(--input-bg-color);
-  font-size:var(--textarea-font-size);
+  background-color:var(--interactable-bg-color);
+  font-size:5vw;
   border:none;
-  border-bottom:0.5vw solid var(--input-border-color);
+  border-bottom:0.5vw solid #717780;
+}
+
+button{
+  width:100%;
+  font-size:8vw;
+  border:none;
+  padding:2vw;
+  background-color:var(--interactable-bg-color);
+  color:var(--main-text-color);
 }
 
 /* Forums */
@@ -252,44 +278,19 @@ textarea{
 }
 
 .synthetic{
-  width:70%;
-  margin-left:15%;
-  font-size:var(--synthetic-font-size);
-  border:0.2vw solid white;
-  border-radius:1vw;
+  
 }
 
 .synthetic_message[type=text]{
-  font-size:var(--synthetic-font-size);
-  border:none;
-  display:inline-block;
-  width:90%;
-  padding-left:1vw;
-  background-color:var(--synthetic-bg-color);
-  color:var(--synthetic-color);
+  
 }
 
 .synthetic_check{
-  appearance:none;
-  display:inline-block;
-  width:5vw;
-  height:5vw;
-  padding:10vw;
-  margin:0;
-  background-color:var(--synthetic-check-bg-color);
-  border:none;
+  
 }
 
 .synthetic_submit[type=submit]{
-  display:inline-block;
-  font-size:var(--synthetic-font-size);
-  height:8vw;
-  margin-bottom:1vw;
-  margin-top:0;
-  padding:0;
-  width:100%;
-  background-color:var(--synthetic-submit-bg-color);
-  color:var(--synthetic-color);
+  
 }
 
 /* Sign In/Up */
@@ -303,7 +304,7 @@ textarea{
 }
 
 .new_user_prompt{
-  background-color:var(--icon-bg-color);
+  background-color:var(--interactable-bg-color);
   text-align:center;
   font-size:5vw;
   padding:2%;
@@ -311,6 +312,17 @@ textarea{
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
   margin-left:23%;
   color:white;
+}
+
+.sign_in_prompt{
+  width:90%;
+  margin-left:5%;
+  text-align:center;
+  margin-top:5vw;
+  margin-bottom:5vw;
+  box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+  color:white;
+  font-size:7vw;
 }
 
 /* Task Manager */
@@ -329,7 +341,7 @@ textarea{
   text-align:center;
   margin-top:5vw;
   margin-bottom:5vw;
-  background-color:var(--icon-bg-color);
+  background-color:var(--interactable-bg-color);
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
 }
 
@@ -358,4 +370,24 @@ textarea{
   color:white;
   font-size:5vw;
   margin-bottom:2vw;
+}
+
+/* Profile */
+.profile{
+  width:90%;
+  margin-left:5%;
+  text-align:center;
+  margin-top:5vw;
+  margin-bottom:5vw;
+}
+
+.profile_name{
+  width:90%;
+  margin-left:5%;
+  color:white;
+  text-align:center;
+  box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+  font-size:5vw;
+  padding-top:2vw;
+  padding-bottom:2vw;
 }

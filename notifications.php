@@ -24,6 +24,13 @@
 
         $conn->query("UPDATE notifications SET seen = true WHERE username = '$username' AND id = '$id'");
     }
+    else if(isset($_POST['remove_notification']))
+    {
+        $username = $_POST['username'];
+        $id = $_POST['id'];
+
+        $conn->query("DELETE FROM notifications WHERE username = '$username' AND id = '$id'");
+    }
     else if(isset($_POST['change_notification']))
     {
         $username = $_POST['username'];
@@ -37,6 +44,8 @@
 <html>
     <head>
         <link rel='stylesheet' type='text/css' href='style/dark.css'>
+
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
 
         <title>Notifications</title>
 
@@ -61,7 +70,14 @@
                     echo "<div class='notification_text'>".$row['text']."</div>";
                     echo "<input type='hidden' name='username' value='".$username."'>";
                     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<input type='submit' class='mark_as_seen' name='saw_notification' value='Mark as Seen'>";
+                    if($row['seen'] == 0)
+                    {
+                        echo "<input type='submit' class='mark_as_seen' name='saw_notification' value='Mark as Seen'>";
+                    }
+                    else
+                    {
+                        echo "<input type='submit' class='remove_notification' name='remove_notification' value='Remove'>";
+                    }
                     echo "</form>";
                     echo "</div>";
                 }

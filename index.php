@@ -12,10 +12,7 @@
 
 		$result = $conn->query("SELECT * FROM notifications WHERE username='$username' AND seen='false'");
 
-		if($result->num_rows > 0)
-		{
-			$num_notifications = $result->num_rows;
-		}
+		$num_notifications = $result->num_rows;
 	}
 ?>
 
@@ -25,6 +22,8 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/> 
 		<link rel="stylesheet" type="text/css" href="style/dark.css"/>
+
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
 	</head>
 
 	<body>
@@ -68,7 +67,7 @@
 					<?php
 						if(isset($num_notifications))
 						{
-							if($num_notifications > 1)
+							if($num_notifications != 1)
 							{
 								echo "Notifications";
 							}

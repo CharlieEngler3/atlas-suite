@@ -6,14 +6,16 @@
     <title>Search History</title>
     
     <link rel="stylesheet" type="text/css" href="../style/dark.css"/>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     
     <div class="user_bar">
         <a href='profile.php'>Back</a>
     </div>
   </head>
   <body>
-    <h1>Search History</h1>
-    <h3>(Click items to delete from your search history.)</h3>
+    <h1 style='font-size:15vw;'>Search History</h1>
+    <h3>(Click items to delete them from your search history.)</h3>
     <br>
     
     <?php

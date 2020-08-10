@@ -7,6 +7,8 @@
     <title>Profile</title>
 
     <link rel="stylesheet" type="text/css" href="../style/dark.css"/>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     
     <div class="user_bar">
       <a href='../index.php'>Home</a>
@@ -18,7 +20,8 @@
   </head>
     
   <body>
-    <h1><?php echo $_SESSION['username']; ?>'s Profile</h1>
+    <h1>Profile</h1>
+    <div class='profile_name'><?php echo $_SESSION['username']; ?></div>
     
     <div class="profile">
       <button onclick='location.href="history.php"'>Search History</button>

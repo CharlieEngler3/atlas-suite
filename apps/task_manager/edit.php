@@ -7,6 +7,8 @@
     <head>
         <link rel="stylesheet" type="text/css" href="../../style/dark.css">
 
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
         <title>Edit Tasks</title>
 
         <a href="index.php">Back</a>

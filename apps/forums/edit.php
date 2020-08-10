@@ -22,6 +22,8 @@
     <title>Edit - <?php echo $title; ?></title>
     
     <link rel="stylesheet" type="text/css" href="../../style/dark.css"/>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     
     <form id="backSubmit" method="POST" action="show_post.php"><input type="hidden" name="title" value="<?php echo $title; ?>"/></form>
     <a style='cursor:pointer;' onclick='submitBack()'>Back to <?php echo $title; ?></a>

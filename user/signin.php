@@ -7,6 +7,8 @@
     <title>Sign In</title>
     
     <link rel="stylesheet" type="text/css" href="../style/dark.css"/>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     
     <script>
       function Reload()
@@ -48,7 +50,7 @@
   }
   else
   {
-	echo "<div class='notification' onclick='location.href=\"signout.php\"'>You are signed in <h4>(Click to sign out)</h4></div>";
+	echo "<div class='sign_in_prompt' onclick='location.href=\"signout.php\"'>You are signed in <h4>(Click to sign out)</h4></div>";
   }
 
   if(isset($_POST['username']) && isset($_POST['password']) && !isset($_SESSION['username']))
@@ -74,7 +76,7 @@
     
     if($resultUsername->num_rows == 0 && $resultEmail->num_rows == 0)
     {
-      echo "<div class='notification' onclick='Reload()'>Couldn't sign in, user doesn't exist. <h4>(Click to dismiss)</h4></div>";
+      echo "<div class='sign_in_prompt' onclick='Reload()'>Couldn't sign in, user doesn't exist. <h4>(Click to dismiss)</h4></div>";
     }
     else if($resultUsername->num_rows != 0)
     {
@@ -82,13 +84,13 @@
       
       if($row["password"] == $password)
       {
-		$_SESSION['username'] = $username;
+		    $_SESSION['username'] = $username;
 
-        echo "<div class='notification' onclick='location.href=\"../index.php\"'>Signed in <h4>(Click to dismiss)</h4></div>";
+        echo "<div class='sign_in_prompt' onclick='location.href=\"../index.php\"'>Signed in <h4>(Click to dismiss)</h4></div>";
       }
       else
       {
-        echo "<div class='notification' onclick='Reload()'>Passwords don't match. <h4>(Click to dismiss)</h4></div>";
+        echo "<div class='sign_in_prompt' onclick='Reload()'>Passwords don't match. <h4>(Click to dismiss)</h4></div>";
       }
     }
     else if($resultEmail->num_rows != 0)
@@ -99,11 +101,11 @@
       {
         $_SESSION['username'] = $row["username"];
         
-        echo "<div class='notification' onclick='location.href=\"../index.php\"'>Signed in <h4>(Click to dismiss)</h4></div>";
+        echo "<div class='sign_in_prompt' onclick='location.href=\"../index.php\"'>Signed in <h4>(Click to dismiss)</h4></div>";
       }
       else
       {
-        echo "<div class='notification' onclick='Reload()'>Passwords don't match.<h4>(Click to dismiss)</h4></div>";
+        echo "<div class='sign_in_prompt' onclick='Reload()'>Passwords don't match.<h4>(Click to dismiss)</h4></div>";
       }
     }
     
