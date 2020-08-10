@@ -21,7 +21,9 @@
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     
-    <a href='index.php'>Home</a>
+    <div class='user_bar'>
+      <a href='index.php'>Home</a>
+    </div>
 
     <?php
       if(isset($_SESSION['username']))
@@ -47,36 +49,47 @@
     </div>
     
     <div class='post'>
-      <?php echo $row['body']; ?>
+      <?php 
+        echo $row['body']; 
+
+        if($row['image_links'] != "")
+        {
+      ?>
       
       <div class='images'>
         Click on images to expand them.
         <br>
         <br>
-        <?php
-          $image_links = explode("⎖", $row['image_links']);
+          <?php
+            $image_links = explode("⎖", $row['image_links']);
 
-          for($i = 0; $i < sizeof($image_links); $i++)
-          {
-            echo "<img onclick='ExpandImage(\"".$image_links[$i]."\")' src='".$image_links[$i]."' height='10%'>";
-          }
-        ?>
+            for($i = 0; $i < sizeof($image_links); $i++)
+            {
+              echo "<img onclick='ExpandImage(\"".$image_links[$i]."\")' src='".$image_links[$i]."' height='10%'>";
+            }
+          ?>
       </div>
+
+      <?php
+        }
+      ?>
     </div>
+
     
-    <h3>
-      Comments:
-    </h2>
     
     <div class="comments">
+      <h3>
+        Comments:
+      </h3>
+
       <?php
         if(isset($_SESSION['username']))
         {
       ?>
           <form action="comment.php" method="POST" autocomplete=off>
-            <input type="text" name="comment" style="font-size:2vw;" placeholder="Add a comment"/>
+            <input type="text" name="comment" class='comment_field' placeholder="Add a comment"/>
             <input type="hidden" name="title" value="<?php echo $title; ?>"/>
-            <input type="submit" style="font-size:2vw;" value="Submit"/>
+            <input type="submit" class='submit_comment' value="Submit"/>
           </form>
       <?php
         }
@@ -97,10 +110,6 @@
           }
         }
       ?>
-    </div>
-    
-    <div class="browse">
-      
     </div>
 
     <script>

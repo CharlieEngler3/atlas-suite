@@ -55,7 +55,7 @@
     </head>
 
     <body>
-        <h1>Notifications</h1>
+        <h1 style="font-size:17vw;">Notifications</h1>
 
         <?php
             if(isset($_SESSION['username']))
@@ -80,6 +80,11 @@
                     }
                     echo "</form>";
                     echo "</div>";
+                }
+
+                if($result->num_rows == 0)
+                {
+                    echo '<div class="no_notifications">No Notifications</div>';
                 }
             }
             else

@@ -14,39 +14,31 @@
   $comment = $comment."⎖";
   $commentUser = $user."⎖";
 
-  $commentResult = $conn->query("SELECT * FROM posts WHERE title='$title'");
+  $result = $conn->query("SELECT * FROM posts WHERE title='$title'");
 
-  if($commentResult->num_rows != 0)
+  if($result->num_rows != 0)
   {
-    $commentRow = $commentResult->fetch_assoc();
+    $row = $result->fetch_assoc();
 
-    $allComments = $commentRow['comments'];
+    $allComments = $row['comments'];
+    $allUsers = $row['comment_users'];
   }
   else
   {
     $allComments = "";
-  }
-
-  $usersResult = $conn->query("SELECT * FROM posts WHERE title='$title'");
-  
-  if($usersResult->num_rows != 0)
-  {
-    $usersRow = $usersResult->fetch_assoc();
-
-    $allUsers = $usersRow['comment_users'];
-  }
-  else
-  {
     $allUsers = "";
   }
 
   $allComments = $allComments.$comment;
   $allUsers = $allUsers.$commentUser;
 
+  echo $allComments."<br>";
+  echo $allUsers."<br>";
+
   $conn->query("UPDATE posts SET comments='$allComments' WHERE user='$user'");
   $conn->query("UPDATE posts SET comment_users='$allUsers' WHERE user='$user'");
 
-  echo "<form id='autoSubmit' action='show_post.php' method='POST'><input type='hidden' name='title' value='".$title."'/></form>";
+  //echo "<form id='autoSubmit' action='show_post.php' method='POST'><input type='hidden' name='title' value='".$title."'/></form>";
 ?>
 
 <script type="text/javascript">
