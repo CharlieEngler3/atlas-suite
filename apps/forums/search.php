@@ -26,15 +26,11 @@
 
 	$searchTerm = $_POST['search_term'];
 
-	if($searchTerm == "")
-	{
-		$searchTerm = "_";
-	}
-
 	$servername = "localhost";
   $server_user = "root";
 
-  $conn = new mysqli($servername, $server_user, "", "users");
+  $conn = new mysqli($servername, $server_user, "", "forums");
+  $conn2 = new mysqli($servername, $server_user, "", "users");
 
   if ($conn->connect_error) 
   {
@@ -43,28 +39,39 @@
 
   if(isset($_SESSION['username']))
   {
-    $result = $conn->query("SELECT * FROM user_info WHERE username='$username'");
+    $result = $conn2->query("SELECT * FROM user_info WHERE username='$username'");
     $row = $result->fetch_assoc();
 
-    $previousSearches = $row['previous_searches'];
-    
-    if(strpos($previousSearches, $searchTerm) === false)
+    if($result->num_rows > 0)
     {
-      if($previousSearches != "")
+      $previousSearches = $row['previous_searches'];
+    }
+    else
+    {
+      $previousSearches = "";
+    }
+    
+    if($searchTerm != "")
+    {
+      if(strpos($previousSearches, $searchTerm) === false)
       {
-        $previousSearches = $searchTerm."⎖".$previousSearches;
-      }
-      else
-      {
-        $previousSearches = $searchTerm.$previousSearches;
+        if($previousSearches != "")
+        {
+          $previousSearches = $searchTerm."⎖".$previousSearches;
+        }
+        else
+        {
+          $previousSearches = $searchTerm.$previousSearches;
+        }
       }
     }
     
-    $result = $conn->query("UPDATE user_info SET previous_searches='$previousSearches'");
+    $conn2->query("UPDATE user_info SET previous_searches='$previousSearches'");
     
     $result = $conn->query("SELECT * FROM posts WHERE title LIKE '%$searchTerm%' LIMIT 20");
 
     $numResults = $result->num_rows;
+    
   }
   else
   {

@@ -17,6 +17,8 @@
     <h1 style='font-size:15vw;'>Search History</h1>
     <h3>(Click items to delete them from your search history.)</h3>
     <br>
+
+    <div class='history'>
     
     <?php
       $servername = "localhost";
@@ -75,6 +77,8 @@
         echo "<script>location.href='history.php';</script>";
       }
     ?>
+
+    </div>
     
   </body>
 </html>
