@@ -3,14 +3,18 @@
 		<link href="../../style/dark.css" rel="stylesheet">
 		
 		<title>Calculator</title>
+
+		<div class="user_bar">
+        	<a href='../../index.php'>Home</a>
+      	</div>
 	</head>
 	
 	<body>
 		<h1>Calculator</h1>
 		
 		<div class="calculator">
-			<input type="text" readonly id="result">
-			
+			<input class="calculator_result" type="text" readonly id="result">
+			<br/>
 			<button class="calculator_button" onclick="document.getElementById('result').value+='1';">1</button>
 			<button class="calculator_button" onclick="document.getElementById('result').value+='2';">2</button>
 			<button class="calculator_button" onclick="document.getElementById('result').value+='3';">3</button>

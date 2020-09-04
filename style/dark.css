@@ -499,10 +499,12 @@ button{
 .calculator{
   width:90%;
   margin-left:5%;
+  overflow:hidden;
+  white-space:nowrap;
 }
 
 .calculator_button{
-  width:24.16%;
+  width:25%;
   height:20vw;
   display:inline-block;
   margin-bottom:1vw;
@@ -518,9 +520,13 @@ button{
 }
 
 .calculator_basic_operation_button{
-  width:24.16%;
+  width:25%;
   height:15vw;
   display:inline-block;
   margin-bottom:1vw;
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+}
+
+.calculator_result{
+  margin-bottom:2vw;
 }
