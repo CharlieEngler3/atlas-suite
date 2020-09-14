@@ -17,6 +17,10 @@
     <div class="user_bar">
       <a href='../apps/forums/index.php'>Forums</a>
     </div>
+
+    <div class="user_bar">
+      <a href="signout.php">Sign Out</a>
+    </div>
   </head>
     
   <body>

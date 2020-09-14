@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <html>
   <head>
     <title>Sign Up</title>
@@ -81,12 +85,16 @@
 
         $result = $conn->query("SELECT email FROM user_info");
 
-        echo "<form action='../../notifications.php' method='POST'>";
-        echo "<input type='hidden' name='original_url' value='apps/forums/index.php'>";
+        $_SESSION['username'] = $username;
+
+        echo "<form action='../../notifications.php' method='POST' id='notification_form'>";
+        echo "<input type='hidden' name='original_url' value='index.php'>";
         echo "<input type='hidden' name='username' value='".$username."'>";
         echo "<input type='hidden' name='text' value='Thank you for signing up!'>";
-        echo "<input type='submit' class='notification' name='new_notification' value='Signed In\n(Click to dismiss)'>";
+        echo "<input type='hidden' name='new_notification' value='true'>";
         echo "</form>";
+
+        echo "<script>document.forms['notification_form'].submit();</script>";
       }
 
       $conn->close();
