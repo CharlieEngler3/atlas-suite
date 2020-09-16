@@ -80,7 +80,7 @@
     $numResults = $result->num_rows;
   }
 
-  echo "<div class='results'><u><b style='font-size:2.5vw;'>Number of results: ".$numResults."</b></u><br/><br/>";
+  echo "<div class='results'><h3><u><b>Number of results: ".$numResults."</b></u></h3><br/><br/>";
 
   echo "<form method='POST' action='show_post.php'>";
 
