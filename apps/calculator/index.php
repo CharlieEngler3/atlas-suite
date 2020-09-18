@@ -19,7 +19,18 @@
 				document.getElementById("result_displayed").value = modifiedValue;
 			}
 
-			
+			function DecimalToFraction()
+			{
+				if(document.getElementById("result_displayed").value.indexOf(".") > -1)
+				{
+					return Fraction(parseFloat(document.getElementById('result').value));
+				}
+				
+				if(document.getElementById("result_displayed").value.indexOf("/") > -1)
+				{
+					return eval(document.getElementById("result_displayed").value).toString();
+				}
+			}
 
 			function Fraction(decimal)
 			{
@@ -32,15 +43,36 @@
 
 				numDigits = minusWhole.toString().split(".")[1].length;
 
-				minusWhole = minusWhole * 10**numDigits;
+				numerator = minusWhole * 10**numDigits;
+				denominator = 10**numDigits;
+
+				gcf = GCF(numerator, denominator);
+
+				if(gcf > 1)
+				{
+					numerator = numerator / gcf;
+					denominator = denominator / gcf;
+				}
 
 				if(parseFloat(wholeNumber) > 0)
 				{
-					return wholeNumber.toString() + " " + minusWhole + "/" + 10**numDigits;
+					return wholeNumber.toString() + " " + numerator + "/" + denominator;
 				}
 				else
 				{
-					return minusWhole + "/" + 10**numDigits;
+					return numerator + "/" + denominator;
+				}
+			}
+
+			function GCF(a, b) 
+			{
+				if (b) 
+				{
+					return GCF(b, a % b);
+				} 
+				else 
+				{
+					return Math.abs(a);
 				}
 			}
 		</script>
@@ -49,7 +81,7 @@
 	<body>
 		<h1>Calculator</h1>
 		
-		<div class="calculator">
+		<div class="calculator" style="touch-action: pan-y;">
 			<input class="calculator_result" type="text" readonly id="result_displayed">
 			<input type="hidden" id="result">
 			<br/>
@@ -93,7 +125,7 @@
 			<button class="calculator_basic_operation_button" onclick="document.getElementById('result').value+='Math.tan(';Button();">tan</button>
 			<button class="calculator_basic_operation_button" onclick="document.getElementById('result').value+='Math.atan';Button();">atan</button>
 			<button class="calculator_basic_operation_button" onclick="document.getElementById('result').value+='Math.log(';Button();">ln</button>
-			<button class="calculator_basic_operation_button" onclick="document.getElementById('result_displayed').value = Fraction(parseFloat(document.getElementById('result').value));">d⇿f</button>
+			<button class="calculator_basic_operation_button" onclick="document.getElementById('result_displayed').value = DecimalToFraction();">d⇿f</button>
 		</div>
 	</body>
 </html>
