@@ -49,6 +49,11 @@ function Fraction(decimal)
 
     numDigits = minusWhole.toString().split(".")[1].length;
 
+    if(numDigits > 5)
+    {
+        return decimal.toString();
+    }
+
     numerator = minusWhole * 10**numDigits;
     denominator = 10**numDigits;
 
@@ -59,14 +64,18 @@ function Fraction(decimal)
         numerator = numerator / gcf;
         denominator = denominator / gcf;
     }
+    else
+    {
+        return decimal.toString();
+    }
 
     if(parseFloat(wholeNumber) > 0)
     {
-        return wholeNumber.toString() + " " + numerator + "/" + denominator;
+        return "(" + wholeNumber.toString() + " " + numerator + "/" + denominator + ")";
     }
     else
     {
-        return numerator + "/" + denominator;
+        return "(" + numerator + "/" + denominator + ")";
     }
 }
 
