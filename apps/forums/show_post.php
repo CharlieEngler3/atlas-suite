@@ -30,11 +30,11 @@
       {
         if($row['user'] == $_SESSION['username'])
         {
+          echo "<div class='user_bar'><u><a onclick='submitEdit()'>Edit</a></u></div>";
+
           ?>
             <form id="editSubmit" method="POST" action="edit.php"><input type="hidden" name="title" value="<?php echo $title; ?>"/></form>
           <?php
-
-          echo "<a style='cursor:pointer;' onclick='submitEdit()'>Edit</a>";
         }
       }
     ?>

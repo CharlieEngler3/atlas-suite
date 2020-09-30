@@ -14,7 +14,7 @@
     </div>
   </head>
   <body>
-    <h1 style='font-size:15vw;'>Search History</h1>
+    <h1>Search History</h1>
     <h3>(Click items to delete them from your search history.)</h3>
     <br>
 

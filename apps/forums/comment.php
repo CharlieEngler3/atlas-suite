@@ -38,7 +38,7 @@
   $conn->query("UPDATE posts SET comments='$allComments' WHERE user='$user'");
   $conn->query("UPDATE posts SET comment_users='$allUsers' WHERE user='$user'");
 
-  //echo "<form id='autoSubmit' action='show_post.php' method='POST'><input type='hidden' name='title' value='".$title."'/></form>";
+  echo "<form id='autoSubmit' action='show_post.php' method='POST'><input type='hidden' name='title' value='".$title."'/></form>";
 ?>
 
 <script type="text/javascript">

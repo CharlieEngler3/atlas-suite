@@ -47,13 +47,13 @@
 		</div>
 			
 		<div class="icon-list">
-			<button class="icon" onclick="location.href='apps/calculator/'">Calculator</button>
-			<button class="icon" onclick="location.href='apps/forums/'">Forums</button>
-			<button class="icon" onclick="location.href='apps/gpa_calculator/'">GPA<br/>Calculator</button>
+			<button class="icon" onclick="location.href='apps/calculator/'"><h4>Calculator</h4></button>
+			<button class="icon" onclick="location.href='apps/forums/'"><h4>Forums</h4></button>
+			<button class="icon" onclick="location.href='apps/gpa_calculator/'"><h4>GPA<br/>Calculator</h4></button>
 
-			<button class="icon" onclick="location.href='apps/pomodoro_timer/'">Pomodoro<br/>Timer</button>
-			<button class="icon" onclick="location.href='apps/task_manager/'">Task<br/>Manager</button>
-			<button class="icon" onclick="location.href='notifications.php'">
+			<button class="icon" onclick="location.href='apps/pomodoro_timer/'"><h4>Pomodoro<br/>Timer</h4></button>
+			<button class="icon" onclick="location.href='apps/task_manager/'"><h4>Task<br/>Manager</h4></button>
+			<button class="icon" onclick="location.href='notifications.php'"><h4>
 					<?php 
 						if(isset($num_notifications))
 						{
@@ -81,7 +81,7 @@
 							echo "Notifications";
 						}
 					?>
-			</button>
+			</h4></button>
 		</div>
 	</body>
 </html>

@@ -50,7 +50,7 @@
   }
   else
   {
-	echo "<div class='sign_in_prompt' onclick='location.href=\"signout.php\"'>You are signed in <h4>(Click to sign out)</h4></div>";
+	echo "<div class='sign_in_prompt' onclick='location.href=\"signout.php\"'>You are signed in <h5>(Click to sign out)</h5></div>";
   }
 
   if(isset($_POST['username']) && isset($_POST['password']) && !isset($_SESSION['username']))
@@ -76,7 +76,7 @@
     
     if($resultUsername->num_rows == 0 && $resultEmail->num_rows == 0)
     {
-      echo "<div class='sign_in_prompt' onclick='Reload()'>Couldn't sign in, user doesn't exist. <h4>(Click to dismiss)</h4></div>";
+      echo "<div class='sign_in_prompt' onclick='Reload()'>Couldn't sign in, user doesn't exist. <h5>(Click to dismiss)</h5></div>";
     }
     else if($resultUsername->num_rows != 0)
     {
@@ -86,11 +86,11 @@
       {
 		    $_SESSION['username'] = $username;
 
-        echo "<div class='sign_in_prompt' onclick='location.href=\"../index.php\"'>Signed in <h4>(Click to dismiss)</h4></div>";
+        echo "<div class='sign_in_prompt' onclick='location.href=\"../index.php\"'>Signed in <h5>(Click to dismiss)</h5></div>";
       }
       else
       {
-        echo "<div class='sign_in_prompt' onclick='Reload()'>Passwords don't match. <h4>(Click to dismiss)</h4></div>";
+        echo "<div class='sign_in_prompt' onclick='Reload()'>Passwords don't match. <h5>(Click to dismiss)</h5></div>";
       }
     }
     else if($resultEmail->num_rows != 0)
@@ -101,11 +101,11 @@
       {
         $_SESSION['username'] = $row["username"];
         
-        echo "<div class='sign_in_prompt' onclick='location.href=\"../index.php\"'>Signed in <h4>(Click to dismiss)</h4></div>";
+        echo "<div class='sign_in_prompt' onclick='location.href=\"../index.php\"'>Signed in <h5>(Click to dismiss)</h5></div>";
       }
       else
       {
-        echo "<div class='sign_in_prompt' onclick='Reload()'>Passwords don't match.<h4>(Click to dismiss)</h4></div>";
+        echo "<div class='sign_in_prompt' onclick='Reload()'>Passwords don't match.<h5>(Click to dismiss)</h5></div>";
       }
     }
     

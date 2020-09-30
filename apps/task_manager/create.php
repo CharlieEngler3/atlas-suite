@@ -8,8 +8,8 @@
 
     $username = $_SESSION['username'];
 
-    $title = $_POST['title'];
-    $notes = $_POST['notes'];
+    $title = str_replace("'", '’', $_POST['title']);
+    $notes = str_replace("'", '’', $_POST['notes']);
 
     $result = $conn->query("INSERT INTO tasks (title, notes, user) VALUES ('$title', '$notes', '$username')");
 

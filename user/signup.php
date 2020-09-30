@@ -31,7 +31,7 @@
       <br/>
       <input type="text" style="color:transparent;" class="signup" name="repeat_password" placeholder="Repeat Password" pattern=".{5,20}" required title="5 to 20 characters"/>
       <br/>
-      <input type="submit" class="signup_submit"/>
+      <input type="submit" class="signup_submit" value="Sign Up"/>
     </form>
     
     <h3 class="new_user_prompt">

@@ -27,8 +27,6 @@
     <h1>Profile</h1>
     <div class='profile_name'><?php echo $_SESSION['username']; ?></div>
     
-    <div class="profile">
-      <button onclick='location.href="history.php"'>Search History</button>
-    </div>
+    <button onclick='location.href="history.php"' class="history">Search History</button>
   </body>
 </html>

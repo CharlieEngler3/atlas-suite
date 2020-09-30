@@ -1,3 +1,16 @@
+<html>
+	<head>
+		<script>
+			function SubmitForm()
+			{
+				var frm = document.getElementById("editSubmit");
+
+				frm.submit();
+			}
+		</script>
+	</head>
+</html>
+
 <?php
 	session_start();
 
@@ -21,4 +34,8 @@
 	$result = $conn->query("INSERT INTO posts(title, body, image_links, user) VALUES ('$title', '$body', '$images', '$user')");
 
 	$conn->close();
+
+	echo "<form id='editSubmit' method='POST' action='show_post.php'>";
+	echo "<input type='hidden' name='title' value='".$title."'/>";
+	echo "</form><script>SubmitForm();</script>";
 ?>

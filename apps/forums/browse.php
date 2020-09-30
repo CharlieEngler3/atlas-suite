@@ -44,7 +44,7 @@
         else
         {
       ?>
-          <input type='submit' name='unhide_synthetic' class='unhide_synthetic' value='Unhide Synthetic Results'>
+          <input type='submit' name='unhide_synthetic' class='unhide_synthetic' value='Show Synthetic Results'>
       <?php
         }
       ?>

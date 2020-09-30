@@ -109,6 +109,10 @@ h1{
   text-align:center;
 }
 
+.h1_notifications{
+  font-size:17vw;
+}
+
 h2{
   font-size:10vw;
   color:var(--main-text-color);
@@ -121,6 +125,10 @@ h3{
   font-size:4vw;
   margin-top:2vw;
   margin-bottom:2vw;
+}
+
+h4{
+  font-family: Trebuchet;
 }
 
 /* Links */
@@ -150,6 +158,7 @@ a{
   margin-right:1vw;
   display:inline-block;
   font-size:7vw;
+  cursor:pointer;
 }
 
 /* Main page app icons */
@@ -288,6 +297,12 @@ button{
   margin-bottom:5vw;
 }
 
+.browse_results{
+  width:90%;
+  margin-left:5%;
+  text-align:center;
+}
+
 .search_menu{
   width:90%;
   margin-left:5%;
@@ -389,6 +404,21 @@ button{
   margin-bottom:5vw;
   width:95%;
   font-size:5vw;
+}
+
+.images{
+  font-size:2vw;
+  margin-top:2vw;
+}
+
+img{
+  width:45%;
+  height:auto;
+  display:inline-block;
+  margin-right:1vw;
+  margin-left:1vw;
+  margin-bottom:1vw;
+  box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
 }
 
 /* Sign In/Up */
@@ -498,13 +528,6 @@ button{
   margin-bottom:5vw;
 }
 
-/* Browse */
-.browse_results{
-  width:90%;
-  margin-left:5%;
-  text-align:center;
-}
-
 /* Calculator */
 .calculator{
   width:90%;
@@ -539,4 +562,544 @@ button{
 
 .calculator_result{
   margin-bottom:2vw;
+}
+
+/*
+  ____     ____     ____    _             _   _                 
+ |  _ \   / ___|   / ___|  | |_   _   _  | | (_)  _ __     __ _ 
+ | |_) | | |       \___ \  | __| | | | | | | | | | '_ \   / _` |
+ |  __/  | |___     ___) | | |_  | |_| | | | | | | | | | | (_| |
+ |_|      \____|   |____/   \__|  \__, | |_| |_| |_| |_|  \__, |
+                                  |___/                   |___/ 
+*/
+@media only screen and (orientation: landscape) {
+
+  @font-face {
+    font-family: Trebuchet;
+    src: local("Trebuchet MS"), url(fonts/trebuc.ttf);
+    font-weight: bold;
+  }
+
+  /* Main body of each page */
+  body{
+    font-family:var(--main-font);
+    background-color:var(--main-bg-color);
+  }
+
+  /* Headers */
+  h1{
+    font-size:8vw;
+    color:var(--main-text-color);
+    text-align:center;
+  }
+
+  h2{
+    font-size:4vw;
+    color:var(--main-text-color);
+    text-align:center;
+  }
+
+  h3{
+    font-size:2vw;
+    color:var(--main-text-color);
+    text-align:center;
+    margin-top:2vw;
+    margin-bottom:2vw;
+  }
+
+  h4{
+    font-family: Trebuchet;
+    position:absolute;
+    width:100%;
+    left:0%;
+    top:35%;
+  }
+
+  h5{
+    font-family: Trebuchet;
+    font-size:2vw;
+  }
+
+  /* Links */
+  a{
+    color:var(--link-color);
+  }
+
+  .index-signin{
+    position:relative;
+    font-size:2vw;
+    color:var(--link-color);
+    padding:0;
+    padding-right:1vw;
+    padding-left:1vw;
+    text-decoration:none;
+    background-color:#383b3f;
+    border:none;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+  }
+
+  .user_bar{
+    background-color:var(--interactable-bg-color);
+    text-align:center;
+    padding-top:0.5vw;
+    padding-bottom:0.5vw;
+    padding-right:1vw;
+    padding-left:1vw;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    text-decoration:none;
+    margin-right:0.1vw;
+    display:inline-block;
+    font-size:1vw;
+  }
+
+  /* Main page app icons */
+  .icon-list{
+    text-align:center;
+    margin-top:7vw;
+  }
+
+  .icon{
+    position:relative;
+    font-size:1.5vw;
+    margin:2vw;
+    width:10vw;
+    height:10vw;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:80%;
+    background-color:var(--interactable-bg-color);
+    color:var(--main-text-color);
+    border-radius:1vw;
+    border: none;
+    box-shadow:0px 0px 2vw rgba(0, 0, 0, 0.25);
+    text-align:center;
+    cursor:pointer;
+  }
+
+  .num_notifications{
+    font-size:1vw;
+    background-color:var(--interactable-negative-bg-color);
+    width:80%;
+    margin-left:10%;
+    padding-top:0.5vw;
+    padding-bottom:0.5vw;
+    box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+  }
+
+  /* Notifications */
+  .notification{
+    width:26.5%;
+    margin-left:5%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+    background-color:var(--interactable-bg-color);
+    display:inline-block;
+  }
+
+  .notification[type=submit]{
+    width:90%;
+    margin-left:5%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+    background-color:var(--interactable-bg-color);
+  }
+
+  .notification_text{
+    color:white;
+    font-size:2vw;
+    padding-bottom:1vw;
+    padding-top:1vw;
+  }
+
+  .mark_as_seen[type=submit]{
+    background-color:var(--interactable-positive-bg-color);
+    font-size:1.5vw;
+    padding:0;
+    padding-top:1vw;
+    padding-bottom:1vw;
+  }
+
+  .remove_notification[type=submit]{
+    background-color:var(--interactable-negative-bg-color);
+    font-size:1.5vw;
+    padding:0;
+    padding-top:1vw;
+    padding-bottom:1vw;
+  }
+
+  .no_notifications{
+    width:90%;
+    margin-left:5%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+    background-color:var(--interactable-bg-color);
+    color:white;
+    font-size:5vw;
+    padding-top:2vw;
+    padding-bottom:2vw;
+  }
+
+  /* Input types */
+  ::placeholder{
+    color:var(--placeholder-color);
+    padding-left:0.5vw;
+  }
+
+  input[type=text]{
+    width:50%;
+    font-size:2vw;
+    border:none;
+    border-bottom:0.1vw solid #717780;
+    padding:0;
+    padding-top:0.5vw;
+    padding-bottom:0.5vw;
+    background-color:var(--interactable-bg-color);
+    color:var(--main-text-color);
+  }
+
+  input[type=submit]{
+    width:50%;
+    font-size:2vw;
+    border:none;
+    padding:0.5vw;
+    background-color:var(--interactable-bg-color);
+    color:var(--main-text-color);
+  }
+
+  textarea{
+    font-family: Trebuchet;
+    src: local("Trebuchet MS"), url(fonts/trebuc.ttf);
+    width:50%;
+    background-color:var(--interactable-bg-color);
+    font-size:2vw;
+    border:none;
+    border-bottom:0.1vw solid #717780;
+    color:var(--main-text-color);
+  }
+
+  button{
+    width:100%;
+    font-size:8vw;
+    border:none;
+    padding:2vw;
+    background-color:var(--interactable-bg-color);
+    color:var(--main-text-color);
+  }
+
+  /* Forums */
+  .browse_menu{
+    width:90%;
+    margin-left:5%;
+    text-align:center;
+    margin-top:3vw;
+    margin-bottom:3vw;
+  }
+  
+  .browse_results{
+    width:90%;
+    margin-left:5%;
+    text-align:center;
+  }
+
+  .search_menu{
+    width:90%;
+    margin-left:5%;
+    text-align:center;
+    margin-top:3vw;
+    margin-bottom:3vw;
+  }
+
+  .new_menu{
+    width:90%;
+    margin-left:5%;
+    text-align:center;
+    margin-top:3vw;
+  }
+
+  .hide_synthetic[type=submit]{
+    width:20%;
+    margin-left:40%;
+    text-align:center;
+    margin-top:1vw;
+    margin-bottom:5vw;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    background-color:var(--interactable-positive-bg-color);
+    font-size:1.5vw;
+  }
+
+  .unhide_synthetic[type=submit]{
+    width:20%;
+    margin-left:40%;
+    text-align:center;
+    margin-top:1vw;
+    margin-bottom:5vw;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    background-color:var(--interactable-negative-bg-color);
+    font-size:1.5vw;
+  }
+
+  .author{
+    width:20%;
+    margin-left:40%;
+    text-align:center;
+    margin-top:1vw;
+    margin-bottom:1vw;
+    background-color:var(--interactable-bg-color);
+    box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+    font-size:1.5vw;
+    color:white;
+    padding-top:1vw;
+    padding-bottom:1vw;
+  }
+
+  .post{
+    width:80%;
+    margin-left:10%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    background-color:var(--interactable-bg-color);
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    font-size:2vw;
+    color:white;
+    padding-top:1vw;
+    padding-bottom:1vw;
+  }
+
+  .comments{
+    width:80%;
+    margin-left:10%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    background-color:var(--interactable-bg-color);
+    box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+    color:white;
+    padding-top:1vw;
+    padding-bottom:2vw;
+  }
+
+  .comment{
+    margin-top:1vw;
+    margin-bottom:1vw;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    width:90%;
+    margin-left:5%;
+    background-color:var(--main-bg-color);
+    padding-top:1vw;
+    padding-bottom:1vw;
+    font-size:2vw;
+    line-height:150%;
+  }
+
+  .comment_field[type=text]{
+    background-color:var(--main-bg-color);
+    width:90%;
+    font-size:2vw;
+  }
+
+  .submit_comment[type=submit]{
+    background-color:var(--interactable-positive-bg-color);
+    margin-bottom:2vw;
+    width:90%;
+    font-size:2vw;
+  }
+
+  .images{
+    font-size:1vw;
+    margin-top:2vw;
+  }
+
+  img{
+    width:30%;
+    height:auto;
+    display:inline-block;
+    margin-right:1vw;
+    margin-left:1vw;
+    margin-bottom:1vw;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+  }
+
+  /* Sign In/Up */
+  .signup_form{
+    width:100%;
+    margin-left:0%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    background-color:transparent;
+    box-shadow:none;
+  }
+
+  .new_user_prompt{
+    background-color:var(--interactable-bg-color);
+    text-align:center;
+    font-size:5vw;
+    padding:0;
+    padding-top:2%;
+    padding-bottom:2%;
+    width:50%;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    margin-left:25%;
+    color:white;
+    font-size:3vw;
+    margin-top:3vw;
+  }
+
+  .sign_in_prompt{
+    width:70%;
+    text-align:center;
+    margin:0;
+    top:17vw;
+    right:15%;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    color:white;
+    font-size:3vw;
+    padding-top:2vw;
+    padding-bottom:2vw;
+    position:absolute;
+    background-color:var(--main-bg-color);
+  }
+
+  /* Task Manager */
+  .create_task{
+    width:100%;
+    margin:0;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    box-shadow:none;
+  }
+
+  .task{
+    width:50%;
+    margin:25%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    background-color:var(--interactable-bg-color);
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+  } 
+
+  .task_edit[type=submit]{
+    width:50%;
+    display:inline-block;
+    background-color:var(--interactable-positive-bg-color);
+    font-size:2vw;
+  }
+
+  .task_delete[type=submit]{
+    width:50%;
+    display:inline-block;
+    background-color:var(--interactable-negative-bg-color);
+    font-size:2vw;
+  }
+
+  .task_title{
+    font-size:3vw;
+    color:white;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    margin-bottom:2vw;
+    padding-top:1vw;
+    padding-bottom:1vw;
+  }
+
+  .task_notes{
+    color:white;
+    font-size:2vw;
+    margin-bottom:2vw;
+  }
+
+  .task_title_form[type=text]{
+    width:50%;
+    font-size:2vw;
+  }
+
+  .task_notes_form[type=text]{
+    width:50%;
+    font-size:2vw;
+  }
+
+  .task_create[type=submit]{
+    width:50%;
+    background-color:var(--interactable-positive-bg-color);
+    font-size:2vw;
+  }
+
+  /* Profile */
+  .profile{
+    width:50%;
+    margin-left:25%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    font-size:2vw;
+  }
+
+  .profile_name{
+    width:50%;
+    margin-left:25%;
+    color:white;
+    text-align:center;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    font-size:2vw;
+    padding-top:1vw;
+    padding-bottom:1vw;
+  }
+
+  .history{
+    width:50%;
+    margin-left:25%;
+    text-align:center;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    font-size:3vw;
+    cursor:pointer;
+  }
+
+  /* Calculator */
+  .calculator{
+    width:50%;
+    margin-left:39%;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+
+  .calculator_button{
+    width:5vw;
+    height:5vw;
+    display:inline-block;
+    margin-bottom:1vw;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    font-size:1vw;
+  }
+
+  .calculator_clear_button{
+    width:20.75vw;
+    height:5vw;
+    display:inline-block;
+    margin-bottom:1vw;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    font-size:1vw;
+  }
+
+  .calculator_basic_operation_button{
+    width:5vw;
+    height:5vw;
+    display:inline-block;
+    margin-bottom:1vw;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    font-size:1vw;
+  }
+
+  .calculator_result[type=text]{
+    margin-bottom:2vw;
+    width:20.75vw;
+  }
 }
