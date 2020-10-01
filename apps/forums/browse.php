@@ -103,7 +103,7 @@
                   {
                     $searchTerm = $searchReturns['title'];
                     
-                    echo "<form method='POST' action='show_post.php'><input type='submit' name='title' value='".$searchTerm."'/></form>";
+                    echo "<form method='POST' action='show_post.php'><input type='submit' name='title' value='".$searchTerm."'/></form><br/>";
                   }
                 }
                 else
@@ -126,7 +126,7 @@
             {
               $searchTerm = $searchReturns['title'];
 
-              echo "<form method='POST' action='show_post.php'><input type='hidden' value='".$searchTerm."' name='title'/><input type='submit' value='".$searchTerm."'/></form>";
+              echo "<form method='POST' action='show_post.php'><input type='hidden' value='".$searchTerm."' name='title'/><input type='submit' value='".$searchTerm."'/></form><br/>";
             }
           }
         ?>

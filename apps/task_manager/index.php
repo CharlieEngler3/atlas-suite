@@ -43,6 +43,13 @@
         <?php
             }
         ?>
+
+        <script>
+            function SubmitForm(input)
+            {
+                input.form.submit();
+            }
+        </script>
     </head>
 
     <body>

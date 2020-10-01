@@ -325,7 +325,7 @@ button{
   margin-top:5vw;
   margin-bottom:5vw;
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
-  background-color:var(--interactable-positive-bg-color);
+  background-color:var(--interactable-negative-bg-color);
   font-size:7vw;
 }
 
@@ -336,7 +336,7 @@ button{
   margin-top:5vw;
   margin-bottom:5vw;
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
-  background-color:var(--interactable-negative-bg-color);
+  background-color:var(--interactable-positive-bg-color);
   font-size:7vw;
 }
 
@@ -693,9 +693,10 @@ img{
     text-align:center;
     margin-top:5vw;
     margin-bottom:5vw;
-    box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
     background-color:var(--interactable-bg-color);
     display:inline-block;
+    padding-bottom:1vw;
   }
 
   .notification[type=submit]{
@@ -704,7 +705,7 @@ img{
     text-align:center;
     margin-top:5vw;
     margin-bottom:5vw;
-    box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
     background-color:var(--interactable-bg-color);
   }
 
@@ -772,6 +773,11 @@ img{
     color:var(--main-text-color);
   }
 
+  input[type=checkbox]{
+    width:1.5vw;
+    height:1.5vw;
+  }
+
   textarea{
     font-family: Trebuchet;
     src: local("Trebuchet MS"), url(fonts/trebuc.ttf);
@@ -829,7 +835,7 @@ img{
     margin-top:1vw;
     margin-bottom:5vw;
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
-    background-color:var(--interactable-positive-bg-color);
+    background-color:var(--interactable-negative-bg-color);
     font-size:1.5vw;
   }
 
@@ -840,7 +846,7 @@ img{
     margin-top:1vw;
     margin-bottom:5vw;
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
-    background-color:var(--interactable-negative-bg-color);
+    background-color:var(--interactable-positive-bg-color);
     font-size:1.5vw;
   }
 

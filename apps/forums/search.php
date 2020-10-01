@@ -82,17 +82,17 @@
 
   echo "<div class='results'><h3><u><b>Number of results: ".$numResults."</b></u></h3><br/><br/>";
 
-  echo "<form method='POST' action='show_post.php'>";
+  echo "<div class='browse_results'>";
 
   if($numResults != 0)
   {
     while($row = $result->fetch_assoc())
     {
-      echo "<input type='hidden' value='".$row["title"]."' name='title'/><input type='submit' value='".$row["title"]."'/>";
+      echo "<form method='POST' action='show_post.php'><input type='hidden' value='".$row["title"]."' name='title'/><input type='submit' value='".$row["title"]."'/></form><br/>";
     }
   }
-  
-   echo "</form>";
+
+  echo "</div>";
 
 	echo "</div>";
 ?>
