@@ -15,16 +15,40 @@
         <h1>GPA Calculator</h1>
 
         <!--Simple text input-->
-        <input type="text" placeholder="Enter your current grade" id="grade"/>\
+        <!-- <input type="text" placeholder="Enter your current grade" id="grade"/>\ -->
+
         <!--Simple dropdown-->
         <select id="letterGrades">
+            <option value="A+">A+</option>
             <option value="A">A</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
             <option value="B">B</option>
+            <option value="B-">B-</option>
+            <option value="C+">C+</option>
+            <option value="C">C</option>
+            <option value="C-">C-</option>
+            <option value="D+">D+</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
         </select>
-        <!--Button-->
+
+        <select id="difficulty">
+            <option value="AP/Honors">AP/Honors</option>
+            <option value="CP">CP</option>
+            <option value="Academic">Academic</option>
+        </select>
+
+        <select id="creditNumber">
+            <option value=4>4</option>
+            <option value=2>2</option>
+        </select>
+
         <button onclick="ProcessGrade();">Submit</button>
 
         <!--Subheader-->
+        <h3 id="TotalScore"></h3>
+        <h3 id="TotalCredits"></h3>
         <h3 id="LetterGrade"></h3>
 
         <div id="container">
