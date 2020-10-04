@@ -1,7 +1,7 @@
 //Global array definition
 // var userLetterGrades = [];
 
-var totalScore = 0, totalCredits = 0;
+var totalScore = 0, rawTotal = 0, totalCredits = 0, classCount = 0;
 
 function calcScore(level, rawGrade, credits){
     if (level == "CP") return (rawGrade + 1.00) * credits;
@@ -16,6 +16,9 @@ function ProcessGrade(){
     let grade = document.getElementById("letterGrades").value;
     let level = document.getElementById("difficulty").value;
     let credit = document.getElementById("creditNumber").value;
+
+    if (grade == "---" || level == "---" || credit == "---") return;
+
     totalCredits += parseInt(credit);
 
     let letterGradeValue;
@@ -26,9 +29,20 @@ function ProcessGrade(){
         }
     }
 
+    rawTotal += gradeValues[letterGradeValue] * credit;
     totalScore += calcScore(level, gradeValues[letterGradeValue], credit);
     let ans = (totalScore/totalCredits).toFixed(3);
-    document.getElementById("LetterGrade").innerHTML = ans;
+    let ans2 = (rawTotal/totalCredits).toFixed(3);
+    classCount++;
+    document.getElementById("WeightedGPA").innerHTML = ans;
+    document.getElementById("UWGPA").innerHTML = ans2;
+    document.getElementById("ClassCount").innerHTML = classCount;
+}
+
+function ClearGrades(){
+    totalScore = 0;
+    totalCredits = 0;
+    document.getElementById("WeightedGPA").innerHTML = "---";
 }
 
 /*

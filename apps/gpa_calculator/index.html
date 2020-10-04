@@ -19,6 +19,7 @@
 
         <!--Simple dropdown-->
         <select id="letterGrades">
+            <option value="---">---</option>
             <option value="A+">A+</option>
             <option value="A">A</option>
             <option value="A-">A-</option>
@@ -34,12 +35,14 @@
         </select>
 
         <select id="difficulty">
+            <option value="---">---</option>
             <option value="AP/Honors">AP/Honors</option>
             <option value="CP">CP</option>
             <option value="Academic">Academic</option>
         </select>
 
         <select id="creditNumber">
+            <option value="---">---</option>
             <option value=4>4</option>
             <option value=2>2</option>
         </select>
@@ -47,10 +50,16 @@
         <button onclick="ProcessGrade();">Submit</button>
 
         <!--Subheader-->
-        <h3 id="TotalScore"></h3>
-        <h3 id="TotalCredits"></h3>
-        <h3 id="LetterGrade"></h3>
-
+        <h3>Weighted GPA:</h3>
+        <h3 id="WeightedGPA">---</h3>
+        <br/>
+        <h3>Unweighted GPA:</h3>
+        <h3 id="UWGPA">---</h3>
+        <br/>
+        <h3>Classes Counted:</h3>
+        <h3 id="ClassCount">---</h3>
+        
+        <button onclick="ClearGrades();">Clear</button>
         <div id="container">
             
         </div>
