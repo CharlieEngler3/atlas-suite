@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>GPA Calculator</title>
+
+        <link rel="stylesheet" href="../../style/dark.css"/>
+        <script src="script.js" defer></script>
+
+        <div class="user_bar">
+            <a href="../../index.php">Home</a>
+        </div>
+    </head>
+
+    <body>
+        <!--Main header-->
+        <h1>GPA Calculator</h1>
+
+        <!--Simple text input-->
+        <input type="text" placeholder="Enter your current grade" id="grade"/>\
+        <!--Simple dropdown-->
+        <select id="letterGrades">
+            <option value="A">A</option>
+            <option value="B">B</option>
+        </select>
+        <!--Button-->
+        <button onclick="ProcessGrade();">Submit</button>
+
+        <!--Subheader-->
+        <h3 id="LetterGrade"></h3>
+
+        <div id="container">
+            
+        </div>
+    </body>
+</html>
