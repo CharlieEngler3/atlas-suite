@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2020 at 01:48 PM
+-- Generation Time: Oct 05, 2020 at 02:22 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -35,6 +35,15 @@ CREATE TABLE `tasks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `title`, `notes`, `user`) VALUES
+(14, 'English HW', '<br/><input type=checkbox name=check onclick=SubmitForm(this); checked>Complete conspiracy paragraphs 10/1 <br/><input type=checkbox name=check onclick=SubmitForm(this);>Conspiracy essay 10/4', 'charlieengler3'),
+(15, 'Gov HW', '<br/><input type=checkbox name=check onclick=SubmitForm(this); checked>Federalism FRQ - Review definitions and foundational documents 10/1<br/><input type=checkbox name=check onclick=SubmitForm(this); checked>Current event presentation 10/2<br/><input type=checkbox name=check onclick=SubmitForm(this);>MC test on Chapters 2 and 3 10/5<br/><input type=checkbox name=check onclick=SubmitForm(this);>Rewrite Constitution FRQ 10/5<br/><input type=checkbox name=check onclick=SubmitForm(this);>Chapter 6 notes 10/6<br/><input type=checkbox name=check onclick=SubmitForm(this);>Annotated bibliography 10/13<br/><input type=checkbox name=check onclick=SubmitForm(this);>Final paper 10/20', 'charlieengler3'),
+(16, 'Chem HW', '<br/><input type=checkbox name=check onclick=SubmitForm(this);>Assignment 7 10/7. <br/><input type=checkbox name=check onclick=SubmitForm(this);>Lab 10/5', 'charlieengler3');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -52,7 +61,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

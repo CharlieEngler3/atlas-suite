@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2020 at 01:48 PM
+-- Generation Time: Oct 05, 2020 at 02:22 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -40,7 +40,7 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`id`, `username`, `email`, `password`, `previous_searches`) VALUES
-(9, 'charlieengler3', 'charlieengler3@gmail.com', '2265e544e835dc109751f9872041c8c0', '');
+(9, 'charlieengler3', 'charlieengler3@gmail.com', '2265e544e835dc109751f9872041c8c0', 'Example');
 
 --
 -- Indexes for dumped tables
