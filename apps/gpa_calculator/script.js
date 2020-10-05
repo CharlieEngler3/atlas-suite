@@ -41,8 +41,12 @@ function ProcessGrade(){
 
 function ClearGrades(){
     totalScore = 0;
+    rawTotal = 0;
     totalCredits = 0;
+    classCount = 0;
     document.getElementById("WeightedGPA").innerHTML = "---";
+    document.getElementById("UWGPA").innerHTML = "---";
+    document.getElementById("ClassCount").innerHTML = "---";
 }
 
 /*
