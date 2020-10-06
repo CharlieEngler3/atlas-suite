@@ -49,6 +49,40 @@
             {
                 location.href = "edit.php?title=" + title + "&notes=" + notes + "&name=" + name + "&action=" + action;
             }
+
+            function CreateTask()
+            {
+                var parent = document.getElementById("tasks");
+
+                var newTask = document.createElement("INPUT");
+
+                newTask.setAttribute("type", "text");
+                newTask.className = "task_notes_form";
+                newTask.placeholder = "Task";
+                newTask.name = "notes[]";
+
+                var hidden = document.createElement("INPUT");
+
+                hidden.setAttribute("type", "hidden");
+                hidden.name = "notes[]";
+                hidden.value = "✗";
+
+                parent.appendChild(hidden);
+                parent.appendChild(newTask);
+                parent.appendChild(document.createElement("BR"));
+            }
+
+            function RemoveTask()
+            {
+                var parent = document.getElementById("tasks");
+
+                if(parent.childNodes.length > 7)
+                {
+                    parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
+                    parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
+                    parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
+                }
+            }
         </script>
     </head>
 
@@ -59,8 +93,14 @@
             {
         ?>
             <form class="create_task" action="create.php" method="POST">
-                <input type="text" class="task_title_form" placeholder="Title of Task" name="title">
-                <input type="text" class="task_notes_form" placeholder="Additional Notes" name="notes">
+                <input type="button" onclick="CreateTask();" class="task_add" value="Add Task">
+                <input type="button" onclick="RemoveTask();" class="task_remove" value="Remove Task">
+                <input type="text" class="task_title_form" placeholder="Title" name="title">
+                <div id="tasks">
+                    <input type="hidden" name="notes[]" value="✗">
+                    <input type="text" class="task_notes_form" placeholder="Task" name="notes[]">
+                    <br>
+                </div>
                 <input type="submit" class="task_create" value="Create">
             </form>
         <?php
@@ -125,7 +165,7 @@
                     {
                         if($checked[$i] != "")
                         {
-                            echo "<div class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$checked[$i]."\", \"uncheck\");'><input type='checkbox' class='task_notes' value='".$checked[$i]."' checked/>";
+                            echo "<div style='text-decoration: line-through;' class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$checked[$i]."\", \"uncheck\");'><input type='checkbox' class='task_notes' value='".$checked[$i]."' checked/>";
                             echo "<label for='".$checked[$i]."'>".$checked[$i]."</label></div>";
                         }
                     }

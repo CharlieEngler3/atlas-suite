@@ -18,6 +18,7 @@
   --interactable-bg-color:#383b3f;
 
   --interactable-positive-bg-color:#81c281;
+  --interactable-neutral-bg-color:#37c6ff;
   --interactable-negative-bg-color:#da7a7a;
 
   --link-color:#63ceff;
@@ -473,6 +474,32 @@ img{
   box-shadow:0px 0px 3vw rgba(0, 0, 0, 0.25);
 }
 
+.task_create[type=submit]{
+  width:100%;
+  background-color:var(--interactable-positive-bg-color);
+  font-size:7vw;
+  border:none;
+  color:white;
+}
+
+.task_add[type=button]{
+  width:49.2%;
+  background-color:var(--interactable-neutral-bg-color);
+  font-size:7vw;
+  border:none;
+  color:white;
+  border-radius:0;
+}
+
+.task_remove[type=button]{
+  width:49.2%;
+  background-color:var(--interactable-negative-bg-color);
+  font-size:7vw;
+  border:none;
+  color:white;
+  border-radius:0;
+}
+
 .task_edit[type=submit]{
   width:50%;
   display:inline-block;
@@ -623,6 +650,7 @@ img{
   /* Links */
   a{
     color:var(--link-color);
+    cursor:pointer;
   }
 
   .index-signin{
@@ -636,6 +664,7 @@ img{
     background-color:#383b3f;
     border:none;
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+    cursor:pointer;
   }
 
   .user_bar{
@@ -650,6 +679,7 @@ img{
     margin-right:0.1vw;
     display:inline-block;
     font-size:1vw;
+    cursor:pointer;
   }
 
   /* Main page app icons */
@@ -707,6 +737,7 @@ img{
     margin-bottom:5vw;
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
     background-color:var(--interactable-bg-color);
+    cursor:pointer;
   }
 
   .notification_text{
@@ -722,6 +753,7 @@ img{
     padding:0;
     padding-top:1vw;
     padding-bottom:1vw;
+    cursor:pointer;
   }
 
   .remove_notification[type=submit]{
@@ -730,6 +762,7 @@ img{
     padding:0;
     padding-top:1vw;
     padding-bottom:1vw;
+    cursor:pointer;
   }
 
   .no_notifications{
@@ -771,11 +804,13 @@ img{
     padding:0.5vw;
     background-color:var(--interactable-bg-color);
     color:var(--main-text-color);
+    cursor:pointer;
   }
 
   input[type=checkbox]{
     width:1.5vw;
     height:1.5vw;
+    cursor:pointer;
   }
 
   textarea{
@@ -796,6 +831,7 @@ img{
     padding:2vw;
     background-color:var(--interactable-bg-color);
     color:var(--main-text-color);
+    cursor:pointer;
   }
 
   /* Forums */
@@ -837,6 +873,7 @@ img{
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
     background-color:var(--interactable-negative-bg-color);
     font-size:1.5vw;
+    cursor:pointer;
   }
 
   .unhide_synthetic[type=submit]{
@@ -848,6 +885,7 @@ img{
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
     background-color:var(--interactable-positive-bg-color);
     font-size:1.5vw;
+    cursor:pointer;
   }
 
   .author{
@@ -915,6 +953,7 @@ img{
     margin-bottom:2vw;
     width:90%;
     font-size:2vw;
+    cursor:pointer;
   }
 
   .images{
@@ -998,6 +1037,7 @@ img{
     display:inline-block;
     background-color:var(--interactable-positive-bg-color);
     font-size:2vw;
+    cursor:pointer;
   }
 
   .task_delete[type=submit]{
@@ -1005,6 +1045,7 @@ img{
     display:inline-block;
     background-color:var(--interactable-negative-bg-color);
     font-size:2vw;
+    cursor:pointer;
   }
 
   .task_title{
@@ -1036,6 +1077,25 @@ img{
     width:50%;
     background-color:var(--interactable-positive-bg-color);
     font-size:2vw;
+    cursor:pointer;
+  }
+
+  .task_add[type=button]{
+    width:24.85%;
+    background-color:var(--interactable-neutral-bg-color);
+    font-size:3vw;
+    border:none;
+    color:white;
+    cursor:pointer;
+  }
+
+  .task_remove[type=button]{
+    width:24.85%;
+    background-color:var(--interactable-negative-bg-color);
+    font-size:3vw;
+    border:none;
+    color:white;
+    cursor:pointer;
   }
 
   /* Profile */
@@ -1084,6 +1144,7 @@ img{
     margin-bottom:1vw;
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
     font-size:1vw;
+    cursor:pointer;
   }
 
   .calculator_clear_button{
@@ -1093,6 +1154,7 @@ img{
     margin-bottom:1vw;
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
     font-size:1vw;
+    cursor:pointer;
   }
 
   .calculator_basic_operation_button{
@@ -1102,6 +1164,7 @@ img{
     margin-bottom:1vw;
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
     font-size:1vw;
+    cursor:pointer;
   }
 
   .calculator_result[type=text]{
