@@ -25,8 +25,8 @@
   
     $conn = new mysqli($servername, $server_user, "", "task_manager");
 
-    $checkbox_text = "<br/><input type=checkbox name=check onclick=SubmitForm(this);>";
-    $checkedbox_text = "<br/><input type=checkbox name=check onclick=SubmitForm(this); checked>";
+    $checkbox_text = "<br/><div onclick='SubmitForm(this);'><input type=checkbox name=check></div>";
+    $checkedbox_text = "<br/><div onclick='SubmitForm(this);'><input type=checkbox name=check checked></div>";
 
     if(isset($_POST['title']))
     {
@@ -46,10 +46,6 @@
 
         while($row = $result->fetch_assoc())
         {
-            $notes = str_replace($checkbox_text, ":check:", $row['notes']);
-
-            $notes = str_replace($checkedbox_text, ":checked:", $notes);
-
             echo "<form method='POST' action='#' class='create_task' autocomplete='off'>";
             echo "<input type='text' class='task_title_form' name='new_title' value='".$row['title']."'>";
             echo "<br/>";
@@ -66,10 +62,6 @@
         $new_title = str_replace("'", '’', $_POST['new_title']);
         $new_notes = str_replace("'", '’', $_POST['new_notes']);
 
-        $new_notes = str_replace(":check:", $checkbox_text, $new_notes);
-
-        $new_notes = str_replace(":checked:", $checkedbox_text, $new_notes);
-
         $title = $_POST['old_title'];
 
         $conn->query("UPDATE tasks SET title='$new_title', notes='$new_notes' WHERE title='$title'");
@@ -77,18 +69,23 @@
         echo "<script>location.href='index.php'</script>";
     }
 
-    if(!isset($_POST['new_title']) && !isset($_POST['new_notes']) && !isset($_POST['edit']) && !isset($_POST['delete']))
+    if(isset($_GET['title']) && isset($_GET['name']) && isset($_GET['action']))
     {
-        $result = $conn->query("SELECT * FROM tasks WHERE title='$title'");
+        $title = $_GET['title'];
+        $notes = $_GET['notes'];
+        $name = $_GET['name'];
+        $action = $_GET['action'];
 
-        while($row = $result->fetch_assoc())
+        if($action == "check")
         {
-            $notes = str_replace($checkedbox_text, $checkbox_text, $row['notes']);
+            $notes = str_replace("✗".$name, "✓".$name, $notes);
 
-            if(isset($_POST['check']))
-            {
-                $notes = str_replace($checkbox_text, $checkedbox_text, $row['notes']);
-            }
+            $conn->query("UPDATE tasks SET notes='$notes' WHERE title='$title'");
+        }
+        
+        if($action == "uncheck")
+        {
+            $notes = str_replace("✓".$name, "✗".$name, $notes);
 
             $conn->query("UPDATE tasks SET notes='$notes' WHERE title='$title'");
         }

@@ -45,9 +45,9 @@
         ?>
 
         <script>
-            function SubmitForm(input)
+            function SubmitForm(title, notes, name, action)
             {
-                input.form.submit();
+                location.href = "edit.php?title=" + title + "&notes=" + notes + "&name=" + name + "&action=" + action;
             }
         </script>
     </head>
@@ -80,10 +80,56 @@
 
                 while($row = $result->fetch_assoc())
                 {
+                    $notestemp = explode("✗", $row['notes']);
+                    $checked = array();
+                    $unchecked = array();
+
+                    for($i = 0; $i < count($notestemp); $i++)
+                    {
+                        $exploded = explode("✓", $notestemp[$i]);
+
+                        if(count($exploded) > 1)
+                        {
+                            for($j = 0; $j < count($exploded); $j++)
+                            {
+                                if($j == 0)
+                                {
+                                    array_push($unchecked, $exploded[$j]);
+                                }
+                                else
+                                {
+                                    array_push($checked, $exploded[$j]);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            array_push($unchecked, $notestemp[$i]);
+                        }
+                    }
+
                     echo "<form method='POST' action='edit.php' class='task'>";
                     echo "<input type='hidden' name='title' value='".$row['title']."'>";
                     echo "<div class='task_title'>".$row['title']."</div>";
-                    echo "<div class='task_notes'>".$row['notes']."</div>";
+
+                    for($i = 0; $i < count($unchecked); $i++)
+                    {
+                        if($unchecked[$i] != "")
+                        {
+                            echo "<div class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$unchecked[$i]."\", \"check\");'><input type='checkbox' class='task_notes' value='".$unchecked[$i]."'/>";
+                            echo "<label for='".$unchecked[$i]."'>".$unchecked[$i]."</label></div>";
+                        }
+                    }
+
+                    for($i = 0; $i < count($checked); $i++)
+                    {
+                        if($checked[$i] != "")
+                        {
+                            echo "<div class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$checked[$i]."\", \"uncheck\");'><input type='checkbox' class='task_notes' value='".$checked[$i]."' checked/>";
+                            echo "<label for='".$checked[$i]."'>".$checked[$i]."</label></div>";
+                        }
+                    }
+
                     echo "<input type='submit' name='edit' class='task_edit' value='Edit'>";
                     echo "<input type='submit' name='delete' class='task_delete' value='Delete'>";
                     echo "</form>";
