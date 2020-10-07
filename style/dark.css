@@ -422,6 +422,15 @@ img{
   box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
 }
 
+.expanded_image{
+  position:fixed;
+  width:80%;
+  height:auto;
+  top:0;
+  left:-91vw;
+  border:100vw solid rgba(0, 0, 0, 0.5);
+}
+
 /* Sign In/Up */
 .signup_form{
   width:90%;
@@ -969,6 +978,16 @@ img{
     margin-left:1vw;
     margin-bottom:1vw;
     box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+  }
+
+  .expanded_image{
+    position:fixed;
+    width:80%;
+    height:auto;
+    top:-7vw;
+    left:-1vw;
+    border:10vw solid rgba(0, 0, 0, 0.5);
+    cursor:pointer;
   }
 
   /* Sign In/Up */

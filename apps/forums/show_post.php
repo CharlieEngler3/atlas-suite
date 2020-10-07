@@ -30,7 +30,7 @@
       {
         if($row['user'] == $_SESSION['username'])
         {
-          echo "<div class='user_bar'><u><a onclick='submitEdit()'>Edit</a></u></div>";
+          echo "<div class='user_bar'><a onclick='submitEdit()'>Edit</a></div>";
 
           ?>
             <form id="editSubmit" method="POST" action="edit.php"><input type="hidden" name="title" value="<?php echo $title; ?>"/></form>
@@ -56,7 +56,7 @@
         {
       ?>
       
-      <div class='images'>
+      <div id='images' class='images'>
         Click on images to expand them.
         <br>
         <br>
@@ -65,7 +65,7 @@
 
             for($i = 0; $i < sizeof($image_links); $i++)
             {
-              echo "<img onclick='ExpandImage(\"".$image_links[$i]."\")' src='".$image_links[$i]."' height='10%'>";
+              echo "<img onclick='ExpandImage(\"".$image_links[$i]."\");' src='".$image_links[$i]."'>";
             }
           ?>
       </div>
@@ -122,16 +122,16 @@
       
       function ExpandImage(link)
       {
-        var expandedImage = document.createElement("IMG");
-        expandedImage.class = "expanded_image";
-        expandedImage.onclick = "MinimizeImage()";
-        expandedImage.id = "expanded_image";
-        expandedImage.src = link.toString();
-      }
-      
-      function MinimizeImage()
-      {
-        document.getElementById('expanded_image').remove();
+        if(!document.getElementById("expanded_image"))
+        {
+          var expandedImage = document.createElement("IMG");
+          expandedImage.className = "expanded_image";
+          expandedImage.onclick = function() {document.getElementById("expanded_image").remove();};
+          expandedImage.id = "expanded_image";
+          expandedImage.src = link.toString();
+
+          document.body.appendChild(expandedImage);
+        }
       }
     </script>
   </body>
