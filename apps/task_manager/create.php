@@ -8,7 +8,6 @@
 
     $username = $_SESSION['username'];
 
-    $notes = $_POST['notes'];
     $notes = implode("", $_POST['notes']);
 
     $title = str_replace("'", '’', $_POST['title']);
