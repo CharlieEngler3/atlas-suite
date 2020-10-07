@@ -15,6 +15,32 @@
         <div class="user_bar">
             <a href="index.php">Back</a>
         </div>
+
+        <script>
+            function CreateTask()
+            {
+                var parent = document.getElementById("tasks");
+
+                var newTask = document.createElement("INPUT");
+
+                newTask.setAttribute("type", "text");
+                newTask.className = "task_notes_form";
+                newTask.placeholder = "Task";
+                newTask.name = "new_notes_unchecked[]";
+
+                parent.appendChild(newTask);
+                parent.appendChild(document.createElement("BR"));
+            }
+
+            function RemoveTask()
+            {
+                var parent = document.getElementById("tasks");
+
+                parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
+                parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
+                parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
+            }
+        </script>
     </head>
 </html>
 
@@ -75,8 +101,15 @@
             }
 
             echo "<form method='POST' action='#' class='create_task' autocomplete='off'>";
+
+    ?>
+            <input type="button" onclick="CreateTask();" class="task_add" value="Add Task">
+            <input type="button" onclick="RemoveTask();" class="task_remove" value="Remove Task">
+    <?php
+
             echo "<input type='text' class='task_title_form' name='new_title' value='".$title."'>";
             echo "<br/>";
+            echo "<div id='tasks'>";
             for($i = 0; $i < count($unchecked); $i++)
             {
                 if($unchecked[$i] != "")
@@ -92,6 +125,7 @@
                     echo "<input type='text' style='text-decoration: line-through;' class='task_notes_form' value='".$checked[$i]."' name='new_notes_checked[]'><br>";
                 }
             }
+            echo "</div>";
             echo "<input type='hidden' name='old_title' value='".$title."'>";
             echo "<input type='submit' value='Submit Changes' class='task_create'>";
             echo "</form>";
