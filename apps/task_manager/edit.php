@@ -38,7 +38,6 @@
 
                 parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
                 parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
-                parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
             }
         </script>
     </head>
