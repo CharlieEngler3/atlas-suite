@@ -1,6 +1,10 @@
 <?php
 	session_start();
 
+	$serverpassword = include("../password.php");
+
+	echo $serverpassword;
+
     $servername = "localhost";
     $server_user = "root";
 
