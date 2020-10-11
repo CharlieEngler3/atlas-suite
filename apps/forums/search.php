@@ -26,11 +26,13 @@
 
 	$searchTerm = $_POST['search_term'];
 
-	$servername = "localhost";
-  $server_user = "root";
+	include("../../../password.php");
 
-  $conn = new mysqli($servername, $server_user, "", "forums");
-  $conn2 = new mysqli($servername, $server_user, "", "users");
+	$servername = "localhost";
+	$server_user = "root";
+  
+	$conn = new mysqli($servername, $server_user, $serverpassword, "forums");
+  $conn2 = new mysqli($servername, $server_user, $serverpassword, "users");
 
   if ($conn->connect_error) 
   {

@@ -57,11 +57,13 @@
           $user = $_SESSION['username'];
         }
 
+        include("../../../password.php");
+
         $servername = "localhost";
         $server_user = "root";
-
-        $conn = new mysqli($servername, $server_user, "", "forums");
-        $conn2 = new mysqli($servername, $server_user, "", "users");
+      
+        $conn = new mysqli($servername, $server_user, $serverpassword, "forums");
+        $conn2 = new mysqli($servername, $server_user, $serverpassword, "users");
 
         if(isset($_SESSION['username']))
         {

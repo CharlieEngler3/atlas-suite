@@ -1,11 +1,13 @@
 <?php
     session_start();
 
-    $servername = "localhost";
-    $server_user = "root";
-  
-    $conn = new mysqli($servername, $server_user, "", "task_manager");
+	include("../../../password.php");
 
+	$servername = "localhost";
+	$server_user = "root";
+  
+	$conn = new mysqli($servername, $server_user, $serverpassword, "task_manager");
+	  
     if(isset($_SESSION['username']))
     {
         $username = $_SESSION['username'];

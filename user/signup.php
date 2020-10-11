@@ -50,11 +50,14 @@
     
     if($password == $repeat_password)
     {
+      
+	include("../../password.php");
+
       $servername = "localhost";
       $server_user = "root";
-
-      $conn = new mysqli($servername, $server_user, "", "users");
-      $conn2 = new mysqli($servername, $server_user, "", "notifications");
+      
+      $conn = new mysqli($servername, $server_user, $serverpassword, "users");
+      $conn2 = new mysqli($servername, $server_user, $serverpassword, "notifications");
 
       if ($conn->connect_error) 
       {

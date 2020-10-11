@@ -1,14 +1,12 @@
 <?php
 	session_start();
 
-	$serverpassword = include("../password.php");
-
-	echo $serverpassword;
+	include("../password.php");
 
     $servername = "localhost";
     $server_user = "root";
 
-	$conn = new mysqli($servername, $server_user, "", "notifications");
+	$conn = new mysqli($servername, $server_user, $serverpassword, "notifications");
 	
 	if(isset($_SESSION['username']))
 	{

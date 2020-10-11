@@ -1,11 +1,13 @@
 <?php
     session_start();
 
-    $servername = "localhost";
-    $server_user = "root";
-  
-    $conn = new mysqli($servername, $server_user, "", "task_manager");
+	include("../../../password.php");
 
+	$servername = "localhost";
+	$server_user = "root";
+  
+	$conn = new mysqli($servername, $server_user, $serverpassword, "task_manager");
+	  
     $username = $_SESSION['username'];
 
     $notes = implode("", $_POST['notes']);

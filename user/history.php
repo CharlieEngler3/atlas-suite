@@ -21,11 +21,14 @@
     <div class='history'>
     
     <?php
+      
+      include("../../password.php");
+
       $servername = "localhost";
       $server_user = "root";
-
-      $conn = new mysqli($servername, $server_user, "", "users");
-
+      
+      $conn = new mysqli($servername, $server_user, $serverpassword, "users");
+        
       if ($conn->connect_error) 
       {
           die("Connection failed: " . $conn->connect_error);

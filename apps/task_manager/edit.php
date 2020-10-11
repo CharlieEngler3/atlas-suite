@@ -1,7 +1,5 @@
 <?php
     session_start();
-
-    //print_r($_POST);
 ?>
 
 <html>
@@ -45,11 +43,13 @@
 
 <?php
 
+    include("../../../password.php");
+
     $servername = "localhost";
     $server_user = "root";
-  
-    $conn = new mysqli($servername, $server_user, "", "task_manager");
 
+    $conn = new mysqli($servername, $server_user, $serverpassword, "task_manager");
+    
     $checkbox_text = "<br/><div onclick='SubmitForm(this);'><input type=checkbox name=check></div>";
     $checkedbox_text = "<br/><div onclick='SubmitForm(this);'><input type=checkbox name=check checked></div>";
 

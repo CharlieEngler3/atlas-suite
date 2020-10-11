@@ -6,11 +6,13 @@
 
   $user = $_SESSION['username'];
 
+	include("../../../password.php");
+
   $servername = "localhost";
   $server_user = "root";
 
-  $conn = new mysqli($servername, $server_user, "", "forums");
-
+	$conn = new mysqli($servername, $server_user, $serverpassword, "forums");
+	
   $comment = $comment."⎖";
   $commentUser = $user."⎖";
 

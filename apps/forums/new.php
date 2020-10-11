@@ -19,11 +19,13 @@
   	$images = $_POST['images'];
 	$user = $_SESSION['username'];
   
+	include("../../../password.php");
+
 	$servername = "localhost";
-  	$server_user = "root";
-
-  	$conn = new mysqli($servername, $server_user, "", "forums");
-
+	$server_user = "root";
+  
+	$conn = new mysqli($servername, $server_user, $serverpassword, "forums");
+	  
 	if ($conn->connect_error) 
 	{
 		die("Connection failed: " . $conn->connect_error);

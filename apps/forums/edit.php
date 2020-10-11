@@ -1,11 +1,13 @@
 <?php
   $title = $_POST['title'];
 
+	include("../../../password.php");
+
   $servername = "localhost";
   $server_user = "root";
 
-  $conn = new mysqli($servername, $server_user, "", "forums");
-
+	$conn = new mysqli($servername, $server_user, $serverpassword, "forums");
+	
   $result = $conn->query("SELECT * FROM posts WHERE title = '$title'");
 
   $row = $result->fetch_assoc();
