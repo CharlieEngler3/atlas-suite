@@ -14,7 +14,7 @@
         <h1>Pomodoro Timer</h1>
         <h3 id="state">Not Started</h3>
         <h3 id="countdown">-- m -- s</h3>
-        </br>
-        <button onclick = "run_clock();">Start/Restart</button>
+        <button onclick = "run_clock();">Start</button>
+        <button onclick = "reset();">Reset</button>
     </body>
 </html>
