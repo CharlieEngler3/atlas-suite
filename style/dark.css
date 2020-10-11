@@ -600,6 +600,53 @@ img{
   margin-bottom:2vw;
 }
 
+/* Pomodoro Timer */
+.pomodoro_button{
+  cursor:pointer;
+  font-size:7vw;
+  margin-bottom:3vw;
+  width:100%;
+  padding-top:2vw;
+  padding-bottom:2vw;
+}
+
+.pomodoro_text{
+  font-size:10vw;
+}
+
+.pomodoro{
+  margin-top:20%;
+}
+
+/* GPA Calculator */
+.gpa_dropdowns{
+  width:100%;
+  text-align:center;
+  margin-top:2vw;
+  margin-bottom:2vw;
+}
+
+.grade_select{
+  font-size:7vw;
+}
+
+.level_select{
+  font-size:7vw;
+}
+
+.credit_select{
+  font-size:7vw;
+}
+
+.gpa_button{
+  width:90%;
+  margin-left:5%;
+  font-size:7vw;
+  padding-top:2vw;
+  padding-bottom:2vw;
+  margin-top:5vw;
+}
+
 /*
   ____     ____     ____    _             _   _                 
  |  _ \   / ___|   / ___|  | |_   _   _  | | (_)  _ __     __ _ 
@@ -1189,5 +1236,53 @@ img{
   .calculator_result[type=text]{
     margin-bottom:2vw;
     width:20.75vw;
+  }
+
+  /* Pomodoro Timer */
+  .pomodoro_button{
+    cursor:pointer;
+    font-size:2vw;
+    margin-bottom:1vw;
+    width:20%;
+    margin-left:40%;
+    padding-top:1vw;
+    padding-bottom:1vw;
+  }
+
+  .pomodoro_text{
+    font-size:2vw;
+  }
+  
+  .pomodoro{
+    margin-top:0;
+  }
+
+  /* GPA Calculator */
+  .gpa_dropdowns{
+    width:30%;
+    margin-left:35%;
+    text-align:center;
+    margin-top:2vw;
+    margin-bottom:2vw;
+  }
+
+  .grade_select{
+    font-size:1.5vw;
+  }
+
+  .level_select{
+    font-size:1.5vw;
+  }
+
+  .credit_select{
+    font-size:1.5vw;
+  }
+
+  .gpa_button{
+    width:20%;
+    margin-left:40%;
+    font-size:2vw;
+    padding-top:1vw;
+    padding-bottom:1vw;
   }
 }

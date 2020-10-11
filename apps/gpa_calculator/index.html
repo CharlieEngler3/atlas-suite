@@ -15,36 +15,38 @@
         <h1>GPA Calculator</h1>
 
         <!--Simple dropdown-->
-        <select id="letterGrades">
-            <option value="---">---</option>
-            <option value="A+">A+</option>
-            <option value="A">A</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B">B</option>
-            <option value="B-">B-</option>
-            <option value="C+">C+</option>
-            <option value="C">C</option>
-            <option value="C-">C-</option>
-            <option value="D+">D+</option>
-            <option value="D">D</option>
-            <option value="F">F</option>
-        </select>
+        <div class="gpa_dropdowns">
+            <select class="grade_select" id="letterGrades">
+                <option value="---">Grade</option>
+                <option value="A+">A+</option>
+                <option value="A">A</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B">B</option>
+                <option value="B-">B-</option>
+                <option value="C+">C+</option>
+                <option value="C">C</option>
+                <option value="C-">C-</option>
+                <option value="D+">D+</option>
+                <option value="D">D</option>
+                <option value="F">F</option>
+            </select>
 
-        <select id="difficulty">
-            <option value="---">---</option>
-            <option value="AP/Honors">AP/Honors</option>
-            <option value="CP">CP</option>
-            <option value="Academic">Academic</option>
-        </select>
+            <select class="level_select" id="difficulty">
+                <option value="---">Level</option>
+                <option value="AP/Honors">AP/Honors</option>
+                <option value="CP">CP</option>
+                <option value="Academic">Academic</option>
+            </select>
 
-        <select id="creditNumber">
-            <option value="---">---</option>
-            <option value=4>4</option>
-            <option value=2>2</option>
-        </select>
+            <select class="credit_select" id="creditNumber">
+                <option value="---">Credits</option>
+                <option value=4>4</option>
+                <option value=2>2</option>
+            </select>
+        </div>
 
-        <button onclick="ProcessGrade();">Submit</button>
+        <button class="gpa_button" onclick="ProcessGrade();">Submit</button>
 
         <!--Subheader-->
         <h3>Weighted GPA:</h3>
@@ -56,7 +58,7 @@
         <h3>Classes Counted:</h3>
         <h3 id="ClassCount">---</h3>
         
-        <button onclick="ClearGrades();">Clear</button>
+        <button class="gpa_button" onclick="ClearGrades();">Clear</button>
         </div>
     </body>
 </html>
