@@ -12,7 +12,14 @@
 	  
   $result = $conn->query("SELECT * FROM posts WHERE title = '$title'");
 
-  $row = $result->fetch_assoc();
+  while($row = $result->fetch_assoc())
+  {
+    $user = $row['user'];
+    $body = $row['body'];
+    $image_links = $row['image_links'];
+    $comments = $row['comments'];
+    $comment_users = $row['comment_users'];
+  }
 ?>
 
 <html>
@@ -30,7 +37,7 @@
     <?php
       if(isset($_SESSION['username']))
       {
-        if($row['user'] == $_SESSION['username'])
+        if($user == $_SESSION['username'])
         {
           echo "<div class='user_bar'><a onclick='submitEdit()'>Edit</a></div>";
 
@@ -47,14 +54,14 @@
       <?php echo $title; ?>
     </u></h1>
     <div class='author'>
-      By: <?php echo $row['user'] ?>
+      By: <?php echo $user ?>
     </div>
     
     <div class='post'>
       <?php 
-        echo $row['body']; 
+        echo $body; 
 
-        if($row['image_links'] != "")
+        if($image_links != "")
         {
       ?>
       
@@ -63,11 +70,11 @@
         <br>
         <br>
           <?php
-            $image_links = explode("⎖", $row['image_links']);
+            $image_links_arr = explode("⎖", $image_links);
 
-            for($i = 0; $i < sizeof($image_links); $i++)
+            for($i = 0; $i < sizeof($image_links_arr); $i++)
             {
-              echo "<img onclick='ExpandImage(\"".$image_links[$i]."\");' src='".$image_links[$i]."'>";
+              echo "<img onclick='ExpandImage(\"".$image_links_arr[$i]."\");' src='".$image_links_arr[$i]."'>";
             }
           ?>
       </div>
@@ -98,11 +105,8 @@
       ?>
       
       <?php
-        $comments = $row['comments'];
-        $users = $row['comment_users'];
-      
         $commentArray = explode("⎖", $comments);
-        $userArray = explode("⎖", $users);
+        $userArray = explode("⎖", $comment_users);
         
         for($i = 0; $i < sizeof($commentArray); $i++)
         {
