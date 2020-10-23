@@ -47,9 +47,9 @@
         ?>
 
         <script>
-            function SubmitForm(title, notes, name, action)
+            function SubmitForm(title, notes, dates, name, date, action)
             {
-                location.href = "edit.php?title=" + title + "&notes=" + notes + "&name=" + name + "&action=" + action;
+                location.href = "edit.php?title=" + title + "&notes=" + notes + "&dates=" + dates + "&name=" + name + "&date=" + date + "&action=" + action;
             }
 
             function CreateTask()
@@ -63,6 +63,12 @@
                 newTask.placeholder = "Task";
                 newTask.name = "notes[]";
 
+                var newDate = document.createElement("INPUT");
+
+                newDate.setAttribute("type", "date");
+                newDate.className = "task_notes_date";
+                newDate.name = "date[]";
+
                 var hidden = document.createElement("INPUT");
 
                 hidden.setAttribute("type", "hidden");
@@ -71,6 +77,7 @@
 
                 parent.appendChild(hidden);
                 parent.appendChild(newTask);
+                parent.appendChild(newDate);
                 parent.appendChild(document.createElement("BR"));
             }
 
@@ -80,6 +87,7 @@
 
                 if(parent.childNodes.length > 7)
                 {
+                    parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
                     parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
                     parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
                     parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
@@ -101,6 +109,7 @@
                 <div id="tasks">
                     <input type="hidden" name="notes[]" value="✗">
                     <input type="text" class="task_notes_form" placeholder="Task" name="notes[]">
+                    <input type="date" class="task_notes_date" name="date[]">
                     <br>
                 </div>
                 <input type="submit" class="task_create" value="Create">
@@ -126,9 +135,14 @@
                     $checked = array();
                     $unchecked = array();
 
+                    $datestemp = explode("✗", $row['dates']);
+                    $checkedDates = array();
+                    $uncheckedDates = array();
+
                     for($i = 0; $i < count($notestemp); $i++)
                     {
                         $exploded = explode("✓", $notestemp[$i]);
+                        $explodedDates = explode("✓", $datestemp[$i]);
 
                         if(count($exploded) > 1)
                         {
@@ -136,42 +150,91 @@
                             {
                                 if($j == 0)
                                 {
-                                    array_push($unchecked, $exploded[$j]);
+                                    if($exploded[$j])
+                                    {
+                                        array_push($unchecked, $exploded[$j]);
+                                    }
                                 }
                                 else
                                 {
-                                    array_push($checked, $exploded[$j]);
+                                    if($exploded[$j])
+                                    {
+                                        array_push($checked, $exploded[$j]);
+                                    }
                                 }
                             }
                         }
                         else
                         {
-                            array_push($unchecked, $notestemp[$i]);
+                            if($notestemp[$i])
+                            {
+                                array_push($unchecked, $notestemp[$i]);
+                            }
+                        }
+
+                        if(count($explodedDates) > 1)
+                        {
+                            for($j = 0; $j < count($explodedDates); $j++)
+                            {
+                                if($j == 0)
+                                {
+                                    if($explodedDates[$j])
+                                    {
+                                        array_push($uncheckedDates, $explodedDates[$j]);
+                                    }
+                                }
+                                else
+                                {
+                                    if($explodedDates[$j])
+                                    {
+                                        array_push($checkedDates, $explodedDates[$j]);
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if($datestemp[$i])
+                            {
+                                array_push($uncheckedDates, $datestemp[$i]);
+                            }
                         }
                     }
 
                     echo "<form method='POST' action='edit.php' class='task'>";
                     echo "<input type='hidden' name='title' value='".$row['title']."'>";
                     echo "<div class='task_title'>".$row['title']."</div>";
-
-                    for($i = 0; $i < count($unchecked); $i++)
+                    
+                    if(count($unchecked) > 0)
                     {
-                        if($unchecked[$i] != "")
+                        $unchecked = array_combine($uncheckedDates, $unchecked);
+                        ksort($unchecked);
+                        sort($uncheckedDates);
+
+                        $unchecked = array_values($unchecked);
+
+                        for($i = 0; $i < count($unchecked); $i++)
                         {
-                            echo "<div class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$unchecked[$i]."\", \"check\");'><input type='checkbox' class='task_notes' value='".$unchecked[$i]."'/>";
-                            echo "<label for='".$unchecked[$i]."'>".$unchecked[$i]."</label></div>";
+                            echo "<div class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$row['dates']."\", \"".$unchecked[$i]."\", \"".$uncheckedDates[$i]."\", \"check\");'><input type='checkbox' class='task_notes' value='".$unchecked[$i]."'/>";
+                            echo "<label for='".$unchecked[$i]."'>".$unchecked[$i]."</label><input type='date' readonly value='".$uncheckedDates[$i]."'></div>";
                         }
                     }
-
-                    for($i = 0; $i < count($checked); $i++)
+                    
+                    if(count($checked) > 0)
                     {
-                        if($checked[$i] != "")
+                        $checked = array_combine($checkedDates, $checked);
+                        ksort($checked);
+                        sort($checkedDates);
+
+                        $checked = array_values($checked);
+
+                        for($i = 0; $i < count($checked); $i++)
                         {
-                            echo "<div style='text-decoration: line-through;' class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$checked[$i]."\", \"uncheck\");'><input type='checkbox' class='task_notes' value='".$checked[$i]."' checked/>";
-                            echo "<label for='".$checked[$i]."'>".$checked[$i]."</label></div>";
+                            echo "<div style='text-decoration: line-through;' class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$row['dates']."\", \"".$checked[$i]."\", \"".$checkedDates[$i]."\", \"uncheck\");'><input type='checkbox' class='task_notes' value='".$checked[$i]."' checked/>";
+                            echo "<label for='".$checked[$i]."'>".$checked[$i]."</label><input type='date' readonly value='".$checkedDates[$i]."'></div>";
                         }
                     }
-
+                    
                     echo "<input type='submit' name='edit' class='task_edit' value='Edit'>";
                     echo "<input type='submit' name='delete' class='task_delete' value='Delete'>";
                     echo "</form>";
