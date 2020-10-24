@@ -69,6 +69,13 @@
                 newDate.className = "task_notes_date";
                 newDate.name = "date[]";
 
+                var deleteButton = document.createElement("INPUT");
+
+                deleteButton.setAttribute("type", "button");
+                deleteButton.className = "task_notes_delete";
+                deleteButton.value = "x";
+                deleteButton.setAttribute("onclick", "RemoveTask(" + (parent.childElementCount+5) + ")");
+
                 var hidden = document.createElement("INPUT");
 
                 hidden.setAttribute("type", "hidden");
@@ -78,19 +85,34 @@
                 parent.appendChild(hidden);
                 parent.appendChild(newTask);
                 parent.appendChild(newDate);
+                parent.appendChild(deleteButton);
                 parent.appendChild(document.createElement("BR"));
             }
 
-            function RemoveTask()
+            function RemoveTask(offset)
             {
                 var parent = document.getElementById("tasks");
 
-                if(parent.childNodes.length > 7)
+                parent.removeChild(parent.childNodes[offset]);
+                parent.removeChild(parent.childNodes[offset]);
+                parent.removeChild(parent.childNodes[offset]);
+                parent.removeChild(parent.childNodes[offset]);
+                parent.removeChild(parent.childNodes[offset]);
+
+                var otherDeleteBtns = document.getElementsByClassName("task_notes_delete");
+
+                for(let i = 0; i < otherDeleteBtns.length; i++)
                 {
-                    parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
-                    parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
-                    parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
-                    parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
+                    let rmVal = otherDeleteBtns[i].getAttribute("onclick");
+
+                    let rmOffset = parseInt(rmVal.substring(rmVal.lastIndexOf("(") + 1, rmVal.lastIndexOf(")")));
+
+                    if(rmOffset > offset)
+                    {
+                        rmOffset -= 5;
+
+                        otherDeleteBtns[i].setAttribute("onclick", "RemoveTask(" + rmOffset + ")");
+                    }
                 }
             }
         </script>
@@ -104,7 +126,7 @@
         ?>
             <form class="create_task" action="create.php" method="POST">
                 <input type="button" onclick="CreateTask();" class="task_add" value="Add Task">
-                <input type="button" onclick="RemoveTask();" class="task_remove" value="Remove Task">
+                <br/>
                 <input type="text" class="task_title_form" placeholder="Title" name="title">
                 <div id="tasks">
                     <input type="hidden" name="notes[]" value="✗">
@@ -216,7 +238,7 @@
                         for($i = 0; $i < count($unchecked); $i++)
                         {
                             echo "<div class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$row['dates']."\", \"".$unchecked[$i]."\", \"".$uncheckedDates[$i]."\", \"check\");'><input type='checkbox' class='task_notes' value='".$unchecked[$i]."'/>";
-                            echo "<label for='".$unchecked[$i]."'>".$unchecked[$i]."</label><input type='date' readonly value='".$uncheckedDates[$i]."'></div>";
+                            echo "<label for='".$unchecked[$i]."'>".$unchecked[$i]."</label><input type='date' class='task_date' readonly value='".$uncheckedDates[$i]."'></div>";
                         }
                     }
                     
@@ -231,7 +253,7 @@
                         for($i = 0; $i < count($checked); $i++)
                         {
                             echo "<div style='text-decoration: line-through;' class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$row['dates']."\", \"".$checked[$i]."\", \"".$checkedDates[$i]."\", \"uncheck\");'><input type='checkbox' class='task_notes' value='".$checked[$i]."' checked/>";
-                            echo "<label for='".$checked[$i]."'>".$checked[$i]."</label><input type='date' readonly value='".$checkedDates[$i]."'></div>";
+                            echo "<label for='".$checked[$i]."'>".$checked[$i]."</label><input type='date' class='task_date' readonly value='".$checkedDates[$i]."'></div>";
                         }
                     }
                     

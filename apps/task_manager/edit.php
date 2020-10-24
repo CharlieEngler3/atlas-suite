@@ -22,7 +22,7 @@
                 var newTask = document.createElement("INPUT");
 
                 newTask.setAttribute("type", "text");
-                newTask.className = "task_notes_form";
+                newTask.className = "edit_task_notes_form";
                 newTask.placeholder = "Task";
                 newTask.name = "new_notes_unchecked[]";
 
@@ -30,19 +30,45 @@
 
                 newDate.setAttribute("type", "date");
                 newDate.className = "task_notes_date";
-                newDate.name = "date[]";
+                newDate.name = "new_dates_unchecked[]";
+
+                var deleteButton = document.createElement("INPUT");
+
+                deleteButton.setAttribute("type", "button");
+                deleteButton.className = "task_notes_delete";
+                deleteButton.value = "x";
+                deleteButton.setAttribute("onclick", "RemoveTask(" + (parent.childElementCount) + ")");
 
                 parent.appendChild(newTask);
                 parent.appendChild(newDate);
+                parent.appendChild(deleteButton);
                 parent.appendChild(document.createElement("BR"));
             }
 
-            function RemoveTask()
+            function RemoveTask(offset)
             {
                 var parent = document.getElementById("tasks");
 
-                parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
-                parent.removeChild(parent.childNodes[parent.childNodes.length-1]);
+                parent.removeChild(parent.childNodes[offset]);
+                parent.removeChild(parent.childNodes[offset]);
+                parent.removeChild(parent.childNodes[offset]);
+                parent.removeChild(parent.childNodes[offset]);
+
+                var otherDeleteBtns = document.getElementsByClassName("task_notes_delete");
+
+                for(let i = 0; i < otherDeleteBtns.length; i++)
+                {
+                    let rmVal = otherDeleteBtns[i].getAttribute("onclick");
+
+                    let rmOffset = parseInt(rmVal.substring(rmVal.lastIndexOf("(") + 1, rmVal.lastIndexOf(")")));
+
+                    if(rmOffset > offset)
+                    {
+                        rmOffset -= 4;
+
+                        otherDeleteBtns[i].setAttribute("onclick", "RemoveTask(" + rmOffset + ")");
+                    }
+                }
             }
         </script>
     </head>
@@ -152,21 +178,43 @@
 
     ?>
             <input type="button" onclick="CreateTask();" class="task_add" value="Add Task">
-            <input type="button" onclick="RemoveTask();" class="task_remove" value="Remove Task">
+            <br/>
     <?php
 
             echo "<input type='text' class='task_title_form' name='new_title' value='".$title."'>";
             echo "<br/>";
             echo "<div id='tasks'>";
 
-            for($i = 0; $i < count($unchecked); $i++)
+            if(count($unchecked) > 0)
             {
-                echo "<input type='text' class='task_notes_form' value='".$unchecked[$i]."' name='new_notes_unchecked[]'><input type='date' name='new_dates_unchecked[]' value='".$uncheckedDates[$i]."'><br>";
+                $unchecked = array_combine($uncheckedDates, $unchecked);
+                ksort($unchecked);
+                sort($uncheckedDates);
+
+                $unchecked = array_values($unchecked);
+
+                for($i = 0; $i < count($unchecked); $i++)
+                {
+                    echo "<input type='text' class='edit_task_notes_form' value='".$unchecked[$i]."' name='new_notes_unchecked[]'><input type='date' class='task_notes_date' name='new_dates_unchecked[]' value='".$uncheckedDates[$i]."'>";
+                    echo "<input type='button' class='task_notes_delete' value='x' onclick='RemoveTask(".($i*4).")'>";
+                    echo "<br>";
+                }
             }
 
-            for($i = 0; $i < count($checked); $i++)
+            if(count($checked) > 0)
             {
-                echo "<input type='text' style='text-decoration: line-through;' class='task_notes_form' value='".$checked[$i]."' name='new_notes_checked[]'><input type='date' name='new_dates_checked[]' value='".$checkedDates[$i]."'><br>";
+                $checked = array_combine($checkedDates, $checked);
+                ksort($checked);
+                sort($checkedDates);
+
+                $checked = array_values($checked);
+
+                for($i = 0; $i < count($checked); $i++)
+                {
+                    echo "<input type='text' style='text-decoration: line-through;' class='edit_task_notes_form' value='".$checked[$i]."' name='new_notes_checked[]'><input type='date' class='task_notes_date' name='new_dates_checked[]' value='".$checkedDates[$i]."'>";
+                    echo "<input type='button' class='task_notes_delete' value='x' onclick='RemoveTask(".($i*4).")'>";
+                    echo "<br>";
+                }
             }
 
             echo "</div>";
