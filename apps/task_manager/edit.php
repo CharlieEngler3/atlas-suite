@@ -1,5 +1,7 @@
 <?php
     session_start();
+
+    $username = $_SESSION['username'];
 ?>
 
 <html>
@@ -82,6 +84,7 @@
     $server_user = "root";
 
     $conn = new mysqli($servername, $server_user, $serverpassword, "task_manager");
+    $conn2 = new mysqli($servername, $server_user, $serverpassword, "notifications");
     
     $checkbox_text = "<br/><div onclick='SubmitForm(this);'><input type=checkbox name=check></div>";
     $checkedbox_text = "<br/><div onclick='SubmitForm(this);'><input type=checkbox name=check checked></div>";
@@ -93,14 +96,53 @@
     
     if(isset($_POST['delete']))
     {
-        $conn->query("DELETE FROM tasks WHERE title='$title'");
+        $result = $conn->query("SELECT * FROM tasks WHERE title='$title' AND user='$username'");
+
+        while($row = $result->fetch_assoc())
+        {
+            $notestemp = explode("✗", $row['notes']);
+            $unchecked = array();
+
+            for($i = 0; $i < count($notestemp); $i++)
+            {
+                $exploded = explode("✓", $notestemp[$i]);
+
+                if(count($exploded) > 1)
+                {
+                    for($j = 0; $j < count($exploded); $j++)
+                    {
+                        if($j == 0)
+                        {
+                            if($exploded[$j])
+                            {
+                                array_push($unchecked, $exploded[$j]);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if($notestemp[$i])
+                    {
+                        array_push($unchecked, $notestemp[$i]);
+                    }
+                }
+            }
+
+            for($i = 0; $i < count($unchecked); $i++)
+            {
+                $conn2->query("DELETE FROM notifications WHERE text LIKE '%$unchecked[$i]%' AND username='$username'");
+            }
+        }
+
+        $conn->query("DELETE FROM tasks WHERE title='$title' AND user='$username'");
 
         echo "<script>location.href='index.php';</script>";
     }
 
     if(isset($_POST['edit']))
     {
-        $result = $conn->query("SELECT * FROM tasks WHERE title='$title'");
+        $result = $conn->query("SELECT * FROM tasks WHERE title='$title' AND user='$username'");
 
         while($row = $result->fetch_assoc())
         {
@@ -187,9 +229,25 @@
 
             if(count($unchecked) > 0)
             {
+                for($i = 1; $i < count($uncheckedDates); $i++)
+                {
+                    if($uncheckedDates[$i] == $uncheckedDates[$i-1])
+                    {
+                        $uncheckedDates[$i-1] = $uncheckedDates[$i-1].($i-1);
+                    }
+                }
+
                 $unchecked = array_combine($uncheckedDates, $unchecked);
                 ksort($unchecked);
                 sort($uncheckedDates);
+
+                for($i = 0; $i < count($uncheckedDates); $i++)
+                {
+                    if(strlen($uncheckedDates[$i]) > 10)
+                    {
+                        $uncheckedDates[$i] = substr_replace($uncheckedDates[$i] ,"", -1);
+                    }
+                }
 
                 $unchecked = array_values($unchecked);
 
@@ -274,6 +332,30 @@
 
         $conn->query("UPDATE tasks SET title='$new_title', notes='$final_notes', dates='$final_dates' WHERE title='$title'");
 
+        $result = $conn2->query("SELECT * FROM notifications WHERE username='$username'");
+
+        while($row = $result->fetch_assoc())
+        {
+            $numResults = 0;
+
+            $notification = $row['text'];
+
+            $unchecked = $_POST['new_notes_unchecked'];
+
+            for($i = 0; $i < count($unchecked); $i++)
+            {
+                if(strpos($notification, $unchecked[$i]) !== false)
+                {
+                    $numResults++;
+                }
+            }
+
+            if($numResults == 0)
+            {
+                $conn2->query("DELETE FROM notifications WHERE text='$notification' AND username='$username'");
+            }
+        }
+
         echo "<script>location.href='index.php'</script>";
     }
 
@@ -291,7 +373,9 @@
             $notes = str_replace("✗".$name, "✓".$name, $notes);
             $dates = str_replace("✗".$date, "✓".$date, $dates);
 
-            $conn->query("UPDATE tasks SET notes='$notes', dates='$dates' WHERE title='$title'");
+            $conn->query("UPDATE tasks SET notes='$notes', dates='$dates' WHERE title='$title' AND user='$username'");
+
+            $conn2->query("DELETE FROM notifications WHERE text LIKE '%$name%' AND username='$username'");
         }
         
         if($action == "uncheck")
@@ -299,7 +383,7 @@
             $notes = str_replace("✓".$name, "✗".$name, $notes);
             $dates = str_replace("✓".$date, "✗".$date, $dates);
 
-            $conn->query("UPDATE tasks SET notes='$notes', dates='$dates' WHERE title='$title'");
+            $conn->query("UPDATE tasks SET notes='$notes', dates='$dates' WHERE title='$title' AND user='$username'");
         }
 
         echo "<script>location.href='index.php'</script>";

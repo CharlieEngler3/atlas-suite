@@ -227,32 +227,66 @@
                     echo "<input type='hidden' name='title' value='".$row['title']."'>";
                     echo "<div class='task_title'>".$row['title']."</div>";
                     
+                    
+
                     if(count($unchecked) > 0)
                     {
+                        for($i = 1; $i < count($uncheckedDates); $i++)
+                        {
+                            if($uncheckedDates[$i] == $uncheckedDates[$i-1])
+                            {
+                                $uncheckedDates[$i-1] = $uncheckedDates[$i-1].($i-1);
+                            }
+                        }
+
                         $unchecked = array_combine($uncheckedDates, $unchecked);
                         ksort($unchecked);
                         sort($uncheckedDates);
+
+                        for($i = 0; $i < count($uncheckedDates); $i++)
+                        {
+                            if(strlen($uncheckedDates[$i]) > 10)
+                            {
+                                $uncheckedDates[$i] = substr_replace($uncheckedDates[$i] ,"", -1);
+                            }
+                        }
 
                         $unchecked = array_values($unchecked);
 
                         for($i = 0; $i < count($unchecked); $i++)
                         {
-                            echo "<div class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$row['dates']."\", \"".$unchecked[$i]."\", \"".$uncheckedDates[$i]."\", \"check\");'><input type='checkbox' class='task_notes' value='".$unchecked[$i]."'/>";
+                            echo "<div class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$row['dates']."\", \"".$unchecked[$i]."\", \"".$uncheckedDates[$i]."\", \"check\");'><input type='checkbox' class='task_notes' id='".$unchecked[$i]."' value='".$unchecked[$i]."'/>";
                             echo "<label for='".$unchecked[$i]."'>".$unchecked[$i]."</label><input type='date' class='task_date' readonly value='".$uncheckedDates[$i]."'></div>";
                         }
                     }
                     
                     if(count($checked) > 0)
                     {
+                        for($i = 1; $i < count($uncheckedDates); $i++)
+                        {
+                            if($uncheckedDates[$i] == $uncheckedDates[$i-1])
+                            {
+                                $uncheckedDates[$i-1] = $uncheckedDates[$i-1].($i-1);
+                            }
+                        }
+
                         $checked = array_combine($checkedDates, $checked);
                         ksort($checked);
                         sort($checkedDates);
+
+                        for($i = 0; $i < count($uncheckedDates); $i++)
+                        {
+                            if(strlen($uncheckedDates[$i]) > 10)
+                            {
+                                $uncheckedDates[$i] = substr_replace($uncheckedDates[$i] ,"", -1);
+                            }
+                        }
 
                         $checked = array_values($checked);
 
                         for($i = 0; $i < count($checked); $i++)
                         {
-                            echo "<div style='text-decoration: line-through;' class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$row['dates']."\", \"".$checked[$i]."\", \"".$checkedDates[$i]."\", \"uncheck\");'><input type='checkbox' class='task_notes' value='".$checked[$i]."' checked/>";
+                            echo "<div style='text-decoration: line-through;' class='task_notes' onclick='SubmitForm(\"".$row['title']."\", \"".$row['notes']."\", \"".$row['dates']."\", \"".$checked[$i]."\", \"".$checkedDates[$i]."\", \"uncheck\");'><input type='checkbox' class='task_notes' id='".$checked[$i]."' value='".$checked[$i]."' checked/>";
                             echo "<label for='".$checked[$i]."'>".$checked[$i]."</label><input type='date' class='task_date' readonly value='".$checkedDates[$i]."'></div>";
                         }
                     }

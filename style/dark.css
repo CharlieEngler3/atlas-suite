@@ -24,6 +24,8 @@
   --link-color:#63ceff;
 
   --placeholder-color:#878787;
+
+  --border-color:#717780;
 }
 
 /*
@@ -254,7 +256,7 @@ input[type=text]{
   width:100%;
   font-size:8vw;
   border:none;
-  border-bottom:0.5vw solid #717780;
+  border-bottom:0.5vw solid var(--border-color);
   padding-top:2.5vw;
   padding-bottom:2.5vw;
   background-color:var(--interactable-bg-color);
@@ -277,7 +279,7 @@ textarea{
   background-color:var(--interactable-bg-color);
   font-size:5vw;
   border:none;
-  border-bottom:0.5vw solid #717780;
+  border-bottom:0.5vw solid var(--border-color);
 }
 
 button{
@@ -484,7 +486,7 @@ img{
 }
 
 .task_date{
-  border:0.1vw solid #717780;
+  border:0.1vw solid var(--border-color);
   background-color:var(--interactable-bg-color);
   color:white;
   height:7vw;
@@ -513,8 +515,8 @@ img{
   border:none;
   color:white;
   background-color:var(--interactable-bg-color);
-  border-bottom:0.1vw solid #717780;
-  border-left:0.1vw solid #717780;
+  border-bottom:0.1vw solid var(--border-color);
+  border-left:0.1vw solid var(--border-color);
   font-family:Trebuchet;
 }
 
@@ -884,7 +886,7 @@ img{
     width:50%;
     font-size:2vw;
     border:none;
-    border-bottom:0.1vw solid #717780;
+    border-bottom:0.1vw solid var(--border-color);
     padding:0;
     padding-top:0.5vw;
     padding-bottom:0.5vw;
@@ -915,7 +917,7 @@ img{
     background-color:var(--interactable-bg-color);
     font-size:2vw;
     border:none;
-    border-bottom:0.1vw solid #717780;
+    border-bottom:0.1vw solid var(--border-color);
     color:var(--main-text-color);
   }
 
@@ -1169,7 +1171,7 @@ img{
   }
 
   .task_date{
-    border:0.1vw solid #717780;
+    border:0.1vw solid var(--border-color);
     background-color:var(--interactable-bg-color);
     color:white;
     height:3vw;
@@ -1203,8 +1205,8 @@ img{
     border:none;
     color:white;
     background-color:var(--interactable-bg-color);
-    border-bottom:0.1vw solid #717780;
-    border-left:0.1vw solid #717780;
+    border-bottom:0.1vw solid var(--border-color);
+    border-left:0.1vw solid var(--border-color);
     font-family:Trebuchet;
   }
 
@@ -1267,6 +1269,35 @@ img{
     margin-bottom:5vw;
     font-size:3vw;
     cursor:pointer;
+    background-color:var(--interactable-bg-color);
+  }
+
+  .prelude{
+    width:48%;
+    margin-left:25%;
+    padding:1%;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+  }
+
+  .prelude_dropdown{
+    text-align:center;
+    width:20%;
+    height:2vw;
+    background-color:var(--interactable-bg-color);
+    border:0.1vw solid var(--border-color);
+    color:white;
+    font-family:Trebuchet;
+    font-size:1vw;
+    margin-left:40%;
+  }
+
+  .custom_prelude[type=text]{
+    border:none;
+    border-right:0.1vw solid var(--border-color);
+  }
+
+  .submit_prelude[type=submit]{
+    background-color:var(--interactable-positive-bg-color);
   }
 
   /* Calculator */

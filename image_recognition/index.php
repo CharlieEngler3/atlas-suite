@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<script src="//unpkg.com/brain.js"></script>
 		<script src="recognize.js"></script>
 	</head>
 
