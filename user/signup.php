@@ -51,7 +51,7 @@
     if($password == $repeat_password)
     {
       
-	include("../../password.php");
+	    include("../../password.php");
 
       $servername = "localhost";
       $server_user = "root";
@@ -85,8 +85,6 @@
       else
       {
         $result = $conn->query("INSERT INTO user_info (email, username, password) VALUES ('$email','$username','$password')");
-
-        $result = $conn->query("SELECT email FROM user_info");
 
         $_SESSION['username'] = $username;
 

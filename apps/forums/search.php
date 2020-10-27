@@ -68,7 +68,7 @@
       }
     }
     
-    $conn2->query("UPDATE user_info SET previous_searches='$previousSearches'");
+    $conn2->query("UPDATE user_info SET previous_searches='$previousSearches' WHERE user='$username'");
     
     $result = $conn->query("SELECT * FROM posts WHERE title LIKE '%$searchTerm%' LIMIT 20");
 
