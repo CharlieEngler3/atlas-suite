@@ -81,7 +81,7 @@
       {
         $_SESSION['username'] = $username;
 
-        $conn->query("INSERT INTO user_info (email, username, password) VALUES ('$email','$username','$password')");
+        $conn->query("INSERT INTO user_info (username, email, password) VALUES ('$username','$email','$password')");
 
         echo "<form action='../../notifications.php' method='POST' id='notification_form'>";
         echo "<input type='hidden' name='original_url' value='index.php'>";
