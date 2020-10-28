@@ -28,17 +28,12 @@
       $server_user = "root";
       
       $conn = new mysqli($servername, $server_user, $serverpassword, "users");
-        
-      if ($conn->connect_error) 
-      {
-          die("Connection failed: " . $conn->connect_error);
-      }
       
       if(isset($_SESSION['username']))
       {
         $username = $_SESSION['username'];
     
-        $result = $conn->query("SELECT * FROM user_info WHERE 1");
+        $result = $conn->query("SELECT * FROM user_info WHERE username='$username'");
 
         $row = $result->fetch_assoc();
 
