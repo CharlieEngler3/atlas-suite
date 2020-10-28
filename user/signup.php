@@ -84,7 +84,7 @@
       }
       else
       {
-        $result = $conn->query("INSERT INTO user_info (email, username, password) VALUES ('$email','$username','$password')");
+        $conn->query("INSERT INTO user_info (email, username, password) VALUES ('$email','$username','$password')");
 
         $_SESSION['username'] = $username;
 
