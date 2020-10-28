@@ -49,10 +49,5 @@
 
     $conn->query("INSERT INTO tasks (title, notes, user, dates) VALUES ('$title', '$notes', '$username', '$date')");
 
-    print_r($title);
-    print_r($notes);
-    print_r($username);
-    print_r($date);
-
-    //echo "<script>location.href='index.php';</script>";
+    echo "<script>location.href='index.php';</script>";
 ?>
