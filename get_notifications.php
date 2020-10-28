@@ -26,7 +26,7 @@
 	{
 		$username = $_SESSION['username'];
 
-		//$result = $conn->query("SELECT * FROM tasks WHERE user='$username'");
+		$result = $conn->query("SELECT * FROM tasks WHERE user='$username'");
 
 		while($row = $result->fetch_assoc())
 		{
@@ -112,7 +112,7 @@
 				{
 					$text = "Task set for today: ~".$unchecked[$i].";";
 
-					//$conn2->query("INSERT INTO notifications (username, text, seen) VALUES ('$username', '$text', 0)");
+					$conn2->query("INSERT INTO notifications (username, text, seen) VALUES ('$username', '$text', false)");
 				}
 			}
 		}
@@ -122,7 +122,7 @@
 	{
 		$username = $_SESSION['username'];
 
-		$result = $conn2->query("SELECT * FROM notifications WHERE username='$username' AND seen=0");
+		$result = $conn2->query("SELECT * FROM notifications WHERE username='$username' AND seen=false");
 
 		$num_notifications = $result->num_rows;
 	}
