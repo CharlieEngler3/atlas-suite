@@ -98,7 +98,7 @@
 				{
 					$text = "Task set for today: ~".$unchecked[$i].";";
 
-					$conn2->query("INSERT INTO notifications (username, text, seen) VALUES ('$username', '$text', 0)");
+					//$conn2->query("INSERT INTO notifications (username, text, seen) VALUES ('$username', '$text', 0)");
 				}
 			}
 		}
