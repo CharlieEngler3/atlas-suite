@@ -1,9 +1,4 @@
 <?php
-    if(session_status() !== PHP_SESSION_ACTIVE)
-    {
-        session_start();
-    }
-
 	include("../password.php");
 
     $servername = "localhost";
@@ -103,7 +98,7 @@
 				{
 					$text = "Task set for today: ~".$unchecked[$i].";";
 
-					$conn2->query("INSERT INTO notifications (username, text, seen) VALUES ('$username', '$text', false)");
+					$conn2->query("INSERT INTO notifications (username, text, seen) VALUES ('$username', '$text', 0)");
 				}
 			}
 		}
@@ -113,7 +108,7 @@
 	{
 		$username = $_SESSION['username'];
 
-		$result = $conn2->query("SELECT * FROM notifications WHERE username='$username' AND seen='false'");
+		$result = $conn2->query("SELECT * FROM notifications WHERE username='$username' AND seen=0");
 
 		$num_notifications = $result->num_rows;
 	}
