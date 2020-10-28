@@ -26,7 +26,7 @@
 	{
 		$username = $_SESSION['username'];
 
-		$result = $conn->query("SELECT * FROM tasks WHERE user='$username'");
+		//$result = $conn->query("SELECT * FROM tasks WHERE user='$username'");
 
 		while($row = $result->fetch_assoc())
 		{
