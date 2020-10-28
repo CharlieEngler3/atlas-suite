@@ -58,11 +58,6 @@
       
       $conn = new mysqli($servername, $server_user, $serverpassword, "users");
       $conn2 = new mysqli($servername, $server_user, $serverpassword, "notifications");
-
-      if ($conn->connect_error) 
-      {
-          die("Connection failed: " . $conn->connect_error);
-      }
       
       $password = md5($password);
       
@@ -84,9 +79,9 @@
       }
       else
       {
-        $conn->query("INSERT INTO user_info (email, username, password) VALUES ('$email','$username','$password')");
-
         $_SESSION['username'] = $username;
+
+        $conn->query("INSERT INTO user_info (email, username, password) VALUES ('$email','$username','$password')");
 
         echo "<form action='../../notifications.php' method='POST' id='notification_form'>";
         echo "<input type='hidden' name='original_url' value='index.php'>";
@@ -95,7 +90,7 @@
         echo "<input type='hidden' name='new_notification' value='true'>";
         echo "</form>";
 
-        echo "<script>document.forms['notification_form'].submit();</script>";
+        //echo "<script>document.forms['notification_form'].submit();</script>";
       }
 
       $conn->close();
