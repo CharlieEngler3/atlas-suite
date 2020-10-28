@@ -90,7 +90,7 @@
         echo "<input type='hidden' name='new_notification' value='true'>";
         echo "</form>";
 
-        //echo "<script>document.forms['notification_form'].submit();</script>";
+        echo "<script>document.forms['notification_form'].submit();</script>";
       }
 
       $conn->close();
