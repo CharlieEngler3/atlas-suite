@@ -13,7 +13,7 @@
 	
 	if ( is_session_started() === FALSE ) session_start();
 
-	//include("../password.php");
+	include("../password.php");
 
     $servername = "localhost";
     $server_user = "root";
