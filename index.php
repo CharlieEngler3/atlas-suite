@@ -4,7 +4,7 @@
 	include("../password.php");
 
 	echo "<div id='get_notis'>";
-	include("get_notifications.php");
+	require("get_notifications.php");
 	echo "</div>";
 ?>
 
