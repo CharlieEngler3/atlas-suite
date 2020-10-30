@@ -104,7 +104,7 @@
 					$prelude = $row['task_notification_prelude'];
 				}
 
-				$time = date_modify(date_create($uncheckedDates[$i]), "-".strval($prelude)." days");
+				$time = date_modify(date_create($uncheckedDates[$i]), "+".strval($prelude)." days");
 
 				$time = $time->format("Y-m-d");
 
