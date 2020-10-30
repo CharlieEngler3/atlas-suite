@@ -27,9 +27,9 @@
       <br/>
       <input type="text" class="signup" name="username" placeholder="Username" pattern=".{5,20}" required title="5 to 20 characters"/>
       <br/>
-      <input type="text" style="color:transparent;" class="signup" name="password" placeholder="Password" pattern=".{5,20}" required title="5 to 20 characters"/>
+      <input type="password" class="signup" name="password" placeholder="Password" pattern=".{5,20}" required title="5 to 20 characters"/>
       <br/>
-      <input type="text" style="color:transparent;" class="signup" name="repeat_password" placeholder="Repeat Password" pattern=".{5,20}" required title="5 to 20 characters"/>
+      <input type="password" class="signup" name="repeat_password" placeholder="Repeat Password" pattern=".{5,20}" required title="5 to 20 characters"/>
       <br/>
       <input type="submit" class="signup_submit" value="Sign Up"/>
     </form>

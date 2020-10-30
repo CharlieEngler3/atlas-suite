@@ -263,6 +263,17 @@ input[type=text]{
   color:var(--main-text-color);
 }
 
+input[type=password]{
+  width:100%;
+  font-size:8vw;
+  border:none;
+  border-bottom:0.5vw solid var(--border-color);
+  padding-top:2.5vw;
+  padding-bottom:2.5vw;
+  background-color:var(--interactable-bg-color);
+  color:var(--main-text-color);
+}
+
 input[type=submit]{
   width:100%;
   font-size:8vw;
@@ -883,6 +894,18 @@ img{
   }
 
   input[type=text]{
+    width:50%;
+    font-size:2vw;
+    border:none;
+    border-bottom:0.1vw solid var(--border-color);
+    padding:0;
+    padding-top:0.5vw;
+    padding-bottom:0.5vw;
+    background-color:var(--interactable-bg-color);
+    color:var(--main-text-color);
+  }
+
+  input[type=password]{
     width:50%;
     font-size:2vw;
     border:none;
