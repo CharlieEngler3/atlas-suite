@@ -23,9 +23,6 @@
     <?php
       
       include("../../password.php");
-
-      $servername = "localhost";
-      $server_user = "root";
       
       $conn = new mysqli($servername, $server_user, $serverpassword, "users");
       

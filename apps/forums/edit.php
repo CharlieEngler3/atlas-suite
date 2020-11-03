@@ -3,9 +3,6 @@
 
 	include("../../../password.php");
 
-  $servername = "localhost";
-  $server_user = "root";
-
 	$conn = new mysqli($servername, $server_user, $serverpassword, "forums");
 	
   $result = $conn->query("SELECT * FROM posts WHERE title = '$title'");

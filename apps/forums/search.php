@@ -27,9 +27,6 @@
 	$searchTerm = $_POST['search_term'];
 
 	include("../../../password.php");
-
-	$servername = "localhost";
-	$server_user = "root";
   
 	$conn = new mysqli($servername, $server_user, $serverpassword, "forums");
   $conn2 = new mysqli($servername, $server_user, $serverpassword, "users");

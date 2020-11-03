@@ -80,9 +80,6 @@
 
     include("../../../password.php");
 
-    $servername = "localhost";
-    $server_user = "root";
-
     $conn = new mysqli($servername, $server_user, $serverpassword, "task_manager");
     $conn2 = new mysqli($servername, $server_user, $serverpassword, "notifications");
     

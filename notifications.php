@@ -3,9 +3,6 @@
 
 	include("../password.php");
 
-    $servername = "localhost";
-    $server_user = "root";
-
 	$conn = new mysqli($servername, $server_user, $serverpassword, "notifications");
     
     function get_string_between($string, $start, $end)

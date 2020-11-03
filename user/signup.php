@@ -52,9 +52,6 @@
     {
       
 	    include("../../password.php");
-
-      $servername = "localhost";
-      $server_user = "root";
       
       $conn = new mysqli($servername, $server_user, $serverpassword, "users");
       $conn2 = new mysqli($servername, $server_user, $serverpassword, "notifications");
