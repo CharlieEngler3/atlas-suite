@@ -124,10 +124,10 @@
             <form class="create_task" action="create.php" method="POST">
                 <input type="button" onclick="CreateTask();" class="task_add" value="Add Task">
                 <br/>
-                <input type="text" class="task_title_form" placeholder="Title" name="title">
+                <input type="text" class="task_title_form" placeholder="Title" pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,100}$" name="title">
                 <div id="tasks">
                     <input type="hidden" name="notes[]" value="✗">
-                    <input type="text" class="task_notes_form" placeholder="Task" name="notes[]">
+                    <input type="text" class="task_notes_form" placeholder="Task" pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,300}$" name="notes[]">
                     <input type="date" class="task_notes_date" name="date[]">
                     <br>
                 </div>

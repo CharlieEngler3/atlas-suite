@@ -220,7 +220,7 @@
             <br/>
     <?php
 
-            echo "<input type='text' class='task_title_form' name='new_title' value='".$title."'>";
+            echo "<input type='text' class='task_title_form' name='new_title' pattern='([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,100}$' value='".$title."'>";
             echo "<br/>";
             echo "<div id='tasks'>";
 
@@ -250,7 +250,7 @@
 
                 for($i = 0; $i < count($unchecked); $i++)
                 {
-                    echo "<input type='text' class='edit_task_notes_form' value='".$unchecked[$i]."' name='new_notes_unchecked[]'><input type='date' class='task_notes_date' name='new_dates_unchecked[]' value='".$uncheckedDates[$i]."'>";
+                    echo "<input type='text' class='edit_task_notes_form' value='".$unchecked[$i]."' pattern='([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,300}$' name='new_notes_unchecked[]'><input type='date' class='task_notes_date' name='new_dates_unchecked[]' value='".$uncheckedDates[$i]."'>";
                     echo "<input type='button' class='task_notes_delete' value='x' onclick='RemoveTask(".($i*4).")'>";
                     echo "<br>";
                 }
@@ -266,7 +266,7 @@
 
                 for($i = 0; $i < count($checked); $i++)
                 {
-                    echo "<input type='text' style='text-decoration: line-through;' class='edit_task_notes_form' value='".$checked[$i]."' name='new_notes_checked[]'><input type='date' class='task_notes_date' name='new_dates_checked[]' value='".$checkedDates[$i]."'>";
+                    echo "<input type='text' style='text-decoration: line-through;' class='edit_task_notes_form' pattern='([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,300}$' value='".$checked[$i]."' name='new_notes_checked[]'><input type='date' class='task_notes_date' name='new_dates_checked[]' value='".$checkedDates[$i]."'>";
                     echo "<input type='button' class='task_notes_delete' value='x' onclick='RemoveTask(".($i*4).")'>";
                     echo "<br>";
                 }

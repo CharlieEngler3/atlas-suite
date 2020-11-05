@@ -52,7 +52,7 @@
       
       <div class="search_menu">
             <form method='post' action='search.php' style='text-align:center;' autocomplete='off'>
-              <input type='text' name='search_term' placeholder='Search Term' maxlength="30"/>
+              <input type='text' name='search_term' placeholder='Search Term' pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,100}$" maxlength="30"/>
                 <br/>
                 <input type='submit' value='Search'/>
             </form>

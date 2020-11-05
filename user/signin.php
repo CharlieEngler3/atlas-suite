@@ -33,7 +33,7 @@
     <h1>Sign In</h1>
     
     <form action="#" method="POST" class="signup_form" autocomplete=off>
-      <input type="text" name="username" placeholder="Username or Email"/>
+      <input type="text" name="username" pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,15}$" placeholder="Username or Email"/>
       <br/>
       <input type="password" name="password" placeholder="Password"/>
       <br/>
