@@ -105,7 +105,7 @@
 		{
 	  ?>
 			<form action="comment.php" method="POST" autocomplete=off>
-				<input type="text" name="comment" class='comment_field' pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{1,200}$" placeholder="Add a comment"/>
+				<input type="text" name="comment" class='comment_field' maxlength="300" placeholder="Add a comment"/>
 				<input type="hidden" name="title" value="<?php echo $title; ?>"/>
 				<input type="submit" class='submit_comment' value="Submit"/>
 			</form>

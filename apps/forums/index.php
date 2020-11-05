@@ -52,7 +52,7 @@
       
       <div class="search_menu">
             <form method='post' action='search.php' style='text-align:center;' autocomplete='off'>
-              <input type='text' name='search_term' placeholder='Search Term' pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,100}$" maxlength="30"/>
+              <input type='text' name='search_term' placeholder='Search Term' pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,300}$"/>
                 <br/>
                 <input type='submit' value='Search'/>
             </form>
@@ -63,7 +63,7 @@
 				{
 			?>
             <form method='post' action='new.php' style='text-align:center;' autocomplete='off'>
-                <input type='text' name='title' placeholder='Title' maxlength="30"/>
+                <input type='text' name='title' placeholder='Title' pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,300}$"/>
                 <br/>
                 <textarea name='body' placeholder='Write the body text of your post here.' maxlength="3000"></textarea>
                 <br/>

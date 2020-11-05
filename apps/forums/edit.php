@@ -35,7 +35,7 @@
     
     <form action="#" method="POST">
       <input type="text" name="newTitle" pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{1,100}$" value="<?php echo $title; ?>"/>
-      <textarea id="newBody" name="body" pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{1,300}$"><?php echo $bodyText; ?></textarea>
+      <textarea id="newBody" name="body" maxlength="3000"><?php echo $bodyText; ?></textarea>
       <input type='text' name='images' style='font-size:2vw;' value='<?php echo $image_links ?>' placeholder='Put image links here divided by spaces'/>
       <input type="hidden" name="title" value="<?php echo $title; ?>"/>
       <input type="submit" value="Update Post"/>

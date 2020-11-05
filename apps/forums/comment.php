@@ -102,7 +102,7 @@
 
 		?>
 			<form action="#" class='comments' method="POST" autocomplete=off>
-				<input type="text" name="comment" class='comment_field' value="<?php echo $comment; ?>"/>
+				<input type="text" name="comment" class='comment_field' maxlength="300" value="<?php echo $comment; ?>"/>
 				<input type="hidden" name="edited_comment" value="<?php echo $comment; ?>"/>
 				<input type="hidden" name="title" value="<?php echo $title; ?>"/>
 				<input type="submit" class='submit_comment' value="Submit"/>
