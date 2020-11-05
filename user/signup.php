@@ -25,7 +25,7 @@
     <form action="#" method="POST" class="signup_form" autocomplete=off>
       <input type="text" class="signup" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required title="Must be a valid email"/>
       <br/>
-      <input type="text" class="signup" name="username" placeholder="Username" pattern="([^\W+]([a-zA-Z0-9$_#@!\^,.\?|~;: ])+).{3,15}$" required title="5 to 20 characters, must be letters, numbers, and/or these characters: $ _ # @ ! \ ^ , . \ ? | ~ ; :"/>
+      <input type="text" class="signup" name="username" placeholder="Username" pattern="[a-zA-Z][a-zA-Z0-9$_#@!\^,.\?|~;:]{5,20}" required title="5 to 20 characters, must be letters, numbers, and/or these characters: $ _ # @ ! \ ^ , . \ ? | ~ ; :"/>
       <br/>
       <input type="password" class="signup" name="password" placeholder="Password" pattern="^(?=.*[^a-zA-Z]).{8,40}$" required title="8 to 40 characters, must contain a number"/>
       <br/>
