@@ -382,6 +382,25 @@ button{
   padding-bottom:2vw;
 }
 
+.edit_post_text[type=text]{
+  width:95%;
+  color:white;
+}
+
+.edit_post_body{
+  width:95%;
+  color:white;
+}
+
+.edit_post_submit[type=submit]{
+  width:95%;
+  border:none;
+  padding:0.5vw;
+  background-color:var(--interactable-positive-bg-color);
+  color:var(--main-text-color);
+  cursor:pointer;
+}
+
 .comments{
   width:90%;
   margin-left:5%;
@@ -1034,6 +1053,24 @@ img{
     color:white;
     padding-top:1vw;
     padding-bottom:1vw;
+  }
+
+  .edit_post_text[type=text]{
+    width:95%;
+  }
+
+  .edit_post_body{
+    width:95%;
+  }
+
+  .edit_post_submit[type=submit]{
+    width:95%;
+    font-size:2vw;
+    border:none;
+    padding:0.5vw;
+    background-color:var(--interactable-positive-bg-color);
+    color:var(--main-text-color);
+    cursor:pointer;
   }
 
   .comments{

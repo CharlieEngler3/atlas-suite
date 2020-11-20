@@ -34,7 +34,5 @@
 
 	$conn->close();
 
-	echo "<form id='editSubmit' method='POST' action='show_post.php'>";
-	echo "<input type='hidden' name='title' value='".$title."'/>";
-	echo "</form><script>SubmitForm();</script>";
+	echo "<script>location.href = 'browse.php';</script>";
 ?>
