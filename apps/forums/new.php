@@ -16,7 +16,7 @@
 
 	$title = $_POST['title'];
 	$body = $_POST['body'];
-  	$images = $_POST['images'];
+  	$images = implode("⎖", $_POST['images']);
 	$user = $_SESSION['username'];
   
 	include("../../../password.php");
@@ -27,8 +27,6 @@
 	{
 		die("Connection failed: " . $conn->connect_error);
 	}
-
-  	$images = str_replace(" ", "⎖", $images);
 
 	$result = $conn->query("INSERT INTO posts(title, body, image_links, user) VALUES ('$title', '$body', '$images', '$user')");
 

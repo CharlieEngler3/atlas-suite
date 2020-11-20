@@ -22,7 +22,7 @@
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 
 		<div class='user_bar'>
-			<a href="show_post.php?title=<?php echo $title; ?>">Back</a>
+			<a href="show_post.php?title=<?php echo $title; ?>&post_id=<?php echo $post_id;?>">Back</a>
 		</div>
 
 		<script type="text/javascript">
