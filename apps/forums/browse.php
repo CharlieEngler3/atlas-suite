@@ -64,11 +64,26 @@
 			{
 				$result = $conn2->query("SELECT * FROM browsing_history WHERE username='$username'");
 
-				$row = $result->fetch_assoc();
+				if($result->num_rows > 0)
+				{
+					$row = $result->fetch_assoc();
 
-				$preferenceArray = $row['search_term'];
+					if(!is_string($row['search_term']))
+					{
+						$preferenceArray = array_values($row['search_term']);
+					}
+					else
+					{
+						$preferenceArray = array();
+						array_push($preferenceArray, $row['search_term']);
+					}
 
-				$randomSearch = false;
+					$randomSearch = false;
+				}
+				else
+				{
+					$randomSearch = true;
+				}
 			}
 			else
 			{
@@ -88,28 +103,31 @@
 			<div class='browse_results'>
 			<?php
 
-			if(sizeof($preferenceArray) > 0)
-			{  
-				for($i = 0; $i < sizeof($preferenceArray); $i++)
-				{
-					$currentPreference = $preferenceArray[$i];
-
-					$result = $conn->query("SELECT * FROM posts WHERE title LIKE '%$currentPreference%' LIMIT 10");
-
-					if($result->num_rows > 0)
+			if(!$randomSearch)
+			{
+				if(sizeof($preferenceArray) > 0)
+				{  
+					for($i = 0; $i < sizeof($preferenceArray); $i++)
 					{
-						while($searchReturns = $result->fetch_assoc())
+						$currentPreference = $preferenceArray[$i];
+
+						$result = $conn->query("SELECT * FROM posts WHERE title LIKE '%$currentPreference%' LIMIT 10");
+
+						if($result->num_rows > 0)
 						{
-							$searchTerm = $searchReturns['title'];
+							while($searchReturns = $result->fetch_assoc())
+							{
+								$searchTerm = $searchReturns['title'];
 
-							$id = $searchReturns['id'];
-							
-							echo "<form method='POST' action='show_post.php'><input type='hidden' name='post_id' value='".$id."'><input type='submit' name='title' value='".$searchTerm."'/></form><br/>";
+								$id = $searchReturns['id'];
+								
+								echo "<form method='POST' action='show_post.php'><input type='hidden' name='post_id' value='".$id."'><input type='submit' name='title' value='".$searchTerm."'/></form><br/>";
+							}
 						}
-					}
-					else
-					{
-						$randomSearch = true;
+						else
+						{
+							$randomSearch = true;
+						}
 					}
 				}
 			}
