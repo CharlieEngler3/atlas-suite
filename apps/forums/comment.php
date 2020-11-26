@@ -56,7 +56,7 @@
 
 			$conn->query("UPDATE comments SET comment='$comment' WHERE comment='$edited_comment' AND username='$username'");
 
-			echo "<script>location.href = 'show_post.php?title=".$title."';</script>";
+			echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
 		}
 		else
 		{
@@ -76,7 +76,7 @@
 				}
 			}
 
-			echo "<script>location.href = 'show_post.php?title=".$title."';</script>";
+			echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
 		}
 	}
 
@@ -98,7 +98,14 @@
 		$conn->query("INSERT INTO comments(post, post_id, comment, replying_to, username) VALUES ('$title', '$post_id', '$comment', '$reply_to', '$username')");
 		$conn->query("UPDATE comments SET replies='$replies' WHERE id='$reply_to' AND post='$title' AND post_id='$post_id' AND username='$postUsername'");
 
-		$notification_text = $username." replied to your comment, \"".$comment."\"";
+		$result2 = $conn->query("SELECT * FROM comments WHERE id='$reply_to'");
+
+		while($row2 = $result2->fetch_assoc())
+		{
+			$replyingToComment = $row2['comment'];
+		}
+
+		$notification_text = $username." replied to your comment, \"".$replyingToComment."\"";
 
 		$result = $conn->query("SELECT * FROM comments WHERE post='$title' AND post_id='$post_id' AND id='$reply_to'");
 		
@@ -112,7 +119,7 @@
 			}
 		}
 
-		echo "<script>location.href = 'show_post.php?title=".$title."';</script>";
+		echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
 	}
 
 	if(isset($_GET['reply']))
@@ -224,16 +231,30 @@
 
 		while($row = $result->fetch_assoc())
 		{
-			$id = $row['id'];
+			if($row['replying_to'] > 0)
+			{
+				$replying_to = $row['replying_to'];
 
-			$conn->query("DELETE FROM comments WHERE replying_to='$id'");
+				$result2 = $conn->query("SELECT * FROM comments WHERE id='$replying_to'");
+
+				while($row2 = $result2->fetch_assoc())
+				{
+					$newReplies = $row2['replies'] - 1;
+				}
+
+				$conn->query("UPDATE comments SET replies='$newReplies' WHERE id='$replying_to'");
+			}
+			else
+			{
+				$id = $row['id'];
+
+				$conn->query("DELETE FROM comments WHERE replying_to='$id'");
+			}
 		}
 
 		$conn->query("DELETE FROM comments WHERE post='$title' AND post_id='$post_id' AND comment='$comment' AND username='$username'");
 
-		print_r($post_id);
-
-		echo "<script>location.href = 'show_post.php?title=".$title."';</script>";
+		echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
 	}
 ?>
 </html>

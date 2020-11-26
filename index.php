@@ -10,7 +10,31 @@
 
 <html>
 	<head>
-		<title>Atlas Suite</title>
+		<div id="title_notis">
+			<?php
+				if(isset($num_notifications))
+				{
+					if($num_notifications == 0)
+					{
+						?>
+							<title>Atlas Suite</title>
+						<?php
+					}
+					else
+					{
+						?>
+							<title>Atlas Suite - <?php echo $num_notifications ?> New Notification <?php if($num_notifications != 1){ echo "s"; } ?></title>
+						<?php
+					}
+				}
+				else
+				{
+					?>
+						<title>Atlas Suite</title>
+					<?php
+				}
+			?>
+		</div>
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/> 
 		<link rel="stylesheet" type="text/css" href="style/dark.css"/>
@@ -27,6 +51,7 @@
 				setTimeout(startRefresh, 1000);
 				$("#get_notis").load(location.href + " #get_notis");
 				$("#show_notis").load(location.href + " #show_notis");
+				$("#title_notis").load(location.href + " #title_notis");
 			}
 		</script>
 	</head>
