@@ -88,7 +88,7 @@
 
 				while($row = $checkNotis->fetch_assoc())
 				{
-					if(strpos($row['text'], $unchecked[$i]) !== false)
+					if(strpos($row['link'], $unchecked[$i]) !== false)
 					{
 						$new = false;
 					}
@@ -101,15 +101,19 @@
 					$prelude = $row['task_notification_prelude'];
 				}
 
+				date_default_timezone_set("America/New_York");
+
 				$time = date_modify(date_create($uncheckedDates[$i]), "-".strval($prelude)." days");
 
 				$time = $time->format("Y-m-d");
 
 				if(date("Y-m-d") == $time && $new)
 				{
-					$text = "Task set for today: ~".$unchecked[$i].";";
+					$text = "Task set for today: ::linkopen::".$unchecked[$i]."::linkclose::";
 
-					$conn2->query("INSERT INTO notifications (username, text, seen) VALUES ('$username', '$text', false)");
+					$link = "apps/task_manager/index.php#".$unchecked[$i];
+
+					$conn2->query("INSERT INTO notifications(username, text, link, seen) VALUES ('$username', '$text', '$link', false)");
 				}
 			}
 		}

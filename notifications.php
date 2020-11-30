@@ -5,16 +5,6 @@
 
 	$conn = new mysqli($servername, $server_user, $serverpassword, "notifications");
     
-    function get_string_between($string, $start, $end)
-    {
-        $string = ' ' . $string;
-        $ini = strpos($string, $start);
-        if ($ini == 0) return '';
-        $ini += strlen($start);
-        $len = strpos($string, $end, $ini) - $ini;
-        return substr($string, $ini, $len);
-    }    
-
     if(isset($_POST['new_notification']))
     {
         $username = $_POST['username'];
@@ -75,12 +65,13 @@
 
                 while($row = $result->fetch_assoc())
                 {
+                    $link = $row['link'];
+
                     $text = $row['text'];
 
-                    $tempText = get_string_between($text, "~", ";");
+                    $text = str_replace("::linkopen::", "<a href='".$link."'>", $text);
 
-                    $text = str_replace("~", "<a href='apps/task_manager/index.php#".$tempText."'>", $text);
-                    $text = str_replace(";", "</a>", $text);
+                    $text = str_replace("::linkclose::", "</a>", $text);
 
                     echo "<form action='#' class='notification' method='POST'>";
                     echo "<div class='notification_text'>".$text."</div>";
