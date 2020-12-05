@@ -1,8 +1,9 @@
 <html>
-	<head>
-		
-	</head>
+    <head>
+        <title>Notes</title>
+    </head>
 
-	<body>
-	</body>
+    <body>
+
+    </body>
 </html>

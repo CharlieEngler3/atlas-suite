@@ -28,7 +28,7 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$result = $conn->query("INSERT INTO posts(title, body, image_links, user) VALUES ('$title', '$body', '$images', '$user')");
+	$result = $conn->query("INSERT INTO posts(title, body, image_links, user, visibility) VALUES ('$title', '$body', '$images', '$user', 'public')");
 
 	$conn->close();
 

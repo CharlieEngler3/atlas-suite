@@ -38,7 +38,7 @@
 
 	if(isset($_POST['search_term']))
 	{
-		$result = $conn->query("SELECT * FROM posts WHERE title LIKE '%$searchTerm%' LIMIT 20");
+		$result = $conn->query("SELECT * FROM posts WHERE title LIKE '%$searchTerm%' AND visibility='public' LIMIT 20");
 
 		$numResults = $result->num_rows;
 	}
