@@ -187,74 +187,95 @@
 
 	if(isset($_GET['edit_comment']))
 	{
-		$title = $_GET['title'];
-		$comment = $_GET['edit_comment'];
-		$post_id = $_GET['post_id'];
+		if($_GET['username'] == $username)
+		{
+			$title = $_GET['title'];
+			$comment = $_GET['edit_comment'];
+			$post_id = $_GET['post_id'];
 
-		?>
-			<form action="#" class='comments' method="POST" autocomplete=off>
-				<input type="text" name="comment" class='comment_field' maxlength="300" value="<?php echo $comment; ?>"/>
-				<input type="hidden" name="edited_comment" value="<?php echo $comment; ?>"/>
-				<input type="hidden" name="title" value="<?php echo $title; ?>"/>
-				<input type="hidden" name="post_id" value="<?php echo $post_id; ?>"/>
-				<input type="submit" class='submit_comment' value="Submit"/>
-			</form>
+			?>
+				<form action="#" class='comments' method="POST" autocomplete=off>
+					<input type="text" name="comment" class='comment_field' maxlength="300" value="<?php echo $comment; ?>"/>
+					<input type="hidden" name="edited_comment" value="<?php echo $comment; ?>"/>
+					<input type="hidden" name="title" value="<?php echo $title; ?>"/>
+					<input type="hidden" name="post_id" value="<?php echo $post_id; ?>"/>
+					<input type="submit" class='submit_comment' value="Submit"/>
+				</form>
 
-		<?php
+			<?php
+		}
+		else
+		{
+			echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
+		}
 	}
 
 	if(isset($_GET['delete_comment']))
 	{
-		$title = $_GET['title'];
-		$comment = $_GET['delete_comment'];
-		$post_id = $_GET['post_id'];
+		if($_GET['username'] == $username)
+		{
+			$title = $_GET['title'];
+			$comment = $_GET['delete_comment'];
+			$post_id = $_GET['post_id'];
 
-		?>
-			<h3>Would you like to delete this comment and all of its replies?
-		<?php
+			?>
+				<h3>Would you like to delete this comment and all of its replies?
+			<?php
 
-		echo "</br>";
-		echo "</br>";
-		echo "<a href='comment.php?title=".$title."&post_id=".$post_id."&deleting_comment=".$comment."'>Yes</a>";
-		echo "<pre style='display:inline-block';>&#9;</pre>";
-		echo "<a href='show_post.php?title=".$title."'>No</a>";
-		echo "</h3>";
+			echo "</br>";
+			echo "</br>";
+			echo "<a href='comment.php?title=".$title."&post_id=".$post_id."&deleting_comment=".$comment."&username=".$_GET['username']."'>Yes</a>";
+			echo "<pre style='display:inline-block';>&#9;</pre>";
+			echo "<a href='show_post.php?title=".$title."&post_id=".$post_id."'>No</a>";
+			echo "</h3>";
+		}
+		else
+		{
+			echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
+		}
 	}
 
 	if(isset($_GET['deleting_comment']))
 	{
-		$title = $_GET['title'];
-		$comment = $_GET['deleting_comment'];
-		$post_id = $_GET['post_id'];
-
-		$result = $conn->query("SELECT * FROM comments WHERE post='$title' AND post_id='$post_id' AND comment='$comment' AND username='$username'");
-
-		while($row = $result->fetch_assoc())
+		if($_GET['username'] == $username)
 		{
-			if($row['replying_to'] > 0)
+			$title = $_GET['title'];
+			$comment = $_GET['deleting_comment'];
+			$post_id = $_GET['post_id'];
+
+			$result = $conn->query("SELECT * FROM comments WHERE post='$title' AND post_id='$post_id' AND comment='$comment' AND username='$username'");
+
+			while($row = $result->fetch_assoc())
 			{
-				$replying_to = $row['replying_to'];
-
-				$result2 = $conn->query("SELECT * FROM comments WHERE id='$replying_to'");
-
-				while($row2 = $result2->fetch_assoc())
+				if($row['replying_to'] > 0)
 				{
-					$newReplies = $row2['replies'] - 1;
+					$replying_to = $row['replying_to'];
+
+					$result2 = $conn->query("SELECT * FROM comments WHERE id='$replying_to'");
+
+					while($row2 = $result2->fetch_assoc())
+					{
+						$newReplies = $row2['replies'] - 1;
+					}
+
+					$conn->query("UPDATE comments SET replies='$newReplies' WHERE id='$replying_to'");
 				}
+				else
+				{
+					$id = $row['id'];
 
-				$conn->query("UPDATE comments SET replies='$newReplies' WHERE id='$replying_to'");
+					$conn->query("DELETE FROM comments WHERE replying_to='$id'");
+				}
 			}
-			else
-			{
-				$id = $row['id'];
 
-				$conn->query("DELETE FROM comments WHERE replying_to='$id'");
-			}
+			$conn->query("DELETE FROM comments WHERE post='$title' AND post_id='$post_id' AND comment='$comment' AND username='$username'");
+
+			echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
 		}
-
-		$conn->query("DELETE FROM comments WHERE post='$title' AND post_id='$post_id' AND comment='$comment' AND username='$username'");
-
-		echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
+		else
+		{
+			echo "<script>location.href = 'show_post.php?title=".$title."&post_id=".$post_id."';</script>";
+		}
 	}
 ?>
 </html>
