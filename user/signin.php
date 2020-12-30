@@ -85,7 +85,7 @@
       {
 		    $_SESSION['username'] = $username;
 
-        echo "<div class='sign_in_prompt' onclick='location.href=\"../index.php\"'>Signed in <h5>(Click to dismiss)</h5></div>";
+        echo "<script>location.href='../index.php'</script>";
       }
       else
       {
@@ -100,7 +100,7 @@
       {
         $_SESSION['username'] = $row["username"];
         
-        echo "<div class='sign_in_prompt' onclick='location.href=\"../index.php\"'>Signed in <h5>(Click to dismiss)</h5></div>";
+        echo "<script>location.href='../index.php'</script>";
       }
       else
       {
