@@ -1,10 +1,10 @@
 <?php 
-  session_start(); 
+  	session_start(); 
 
 	include("../../../password.php");
   
-  $conn = new mysqli($servername, $server_user, $serverpassword, "forums");
-  $conn2 = new mysqli($servername, $server_user, $serverpassword, "notifications");
+	$conn = new mysqli($servername, $server_user, $serverpassword, "forums");
+	$conn2 = new mysqli($servername, $server_user, $serverpassword, "notifications");
 ?>
 
 <html>
