@@ -1476,4 +1476,55 @@ img{
     padding-top:1vw;
     padding-bottom:1vw;
   }
+  
+  /* Connect */
+  .connect_user_list{
+    text-align:center;
+    margin-top:5vw;
+    font-size:2vw;
+  }
+  
+  .connect_user{
+    padding:2vw;
+    border:2px solid white;
+    border-radius:0.5vw;
+    margin:1vw;
+  }
+  
+  .connect_messages{
+    margin-bottom:4vw;
+  }
+  
+  .connect_message_author{
+    color:white;
+    display:inline-block;
+    font-size:2vw;
+    text-decoration:underline;
+    padding-top:1vw;
+  }
+  
+  .connect_message{
+    color:white;
+    display:inline-block;
+    font-size:2vw;
+    padding-top:1vw;
+  }
+  
+  .message_bar{
+    position:fixed;
+    bottom:0;
+    width:100%;
+  }
+  
+  .connect_submit[type=submit]{
+    width:15%;
+    border-left:2px solid white;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+  }
+  
+  .connect_message[type=text]{
+    width:85%;
+    border:none;
+    box-shadow:0px 0px 1vw rgba(0, 0, 0, 0.25);
+  }
 }

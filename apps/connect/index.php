@@ -25,40 +25,45 @@
                 if(!isset($_GET['ConnectedUser']))
                 {
         ?>
-                    <h1>Connect With A User:</h1>
+                    <h1>Message A User:</h1>
         <?php
 
                     $result = $conn->query("SELECT * FROM user_info WHERE visibility='public' AND username!='$username'");
 
+                    echo "<div class='connect_user_list'>";
+                  
                     while($row = $result->fetch_assoc())
                     {
-                        echo "<a href='index.php?ConnectedUser=".$row['username']."'>".$row['username']."</a>";
-                        echo "<br>";
+                        echo "<a class='connect_user' href='index.php?ConnectedUser=".$row['username']."'>".$row['username']."</a>";
                     }
+                  
+                    echo "</div>";
                 }
                 else
                 {
         ?>
                     <a href="index.php">Disconnect</a>
 
-                    <div>
-                        <?php
-                            $connectedUser = $_GET['ConnectedUser'];
+                    <?php
+                        $connectedUser = $_GET['ConnectedUser'];
 
-                            $result = $conn2->query("SELECT * FROM chat WHERE username='$username' OR receiving='$username'");
+                        $result = $conn2->query("SELECT * FROM chat WHERE (username='$username' AND receiving='$connectedUser') OR (username='$connectedUser' AND receiving='$username')");
 
-                            while($row = $result->fetch_assoc())
-                            {
-                                echo "<p>".$row['message']." - ".$row['username']."</p>";
-                            }
-                            
-                            echo "<form action='send.php' method='post'>";
-                            echo "<input type='hidden' name='connectedUser' value='".$connectedUser."'/>";
-                            echo "<input type='text' name='message' placeholder='Message ".$connectedUser."'/>";
-                            echo "<input type='submit' value='Send'/>";
-                            echo "</form>";
-                        ?>
-                    </div>
+                        echo "<div class='connect_messages'>";
+
+                        while($row = $result->fetch_assoc())
+                        {
+                            echo "<p class='connect_message_author'>".$row['username'].":</p><p class='connect_message'>".$row['message']."</p><br/>";
+                        }
+
+                        echo "</div>";
+
+                        echo "<form action='send.php' method='post' class='message_bar'>";
+                        echo "<input type='hidden' name='connectedUser' value='".$connectedUser."'/>";
+                        echo "<input type='text' class='connect_message' name='message' autocomplete='off' placeholder='Message ".$connectedUser."'/>";
+                        echo "<input type='submit' class='connect_submit' value='Send'/>";
+                        echo "</form>";
+                    ?>
         <?php        
                 }
             }

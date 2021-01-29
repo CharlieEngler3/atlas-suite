@@ -15,6 +15,10 @@
         $username = $_SESSION['username'];
         $message = $_POST['message'];
         $time = time();
+      
+        $message = str_replace("'", "’", $message);
+      
+        $message = htmlspecialchars($message);
 
         $conn->query("INSERT INTO chat(username, message, receiving, time) VALUES ('$username', '$message', '$receiving', '$time')");
 
