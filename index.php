@@ -10,8 +10,6 @@
 
 <html>
 	<head>
-		<script data-ad-client="ca-pub-2851003032696614" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
 		<div id="title_notis">
 			<?php
 				if(isset($num_notifications))
