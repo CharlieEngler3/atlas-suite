@@ -53,7 +53,57 @@
 
                         while($row = $result->fetch_assoc())
                         {
-                            echo "<p class='connect_message_author'>".$row['username'].":</p><p class='connect_message'>".$row['message']."</p><br/>";
+                            $finalMessage = $row['message'];
+                          
+                            if(strpos($row['message'], "http://") !== false)
+                            {
+                                $linkPos = strpos($row['message'], "http://");
+                                $endLinkPos = strlen($row['message']);
+                              
+                                if(strpos($row['message'], " ", $linkPos) !== false)
+                                {
+                                    $endLinkPos = strpos($row['message'], " ", $linkPos);
+                                }
+                              
+                                $link = substr($row['message'], $linkPos, $endLinkPos-$linkPos);
+                                  
+                                $finalMessage = substr_replace($row['message'], "<a href='".$link."'>".$link, $linkPos);
+                                
+                                if($endLinkPos == strlen($row['message']))
+                                {
+                                    $finalMessage = $finalMessage."</a>";
+                                }
+                                else
+                                {
+                                    $finalMessage = substr_replace($finalMessage, "</a>", $endLinkPos);
+                                }
+                            }
+                          
+                            if(strpos($row['message'], "https://") !== false)
+                            {
+                                $linkPos = strpos($row['message'], "https://");
+                                $endLinkPos = strlen($row['message']);
+                              
+                                if(strpos($row['message'], " ", $linkPos) !== false)
+                                {
+                                    $endLinkPos = strpos($row['message'], " ", $linkPos);
+                                }
+                              
+                                $link = substr($row['message'], $linkPos, $endLinkPos-$linkPos);
+                                  
+                                $finalMessage = substr_replace($row['message'], "<a href='".$link."'>".$link, $linkPos);
+                                
+                                if($endLinkPos == strlen($row['message']))
+                                {
+                                    $finalMessage = $finalMessage."</a>";
+                                }
+                                else
+                                {
+                                    $finalMessage = substr_replace($finalMessage, "</a>", $endLinkPos);
+                                }
+                            }
+                            
+                            echo "<p class='connect_message_author'>".$row['username'].":</p><p class='connect_message'>".$finalMessage."</p><br/>";
                         }
 
                         echo "</div>";
