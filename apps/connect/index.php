@@ -14,6 +14,12 @@
         <link rel="stylesheet" type="text/css" href="../../style/dark.css"/>
 
       	<meta name='viewport' content='width=device-width, initial-scale=1'>
+      
+        <script>
+            function scroll(){
+                window.scrollTo(0,document.body.scrollHeight);
+            }
+        </script>
     </head>
 
     <body>
@@ -42,14 +48,14 @@
                 else
                 {
         ?>
-                    <a href="index.php">Disconnect</a>
+                    <a class='disconnect_link' href="index.php">Disconnect</a>
 
                     <?php
                         $connectedUser = $_GET['ConnectedUser'];
 
                         $result = $conn2->query("SELECT * FROM chat WHERE (username='$username' AND receiving='$connectedUser') OR (username='$connectedUser' AND receiving='$username')");
 
-                        echo "<div class='connect_messages'>";
+                        echo "<div id='messages' class='connect_messages'>";
 
                         while($row = $result->fetch_assoc())
                         {
@@ -113,6 +119,8 @@
                         echo "<input type='text' class='connect_message' name='message' autocomplete='off' placeholder='Message ".$connectedUser."'/>";
                         echo "<input type='submit' class='connect_submit' value='Send'/>";
                         echo "</form>";
+                  
+                        echo "<script>scroll();</script>";
                     ?>
         <?php        
                 }

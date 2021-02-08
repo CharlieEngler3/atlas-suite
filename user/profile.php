@@ -65,6 +65,16 @@
 	<body>
 		<h1>Profile</h1>
 		<div class='profile_name'><?php echo $_SESSION['username']; ?></div>
+    <form class='set_status' action='#' method='POST' onchange="this.form.submit();">
+        <label for='status'>Set your status: </label>
+        <br/>
+        <select id='status' name='status'>
+            <option value='online'>Online</option>
+            <option value='away'>Away</option>
+            <option value='invisible'>Invisible</option>
+            <option value='offline'>Offline</option>
+        </select>
+    </form>
 
 		<button onclick='location.href="history.php"' class="history">Search History</button>
 		
@@ -82,6 +92,8 @@
 				</select>
 			</form>
 		</div>
+    
+    
 	</body>
 </html>
 
