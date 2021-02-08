@@ -65,14 +65,23 @@
 	<body>
 		<h1>Profile</h1>
 		<div class='profile_name'><?php echo $_SESSION['username']; ?></div>
-    <form class='set_status' action='#' method='POST' onchange="this.form.submit();">
+    <form class='set_status' action='#' method='POST'>
         <label for='status'>Set your status: </label>
         <br/>
-        <select id='status' name='status'>
+        <select id='status' name='status' onchange="this.form.submit();">
             <option value='online'>Online</option>
             <option value='away'>Away</option>
             <option value='invisible'>Invisible</option>
             <option value='offline'>Offline</option>
+        </select>
+    </form>
+    
+    <form class='set_status' action='#' method='POST'>
+        <label for='visibility'>Set your visibility: </label>
+        <br/>
+        <select id='visibility' name='visibility' onchange="this.form.submit();">
+            <option value='public'>Public</option>
+            <option value='private'>Private</option>
         </select>
     </form>
 
@@ -102,28 +111,53 @@
 
 	include("../../password.php");
     
-    $conn = new mysqli($servername, $server_user, $serverpassword, "users");
+  $conn = new mysqli($servername, $server_user, $serverpassword, "users");
 
 	if(isset($_POST['prelude']))
 	{
-		$prelude = intval(implode("", $_POST['prelude']));
+      $prelude = intval(implode("", $_POST['prelude']));
 
-		$conn->query("UPDATE user_info SET task_notification_prelude = '$prelude' WHERE username = '$username'");
+      $conn->query("UPDATE user_info SET task_notification_prelude = '$prelude' WHERE username = '$username'");
 	}
 
 	$result = $conn->query("SELECT * FROM user_info WHERE username = '$username'");
 
 	while($row = $result->fetch_assoc())
 	{
-		$prelude = $row['task_notification_prelude'];
+      $prelude = $row['task_notification_prelude'];
 
-		if($prelude <= 5)
-		{
-			echo "<script>document.getElementById('prelude').value = ".$prelude.";</script>";
-		}
-		else
-		{
-			echo "<script>document.getElementById('prelude').value = '';addCustomPrelude(document.getElementById('prelude').parentElement, ".$prelude.")</script>";
-		}
+      if($prelude <= 5)
+      {
+        echo "<script>document.getElementById('prelude').value = ".$prelude.";</script>";
+      }
+      else
+      {
+        echo "<script>document.getElementById('prelude').value = '';addCustomPrelude(document.getElementById('prelude').parentElement, ".$prelude.")</script>";
+      }
 	}
+
+  if(isset($_POST['status']))
+  {
+      $status = $_POST['status'];
+    
+      $conn->query("UPDATE user_info SET status='$status' WHERE username='$username'");
+  }
+
+  if(isset($_POST['visibility']))
+  {
+      $visibility = $_POST['visibility'];
+    
+      $conn->query("UPDATE user_info SET visibility='$visibility' WHERE username='$username'");
+  }
+
+  $result = $conn->query("SELECT * FROM user_info WHERE username='$username'");
+
+  while($row = $result->fetch_assoc())
+  {
+      $status = $row['status'];
+      $visibility = $row['visibility'];
+  }
+
+  echo "<script>document.getElementById('status').value = '".$status."';</script>";
+  echo "<script>document.getElementById('visibility').value = '".$visibility."';</script>";
 ?>
