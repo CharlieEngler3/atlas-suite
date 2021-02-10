@@ -1494,6 +1494,7 @@ img{
     text-align:center;
     margin-top:5vw;
     font-size:2vw;
+    padding-bottom:3vw;
   }
   
   .connect_user{
@@ -1547,5 +1548,11 @@ img{
     padding-bottom:0.5vw;
     padding-right:0.5vw;
     font-size:1.5vw;
+  }
+  
+  .user_search{
+    width:100%;
+    margin-left:25%;
+    margin-top:1vw;
   }
 }

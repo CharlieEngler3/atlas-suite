@@ -78,11 +78,13 @@
 			
 		<div class="icon-list">
 			<button class="icon" onclick="location.href='apps/calculator/'"><h4>Calculator</h4></button>
+      <button class="icon" onclick="location.href='apps/connect/'"><h4>Connect</h4></button>
 			<button class="icon" onclick="location.href='apps/forums/'"><h4>Forums</h4></button>
+      
 			<button class="icon" onclick="location.href='apps/gpa_calculator/'"><h4>GPA<br/>Calculator</h4></button>
-
 			<button class="icon" onclick="location.href='apps/pomodoro_timer/'"><h4>Pomodoro<br/>Timer</h4></button>
 			<button class="icon" onclick="location.href='apps/task_manager/'"><h4>Task<br/>Manager</h4></button>
+      
 			<button class="icon" onclick="location.href='notifications.php'"><h4 id="show_notis">
 					<?php 
 						if(isset($num_notifications))

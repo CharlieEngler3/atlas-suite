@@ -22,6 +22,6 @@
 
         $conn->query("INSERT INTO chat(username, message, receiving, time) VALUES ('$username', '$message', '$receiving', '$time')");
 
-        echo "<script>location.href='index.php?ConnectedUser=".$receiving."';</script>";
+        echo "<script>location.href='connect.php?ConnectedUser=".$receiving."';</script>";
     }
 ?>
