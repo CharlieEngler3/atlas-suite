@@ -121,7 +121,10 @@
 
 								$id = $searchReturns['id'];
 								
-								echo "<form method='POST' action='show_post.php'><input type='hidden' name='post_id' value='".$id."'><input type='submit' name='title' value='".$searchTerm."'/></form><br/>";
+                if($searchReturns['visibility'] == "public")
+                {
+                    echo "<form method='POST' action='show_post.php'><input type='hidden' name='post_id' value='".$id."'><input type='submit' name='title' value='".$searchTerm."'/></form><br/>";
+                }
 							}
 						}
 						else
@@ -141,8 +144,11 @@
 					$searchTerm = $searchReturns['title'];
 
 					$id = $searchReturns['id'];
-
-					echo "<form method='POST' action='show_post.php'><input type='hidden' name='post_id' value='".$id."'><input type='hidden' value='".$searchTerm."' name='title'/><input type='submit' value='".$searchTerm."'/></form><br/>";
+          
+          if($searchReturns['visibility'] == "public")
+          {
+              echo "<form method='POST' action='show_post.php'><input type='hidden' name='post_id' value='".$id."'><input type='hidden' value='".$searchTerm."' name='title'/><input type='submit' value='".$searchTerm."'/></form><br/>";
+          }
 				}
 			}
 			?>
