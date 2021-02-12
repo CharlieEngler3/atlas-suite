@@ -23,9 +23,25 @@
       	<meta name='viewport' content='width=device-width, initial-scale=1'>
       
         <script>
+            let scrolling = false;
+			
+            window.onwheel = function(event){
+                if(window.scrollY+window.innerHeight - document.body.scrollHeight > 0)
+                {
+					scrolling = false;
+                }
+				else
+				{
+					scrolling = true;
+				}
+            };
+          
             setInterval(function(){
                 $("#messages").load(location.href + " #messages");
-                window.scrollTo(0,document.body.scrollHeight);
+                if(!scrolling)
+                {
+                    window.scrollTo(0,document.body.scrollHeight);
+                }
             },100);
         </script>
       
