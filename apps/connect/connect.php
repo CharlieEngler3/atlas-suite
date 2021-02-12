@@ -23,10 +23,13 @@
       	<meta name='viewport' content='width=device-width, initial-scale=1'>
       
         <script>
-            function scroll(){
+            setInterval(function(){
+                $("#messages").load(location.href + " #messages");
                 window.scrollTo(0,document.body.scrollHeight);
-            }
+            },100);
         </script>
+      
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     </head>
   
     <body>
@@ -106,8 +109,6 @@
                 echo "<input type='text' class='connect_message' name='message' autocomplete='off' placeholder='Message ".$connectedUser."'/>";
                 echo "<input type='submit' class='connect_submit' value='Send'/>";
                 echo "</form>";
-
-                echo "<script>scroll();</script>";
             }
         ?>
     </body>
