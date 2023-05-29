@@ -150,30 +150,33 @@
 			<?php
 				$result = $conn->query("SELECT * FROM comments WHERE post='$title' AND post_id='$id'");
 
-				while($row = $result->fetch_assoc())
+				if($result)
 				{
-					if($row['replying_to'] == 0)
+					while($row = $result->fetch_assoc())
 					{
-						echo "<div class='comment'>".$row['comment']."<div class='comment_user'>By: ".$row['username']." ";
-						if(isset($_SESSION['username']))
+						if($row['replying_to'] == 0)
 						{
-							if($row['username'] == $_SESSION['username'])
+							echo "<div class='comment'>".$row['comment']."<div class='comment_user'>By: ".$row['username']." ";
+							if(isset($_SESSION['username']))
 							{
-								echo "<a href='comment.php?title=".$title."&post_id=".$id."&edit_comment=".$row['comment']."&username=".$row['username']."'>Edit</a>";
+								if($row['username'] == $_SESSION['username'])
+								{
+									echo "<a href='comment.php?title=".$title."&post_id=".$id."&edit_comment=".$row['comment']."&username=".$row['username']."'>Edit</a>";
+									echo " ";
+									echo "<a href='comment.php?title=".$title."&post_id=".$id."&delete_comment=".$row['comment']."&username=".$row['username']."'>Delete</a>";
+								}
+
 								echo " ";
-								echo "<a href='comment.php?title=".$title."&post_id=".$id."&delete_comment=".$row['comment']."&username=".$row['username']."'>Delete</a>";
+								echo "<a href='comment.php?title=".$title."&post_id=".$id."&comment=".$row['comment']."&reply=true'>Reply</a>";
 							}
 
-							echo " ";
-							echo "<a href='comment.php?title=".$title."&post_id=".$id."&comment=".$row['comment']."&reply=true'>Reply</a>";
-						}
+							if($row['replies'] > 0)
+							{
+								echo "<br/><a href='comment.php?title=".$title."&post_id=".$id."&comment=".$row['comment']."&username=".$row['username']."&replies=true'>Replies</a>";
+							}
 
-						if($row['replies'] > 0)
-						{
-							echo "<br/><a href='comment.php?title=".$title."&post_id=".$id."&comment=".$row['comment']."&username=".$row['username']."&replies=true'>Replies</a>";
+							echo "</div></div>";
 						}
-
-						echo "</div></div>";
 					}
 				}
 			?>

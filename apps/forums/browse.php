@@ -64,7 +64,7 @@
 			{
 				$result = $conn2->query("SELECT * FROM browsing_history WHERE username='$username'");
 
-				if($result->num_rows > 0)
+				if($result)
 				{
 					$row = $result->fetch_assoc();
 

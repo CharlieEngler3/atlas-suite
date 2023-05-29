@@ -40,7 +40,7 @@
 	{
 		$result = $conn->query("SELECT * FROM posts WHERE title LIKE '%$searchTerm%' AND visibility='public' LIMIT 20");
 
-		$numResults = $result->num_rows;
+		$numResults = $result ? $result->num_rows : 0;
 	}
 
 	if(isset($_SESSION['username']))

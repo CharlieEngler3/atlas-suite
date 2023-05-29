@@ -18,38 +18,38 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `task_manager`
+-- Database: `connect`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tasks`
+-- Table structure for table `chat`
 --
 
-CREATE TABLE `tasks` (
+CREATE TABLE `chat` (
   `id` int(11) NOT NULL,
-  `title` text NOT NULL,
-  `notes` text NOT NULL,
-  `user` text NOT NULL,
-  `dates` text NOT NULL
+  `username` text NOT NULL,
+  `receiving` text NOT NULL,
+  `message` text NOT NULL,
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tasks`
+-- Dumping data for table `chat`
 --
 
-INSERT INTO `tasks` (`id`, `title`, `notes`, `user`, `dates`) VALUES
-(24, 'Discrete Mathematics', '✗Start next week’s lectures✗Complete first quiz✓', 'charlieengler3', '✗2023-05-30✗2023-05-30✓');
+INSERT INTO `chat` (`id`, `username`, `receiving`, `message`, `time`) VALUES
+(1, 'charlieengler3', 'charlieengler3', 'This is a new message', '838:59:59');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tasks`
+-- Indexes for table `chat`
 --
-ALTER TABLE `tasks`
+ALTER TABLE `chat`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -57,10 +57,10 @@ ALTER TABLE `tasks`
 --
 
 --
--- AUTO_INCREMENT for table `tasks`
+-- AUTO_INCREMENT for table `chat`
 --
-ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
