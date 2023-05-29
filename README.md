@@ -4,7 +4,7 @@ This was a project that started as an entry into the Congressional App Challenge
 
 ## Getting Started
 
-This is a very simple PHP web application, so the setup will be extremely straightforward.
+This is a very simple PHP web application, so the setup will be rather straightforward.
 
 ### Prerequisites
 
@@ -40,7 +40,7 @@ This is a very simple PHP web application, so the setup will be extremely straig
       
   8.) In the "htdocs" folder, there will be a sub directory labeled "DEV_SQL_DATABASES". Open this and import each of the SQL files into their corresponding databases that you just created
   
-      To import the files, you can select each database on the left hand list and then simply drag the file onto the web page, or you can use the "Import" button on the top toolbar.
+  - Note: To import the files, you can select each database on the left hand list and then simply drag the file onto the web page, or you can use the "Import" button on the top toolbar.
       
   9.) Close the web page with the database configurations and type localhost in a new tab on your web browser
   
