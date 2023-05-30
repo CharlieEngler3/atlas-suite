@@ -42,7 +42,7 @@ This is a very simple PHP web application, so the setup will be rather straightf
   
   ![Step 6](https://imgur.com/aBtKKFF.png)
   
-  7.) On the left there will be a list of databases with a button that says "New" at the top of the list. Create the following databaases by clicking the "New" button
+  7.) On the left there will be a list of databases with a button that says "New" at the top of the list. Create the following databases:
   
       connect
       forums
@@ -52,7 +52,7 @@ This is a very simple PHP web application, so the setup will be rather straightf
       
   ![Step 7](https://imgur.com/gvlDO7a.png)
       
-  8.) In the "htdocs" folder, there will be a sub directory labeled "DEV_SQL_DATABASES". Open this and import each of the SQL files into their corresponding databases that you just created
+  8.) In the "htdocs" folder, there will be a sub directory labeled "DEV_SQL_DATABASES". Open this and import each of the SQL files into their corresponding databases
   
   - Note: To import the files, you can select each database on the left hand list and then simply drag the file onto the web page, or you can use the "Import" button on the top toolbar.
 
