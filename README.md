@@ -66,13 +66,13 @@ This is a very simple PHP web application, so the setup will be rather straightf
   
 ## Images
 
-  [Atlas Home](https://i.imgur.com/cUDY7yr.png)
-  [Atlas Profile](https://i.imgur.com/O10KNXw.png)
-  [Atlas Calculator](https://i.imgur.com/RsqSE0m.png)
-  [Atlas Connect](https://i.imgur.com/UxFcXTn.png)
-  [Atlas Forums](https://i.imgur.com/a4ndSBx.png)
-  [Atlas Pomodoro](https://i.imgur.com/gUQhkkh.png)
-  [Atlas Task Manager](https://i.imgur.com/L2pDpBL.png)
+  ![Atlas Home](https://i.imgur.com/cUDY7yr.png)
+  ![Atlas Profile](https://i.imgur.com/O10KNXw.png)
+  ![Atlas Calculator](https://i.imgur.com/RsqSE0m.png)
+  ![Atlas Connect](https://i.imgur.com/UxFcXTn.png)
+  ![Atlas Forums](https://i.imgur.com/a4ndSBx.png)
+  ![Atlas Pomodoro](https://i.imgur.com/gUQhkkh.png)
+  ![Atlas Task Manager](https://i.imgur.com/L2pDpBL.png)
 
 ## Authors
 
