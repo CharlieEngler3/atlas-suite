@@ -63,6 +63,16 @@ This is a very simple PHP web application, so the setup will be rather straightf
   ![Step 9](https://imgur.com/JCCSKOL.png)
   
   10.) The website should be up and running at this point
+  
+## Images
+
+  [Atlas Home](https://i.imgur.com/cUDY7yr.png)
+  [Atlas Profile](https://i.imgur.com/O10KNXw.png)
+  [Atlas Calculator](https://i.imgur.com/RsqSE0m.png)
+  [Atlas Connect](https://i.imgur.com/UxFcXTn.png)
+  [Atlas Forums](https://i.imgur.com/a4ndSBx.png)
+  [Atlas Pomodoro](https://i.imgur.com/gUQhkkh.png)
+  [Atlas Task Manager](https://i.imgur.com/L2pDpBL.png)
 
 ## Authors
 
@@ -70,7 +80,7 @@ This is a very simple PHP web application, so the setup will be rather straightf
     [CharlieEngler3](https://github.com/CharlieEngler3)
     
   - **Sean Cheng** - *Website Designer and Programmer* -
-    [sean7391]([https://github.com/CharlieEngler3](https://github.com/sean7391))
+    [sean7391][https://github.com/CharlieEngler3](https://github.com/sean7391)
 
 ## License
 
