@@ -80,7 +80,7 @@ This is a very simple PHP web application, so the setup will be rather straightf
     [CharlieEngler3](https://github.com/CharlieEngler3)
     
   - **Sean Cheng** - *Website Designer and Programmer* -
-    [sean7391][https://github.com/CharlieEngler3](https://github.com/sean7391)
+    [sean7391](https://github.com/sean7391)
 
 ## License
 
